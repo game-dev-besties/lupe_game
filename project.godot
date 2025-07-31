@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="lupe game"
 run/main_scene="uid://b7w465tfimyec"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
