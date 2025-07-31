@@ -3,8 +3,8 @@ extends Node2D
 # --- Scene & Path Properties ---
 @export var dish_scene = load("res://scenes/dish.tscn") as PackedScene
 @export var npc_scene = load("res://scenes/NPC.tscn") as PackedScene
-@export var ellipse_width: float = 450.0
-@export var ellipse_height: float = 225.0
+@export var ellipse_width: float = 400.0
+@export var ellipse_height: float = 205.0
 
 # --- Physics Properties ---
 @export var max_scale: float = 1.2
@@ -21,17 +21,14 @@ var is_rotating: bool = false
 
 # --- Data ---
 var dishes_data = [
-	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
-	{"texture": preload("res://assets/rings.webp"), "scale": 0.3, "item_name": "planet", "quantity": 3},
-	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
-	{"texture": preload("res://assets/rings.webp"), "scale": 0.3, "item_name": "planet", "quantity": 3},
-	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
+	{"texture": preload("res://assets/food/rice.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
+	{"texture": preload("res://assets/food/dumpling.png"), "scale": 0.3, "item_name": "dumpling", "quantity": 3},
+	{"texture": preload("res://assets/food/eggroll.png"), "scale": 0.25, "item_name": "eggroll", "quantity": 3},
 ]
 var npc_desires = [
 	{"name": "npc1", "desire": "rice", "timer": 5},
 	{"name": "npc2", "desire": "rice", "timer": 1.5},
-	{"name": "npc3", "desire": "rice", "timer": 5},
-	{"name": "npc4", "desire": "rice", "timer": 1.5},
+	{"name": "npc3", "desire": "eggroll", "timer": 5},
 	{"name": "npc4", "desire": "rice", "timer": 1.5},
 ]
 
