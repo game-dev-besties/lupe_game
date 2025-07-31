@@ -1,8 +1,8 @@
 extends Node2D
 
 # --- Scene & Path Properties ---
-@export var dish_scene: PackedScene
-@export var npc_scene: PackedScene
+@export var dish_scene = load("res://scenes/dish.tscn") as PackedScene
+@export var npc_scene = load("res://scenes/NPC.tscn") as PackedScene
 @export var ellipse_width: float = 450.0
 @export var ellipse_height: float = 225.0
 
