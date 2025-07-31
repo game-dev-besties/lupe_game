@@ -28,9 +28,9 @@ var dishes_data = [
 	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
 ]
 var npc_desires = [
-	{"name": "npc1", "desire": "planet", "timer": 1.5},
-	{"name": "npc2", "desire": "Magic Sword", "timer": 1.5},
-	{"name": "npc3", "desire": "nothing", "timer": 1.5},
+	{"name": "npc1", "desire": "rice", "timer": 5},
+	{"name": "npc2", "desire": "rice", "timer": 1.5},
+	{"name": "npc3", "desire": "rice", "timer": 5},
 	{"name": "npc4", "desire": "rice", "timer": 1.5},
 	{"name": "npc4", "desire": "rice", "timer": 1.5},
 ]
@@ -82,7 +82,6 @@ func spawn_npcs():
 # --- Event Functions ---
 func _on_susan_stopped():
 	print("Susan stopped! Checking dishes...")
-	
 	var dishes = []
 	var npcs = []
 	for node in get_children():
@@ -90,10 +89,9 @@ func _on_susan_stopped():
 			dishes.append(node)
 		elif node is NPC:
 			npcs.append(node)
-			
-	# For each NPC, find the dish in front of them
+	# for each npc calculate what to do with dish
 	for npc in npcs:
-		# calculate distance between dish and 
+		# distance between dish and npc
 		var closest_dish: Dish = null
 		var min_angle_diff = INF
 		for dish in dishes:
@@ -101,26 +99,22 @@ func _on_susan_stopped():
 			if diff < min_angle_diff:
 				min_angle_diff = diff
 				closest_dish = dish
+		# find desired dish nearby
 		if closest_dish:
 			var distance = npc.position.distance_to(closest_dish.position)
-			var is_correct = false
-			# Add a check to see if the dish has any quantity left
+			var can_eat = false
+			# Check all conditions: close enough, correct item, dish has quantity, and npc is not full
 			if distance < serving_distance_threshold and closest_dish.quantity > 0:
-				if closest_dish.item_name == npc.desired_item_name:
-					is_correct = true
-			npc.react(is_correct)
-			# If the dish was correct, start the consumption timer
-			if is_correct:
-				print(npc.name + " is starting to eat " + closest_dish.item_name)
-				closest_dish.start_consumption_effects(npc.consumption_timer)
+				if closest_dish.item_name == npc.desired_item_name and npc.satiation < npc.MAX_SATIATION:
+					can_eat = true
+			if can_eat:
+				closest_dish.start_consumption(npc.consumption_timer, npc)
 
 func _on_susan_started_moving():
-	# Reset all animations
+	# Reset all animations and timers
 	for node in get_children():
-		if node is NPC:
-			node.reset_emotion()
-		elif node is Dish:
-			node.stop_consumption_effects()
+		if node is Dish:
+			node.cancel_consumption()
 
 # --- Input and Physics functions ---
 func handle_input(delta):
