@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7w465tfimyec"]
+[gd_scene load_steps=6 format=3 uid="uid://b7w465tfimyec"]
 
 [ext_resource type="PackedScene" uid="uid://b6jq0f6yg0wuw" path="res://scenes/NPC.tscn" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dspqnr0vuhl4l" path="res://assets/table.png" id="3_lbhrr"]
 [ext_resource type="Script" path="res://scripts/spinningthing.gd" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://ddw71ek2dup7r" path="res://scenes/dish.tscn" id="4_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="5_iywne"]
 
 [node name="Game" type="Node2D"]
 
@@ -40,3 +41,9 @@ position = Vector2(388, 43)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(573, 378)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1001
+position = Vector2(576, 384)
+scale = Vector2(0.516487, 0.516487)
+texture = ExtResource("5_iywne")

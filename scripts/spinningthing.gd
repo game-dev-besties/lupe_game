@@ -21,14 +21,18 @@ var is_rotating: bool = false
 
 # --- Data ---
 var dishes_data = [
-	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice"},
-	{"texture": preload("res://assets/rings.webp"), "scale": 0.3, "item_name": "planet"},
+	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
+	{"texture": preload("res://assets/rings.webp"), "scale": 0.3, "item_name": "planet", "quantity": 3},
+	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
+	{"texture": preload("res://assets/rings.webp"), "scale": 0.3, "item_name": "planet", "quantity": 3},
+	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
 ]
 var npc_desires = [
-	{"name": "npc1", "desire": "planet"},
-	{"name": "npc2", "desire": "Magic Sword"},
-	{"name": "npc3", "desire": "nothing"},
-	{"name": "npc4", "desire": "rice"},
+	{"name": "npc1", "desire": "planet", "timer": 1.5},
+	{"name": "npc2", "desire": "Magic Sword", "timer": 1.5},
+	{"name": "npc3", "desire": "nothing", "timer": 1.5},
+	{"name": "npc4", "desire": "rice", "timer": 1.5},
+	{"name": "npc4", "desire": "rice", "timer": 1.5},
 ]
 
 func _ready():
@@ -69,13 +73,9 @@ func spawn_npcs():
 	# Loop through the NPCs, but don't spawn more than marker amount
 	for i in range(min(total_npcs, spawn_points.size())):
 		var npc_instance = npc_scene.instantiate()
-		var npc_data = npc_desires[i]
-		npc_instance.name = npc_data.name
-		npc_instance.desired_item_name = npc_data.desire
 		var spawn_marker = spawn_points[i]
-		# The placement angle is needed for the "in front" logic
+		npc_instance.init(npc_desires[i])
 		npc_instance.placement_angle = spawn_marker.position.angle()
-		# The position is taken directly from the marker
 		npc_instance.position = spawn_marker.position
 		add_child(npc_instance)
 
@@ -93,6 +93,7 @@ func _on_susan_stopped():
 			
 	# For each NPC, find the dish in front of them
 	for npc in npcs:
+		# calculate distance between dish and 
 		var closest_dish: Dish = null
 		var min_angle_diff = INF
 		for dish in dishes:
@@ -102,19 +103,24 @@ func _on_susan_stopped():
 				closest_dish = dish
 		if closest_dish:
 			var distance = npc.position.distance_to(closest_dish.position)
-			var is_correct = false 
-			#  must be close and must be the right item
-			if distance < serving_distance_threshold:
+			var is_correct = false
+			# Add a check to see if the dish has any quantity left
+			if distance < serving_distance_threshold and closest_dish.quantity > 0:
 				if closest_dish.item_name == npc.desired_item_name:
 					is_correct = true
-			
 			npc.react(is_correct)
+			# If the dish was correct, start the consumption timer
+			if is_correct:
+				print(npc.name + " is starting to eat " + closest_dish.item_name)
+				closest_dish.start_consumption_effects(npc.consumption_timer)
 
 func _on_susan_started_moving():
-	# Reset all NPC emotions when the table starts spinning again
+	# Reset all animations
 	for node in get_children():
 		if node is NPC:
 			node.reset_emotion()
+		elif node is Dish:
+			node.stop_consumption_effects()
 
 # --- Input and Physics functions ---
 func handle_input(delta):
