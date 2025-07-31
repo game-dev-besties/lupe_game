@@ -1,10 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddw71ek2dup7r"]
+[gd_scene load_steps=7 format=3 uid="uid://ddw71ek2dup7r"]
 
 [ext_resource type="Script" uid="uid://ca7baacjwxvs4" path="res://scripts/dish.gd" id="1_u12rr"]
 [ext_resource type="Texture2D" uid="uid://7qc655eylklq" path="res://assets/empty.png" id="2_qnjfs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u12rr"]
 radius = 63.0317
+
+[sub_resource type="Gradient" id="Gradient_qnjfs"]
+colors = PackedColorArray(0.687963, 0.57124, 0.491044, 1, 0.863045, 0.746547, 0.597376, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7sytn"]
+gradient = SubResource("Gradient_qnjfs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qnjfs"]
+lifetime_randomness = 0.36
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 78.7
+angle_min = -624.0
+angle_max = 504.0
+gravity = Vector3(0, -50, 0)
+tangential_accel_min = -36.66
+tangential_accel_max = 41.67
+damping_max = 12.501
+scale_min = 0.0
+scale_max = 17.67
+color_ramp = SubResource("GradientTexture1D_7sytn")
+hue_variation_min = -1.0
+hue_variation_max = -1.0
 
 [node name="Dish" type="Area2D"]
 script = ExtResource("1_u12rr")
@@ -14,3 +37,7 @@ empty_plate_texture = ExtResource("2_qnjfs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_u12rr")
+
+[node name="consumptionparticles" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_qnjfs")

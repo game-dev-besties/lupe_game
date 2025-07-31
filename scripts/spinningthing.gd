@@ -23,11 +23,15 @@ var is_rotating: bool = false
 var dishes_data = [
 	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
 	{"texture": preload("res://assets/rings.webp"), "scale": 0.3, "item_name": "planet", "quantity": 3},
+	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
+	{"texture": preload("res://assets/rings.webp"), "scale": 0.3, "item_name": "planet", "quantity": 3},
+	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
 ]
 var npc_desires = [
 	{"name": "npc1", "desire": "planet", "timer": 1.5},
 	{"name": "npc2", "desire": "Magic Sword", "timer": 1.5},
 	{"name": "npc3", "desire": "nothing", "timer": 1.5},
+	{"name": "npc4", "desire": "rice", "timer": 1.5},
 	{"name": "npc4", "desire": "rice", "timer": 1.5},
 ]
 
@@ -89,7 +93,7 @@ func _on_susan_stopped():
 			
 	# For each NPC, find the dish in front of them
 	for npc in npcs:
-		# calculate distance between dish and npc
+		# calculate distance between dish and 
 		var closest_dish: Dish = null
 		var min_angle_diff = INF
 		for dish in dishes:
@@ -108,14 +112,15 @@ func _on_susan_stopped():
 			# If the dish was correct, start the consumption timer
 			if is_correct:
 				print(npc.name + " is starting to eat " + closest_dish.item_name)
-				var tween = create_tween()
-				tween.tween_callback(closest_dish.consume).set_delay(npc.consumption_timer)
+				closest_dish.start_consumption_effects(npc.consumption_timer)
 
 func _on_susan_started_moving():
-	# Reset all NPC emotions when the table starts spinning again
+	# Reset all animations
 	for node in get_children():
 		if node is NPC:
 			node.reset_emotion()
+		elif node is Dish:
+			node.stop_consumption_effects()
 
 # --- Input and Physics functions ---
 func handle_input(delta):
