@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://b7w465tfimyec"]
+[gd_scene load_steps=3 format=3 uid="uid://b7w465tfimyec"]
+
+[ext_resource type="Texture2D" uid="uid://13i0ekp83pct" path="res://assets/rings.webp" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://dcn7106xxiolk" path="res://scenes/spinning_thing.gd" id="2_yqjtg"]
 
 [node name="Game" type="Node2D"]
+
+[node name="SPINNING THING" type="Sprite2D" parent="."]
+position = Vector2(584, 328)
+texture = ExtResource("1_uwrxv")
+script = ExtResource("2_yqjtg")
