@@ -1,8 +1,14 @@
 class_name Dish
 extends Area2D
 
+@export var empty_plate_texture: Texture2D
+
+# data variables
 var item_name: String
 var effect: String
+var quantity: int
+
+
 var ellipse_width: float = 400.0
 var ellipse_height: float = 200.0
 var angular_velocity: float = 0.0
@@ -12,6 +18,7 @@ func init(data: Dictionary):
 	var sprite: Sprite2D = get_node("Sprite2D")
 	self.item_name = data.get("item_name", "Unknown Item")
 	self.effect = data.get("effect", "none")
+	self.quantity = data.get("quantity", 1)
 	
 	sprite.texture = data.get("texture")
 	var scale_factor = data.get("scale", 1.0)
@@ -43,3 +50,17 @@ func _process(delta):
 		z_index = -1
 	else:
 		z_index = 1
+		
+func consume():
+	if quantity > 0:
+		quantity -= 1
+		print(item_name + " quantity is now: " + str(quantity))
+
+	if quantity <= 0:
+		_on_empty()
+		
+func _on_empty():
+	print(item_name + " is now empty!")
+	$Sprite2D.texture = empty_plate_texture
+	item_name = "Empty Plate"
+	$CollisionShape2D.disabled = true 
