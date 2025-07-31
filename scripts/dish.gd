@@ -10,6 +10,7 @@ var active_consume_timer: Tween
 var item_name: String
 var effect: String
 var quantity: int
+var satiation_value: int
 
 
 var ellipse_width: float = 400.0
@@ -22,6 +23,7 @@ func init(data: Dictionary):
 	self.item_name = data.get("item_name", "Unknown Item")
 	self.effect = data.get("effect", "none")
 	self.quantity = data.get("quantity", 1)
+	self.satiation_value = data.get("satiation_value", 5)
 	
 	sprite.texture = data.get("texture")
 	var scale_factor = data.get("scale", 1.0)
@@ -53,28 +55,6 @@ func _process(delta):
 		z_index = -1
 	else:
 		z_index = 1
-		
-func consume():
-	stop_consumption_effects()
-	if active_wobble_tween:
-		active_wobble_tween.kill()
-	rotation_degrees = 0 
-	if quantity > 0:
-		quantity -= 1
-		print(item_name + " quantity is now: " + str(quantity))
-	if quantity <= 0:
-		_on_empty()
-
-func stop_consumption_effects():
-	if active_wobble_tween:
-		active_wobble_tween.kill()
-		active_wobble_tween = null
-	if active_consume_timer:
-		active_consume_timer.kill()
-		active_consume_timer = null
-
-	consumption_particles.emitting = false
-	rotation_degrees = 0
 
 func _on_empty():
 	print(item_name + " is now empty!")
@@ -83,11 +63,39 @@ func _on_empty():
 	item_name = "Empty Plate"
 	$CollisionShape2D.disabled = true 
 	
-func start_consumption_effects(duration: float):
+func start_consumption(duration: float, consumer: NPC):
+	# Don't start if already being consumed
+	if active_consume_timer and active_consume_timer.is_valid():
+		return
 	consumption_particles.emitting = true
 	active_wobble_tween = create_tween().set_loops()
-	active_wobble_tween.tween_property(self, "rotation_degrees", 5, 0.1).set_trans(Tween.TRANS_SINE)
-	active_wobble_tween.tween_property(self, "rotation_degrees", -5, 0.1).set_trans(Tween.TRANS_SINE)
-	active_wobble_tween.tween_property(self, "rotation_degrees", 0, 0.1).set_trans(Tween.TRANS_SINE)
-	var consume_timer = create_tween()
-	consume_timer.tween_callback(self.consume).set_delay(duration)
+	active_wobble_tween.tween_property(self, "rotation_degrees", 5, 0.1)
+	active_wobble_tween.tween_property(self, "rotation_degrees", -5, 0.1)
+	active_wobble_tween.tween_property(self, "rotation_degrees", 0, 0.1)
+	active_consume_timer = create_tween()
+	active_consume_timer.tween_interval(duration)
+	active_consume_timer.tween_callback(self._on_consumption_finished.bind(consumer))
+
+func _on_consumption_finished(consumer: NPC):
+	consumer.eat(self.satiation_value)
+	self.consume()
+	
+func cancel_consumption():
+	if active_wobble_tween:
+		active_wobble_tween.kill()
+		active_wobble_tween = null
+	
+	if active_consume_timer:
+		active_consume_timer.kill()
+		active_consume_timer = null
+
+	consumption_particles.emitting = false
+	rotation_degrees = 0
+
+func consume():
+	if quantity > 0:
+		quantity -= 1
+	if quantity <= 0:
+		_on_empty()
+	print(self.item_name, " quantity: " , self.quantity)
+	self.cancel_consumption()
