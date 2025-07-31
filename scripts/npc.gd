@@ -7,8 +7,14 @@ extends Node2D
 
 var desired_item_name: String
 var placement_angle: float 
+var consumption_timer: float
 
 @onready var sprite: Sprite2D = $Sprite2D
+
+func init(data: Dictionary):
+	self.name = data.get("name", "NPC")
+	self.desired_item_name = data.get("desire", "")
+	self.consumption_timer = data.get("timer", 1.0)
 
 func _ready():
 	# Start with a neutral expression
