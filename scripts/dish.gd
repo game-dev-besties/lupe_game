@@ -77,7 +77,7 @@ func start_consumption(duration: float, consumer: NPC):
 	active_consume_timer.tween_callback(self._on_consumption_finished.bind(consumer))
 
 func _on_consumption_finished(consumer: NPC):
-	consumer.eat(self.satiation_value)
+	consumer.eat()
 	self.consume()
 	
 func cancel_consumption():

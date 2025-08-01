@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6jq0f6yg0wuw"]
+[gd_scene load_steps=12 format=3 uid="uid://b6jq0f6yg0wuw"]
 
 [ext_resource type="Script" uid="uid://c20iiwfaxynah" path="res://scripts/npc.gd" id="1_mhefn"]
 [ext_resource type="Texture2D" uid="uid://nb76g4oh3qlu" path="res://assets/npc/girl1.png" id="2_bdcwd"]
 [ext_resource type="Texture2D" uid="uid://ksk0j7ukgjct" path="res://assets/npc/girl3.png" id="3_5h8ky"]
+[ext_resource type="Texture2D" uid="uid://13i0ekp83pct" path="res://assets/rings.webp" id="4_jnjht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3sg1"]
 atlas = ExtResource("2_bdcwd")
@@ -91,3 +92,11 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_efvhu")
 animation = &"girl1_happy"
+
+[node name="ThoughtBubble" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(192, -133)
+scale = Vector2(0.520366, 0.342814)
+texture = ExtResource("4_jnjht")
+
+[node name="FoodImage" type="Sprite2D" parent="ThoughtBubble"]

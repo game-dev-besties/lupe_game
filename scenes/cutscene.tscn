@@ -239,7 +239,7 @@ scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pduvj")
+&"": SubResource("AnimationLibrary_pduvj")
 }
 
 [node name="Characters" type="Node2D" parent="."]
@@ -261,7 +261,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
 libraries = {
-"": SubResource("AnimationLibrary_ljsqd")
+&"": SubResource("AnimationLibrary_ljsqd")
 }
 
 [node name="Skip" type="Button" parent="."]

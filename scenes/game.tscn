@@ -88,11 +88,12 @@ _data = {
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lkgvj")
 
-[node name="spinningthing" type="Node2D" parent="."]
+[node name="spinningthing" type="Node2D" parent="." node_paths=PackedStringArray("game_scene")]
 position = Vector2(586, 448)
 script = ExtResource("3_p57ef")
 dish_scene = ExtResource("4_u5sy4")
 npc_scene = ExtResource("2_lnu2h")
+game_scene = NodePath("..")
 
 [node name="table sprite" type="Sprite2D" parent="spinningthing"]
 z_index = -1000
