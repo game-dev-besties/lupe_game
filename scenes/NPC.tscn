@@ -1,16 +1,92 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6jq0f6yg0wuw"]
+[gd_scene load_steps=11 format=3 uid="uid://b6jq0f6yg0wuw"]
 
-[ext_resource type="Script" uid="uid://c20iiwfaxynah" path="res://scripts/npc.gd" id="1_mhefn"]
-[ext_resource type="Texture2D" uid="uid://ckocik50o6pwf" path="res://assets/neutral.png" id="2_jnjht"]
-[ext_resource type="Texture2D" uid="uid://bf1dcg1iv5e2p" path="res://assets/happy.png" id="3_7pv12"]
-[ext_resource type="Texture2D" uid="uid://y4pwcqo20c1q" path="res://assets/sad.png" id="4_x6c3r"]
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_mhefn"]
+[ext_resource type="Texture2D" uid="uid://nb76g4oh3qlu" path="res://assets/npc/girl1.png" id="2_bdcwd"]
+[ext_resource type="Texture2D" uid="uid://ksk0j7ukgjct" path="res://assets/npc/girl3.png" id="3_5h8ky"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3sg1"]
+atlas = ExtResource("2_bdcwd")
+region = Rect2(523, 0, 523, 741)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pstnc"]
+atlas = ExtResource("2_bdcwd")
+region = Rect2(0, 0, 523, 741)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s88nh"]
+atlas = ExtResource("2_bdcwd")
+region = Rect2(1046, 0, 523, 741)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kijg"]
+atlas = ExtResource("3_5h8ky")
+region = Rect2(556, 0, 556, 1112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slxo7"]
+atlas = ExtResource("3_5h8ky")
+region = Rect2(0, 0, 556, 1112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3obg"]
+atlas = ExtResource("3_5h8ky")
+region = Rect2(1112, 0, 556, 1112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efvhu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3sg1")
+}],
+"loop": true,
+"name": &"girl1_happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pstnc")
+}],
+"loop": true,
+"name": &"girl1_neutral",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s88nh")
+}],
+"loop": true,
+"name": &"girl1_unhappy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kijg")
+}],
+"loop": true,
+"name": &"girl3_happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slxo7")
+}],
+"loop": true,
+"name": &"girl3_neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3obg")
+}],
+"loop": true,
+"name": &"girl3_unhappy",
+"speed": 5.0
+}]
 
 [node name="NPC" type="Node2D"]
-z_index = -2
+z_index = -1001
 z_as_relative = false
 script = ExtResource("1_mhefn")
-neutral_texture = ExtResource("2_jnjht")
-happy_texture = ExtResource("3_7pv12")
-unhappy_texture = ExtResource("4_x6c3r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_efvhu")
+animation = &"girl1_happy"

@@ -28,11 +28,11 @@ var dishes_data = [
 	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
 ]
 var npc_desires = [
-	{"name": "npc1", "desire": "rice", "timer": 5},
-	{"name": "npc2", "desire": "rice", "timer": 1.5},
-	{"name": "npc3", "desire": "rice", "timer": 5},
-	{"name": "npc4", "desire": "rice", "timer": 1.5},
-	{"name": "npc4", "desire": "rice", "timer": 1.5},
+	{"name": "girl1", "desire": "rice", "timer": 5},
+	{"name": "girl3", "desire": "rice", "timer": 1.5},
+	{"name": "girl1", "desire": "rice", "timer": 5},
+	{"name": "girl3", "desire": "rice", "timer": 1.5},
+	{"name": "girl3", "desire": "rice", "timer": 1.5},
 ]
 
 func _ready():
