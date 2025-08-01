@@ -109,13 +109,13 @@ position = Vector2(-10, -34)
 position = Vector2(-454, 38)
 
 [node name="Marker2D2" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
-position = Vector2(-259, -118)
+position = Vector2(-262, -80)
 
 [node name="Marker2D3" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
 position = Vector2(-15, -148)
 
 [node name="Marker2D4" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
-position = Vector2(229, -105)
+position = Vector2(229, -89)
 
 [node name="Marker2D5" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
 position = Vector2(388, 43)

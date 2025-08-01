@@ -95,8 +95,8 @@ animation = &"girl1_happy"
 
 [node name="ThoughtBubble" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(192, -133)
-scale = Vector2(0.520366, 0.342814)
+position = Vector2(6, -223)
+scale = Vector2(0.324897, 0.256362)
 texture = ExtResource("4_jnjht")
 
 [node name="FoodImage" type="Sprite2D" parent="ThoughtBubble"]
