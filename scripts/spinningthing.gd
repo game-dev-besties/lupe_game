@@ -4,7 +4,7 @@ extends Node2D
 @export var dish_scene = load("res://scenes/dish.tscn") as PackedScene
 @export var npc_scene = load("res://scenes/NPC.tscn") as PackedScene
 @export var ellipse_width: float = 400.0
-@export var ellipse_height: float = 205.0
+@export var ellipse_height: float = 200.0
 
 # --- Physics Properties ---
 @export var max_scale: float = 1.2
