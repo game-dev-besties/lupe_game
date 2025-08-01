@@ -4,7 +4,7 @@ extends Node2D
 @export var dish_scene = load("res://scenes/dish.tscn") as PackedScene
 @export var npc_scene = load("res://scenes/NPC.tscn") as PackedScene
 @export var ellipse_width: float = 400.0
-@export var ellipse_height: float = 205.0
+@export var ellipse_height: float = 200.0
 
 # --- Physics Properties ---
 @export var max_scale: float = 1.2
@@ -24,6 +24,9 @@ var dishes_data = [
 	{"texture": preload("res://assets/food/rice.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
 	{"texture": preload("res://assets/food/dumpling.png"), "scale": 0.3, "item_name": "dumpling", "quantity": 3},
 	{"texture": preload("res://assets/food/eggroll.png"), "scale": 0.25, "item_name": "eggroll", "quantity": 3},
+	{"texture": preload("res://assets/food/frieddumpling.png"), "scale": 0.3, "item_name": "frieddumpling", "quantity": 3},
+	{"texture": preload("res://assets/food/duck.png"), "scale": 0.3, "item_name": "duck", "quantity": 3},
+	{"texture": preload("res://assets/food/noodle.png"), "scale": 0.3, "item_name": "noodle", "quantity": 3},
 ]
 var npc_desires = [
 	{"name": "npc1", "desire": "rice", "timer": 5},

@@ -97,7 +97,7 @@ npc_scene = ExtResource("2_lnu2h")
 [node name="table sprite" type="Sprite2D" parent="spinningthing"]
 z_index = -1000
 z_as_relative = false
-position = Vector2(-6, 80)
+position = Vector2(-2, 75)
 scale = Vector2(0.435841, 0.407341)
 texture = ExtResource("3_lbhrr")
 
