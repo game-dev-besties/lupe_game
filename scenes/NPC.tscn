@@ -1,7 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b6jq0f6yg0wuw"]
 
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_mhefn"]
-
 [ext_resource type="Texture2D" uid="uid://nb76g4oh3qlu" path="res://assets/npc/girl1.png" id="2_bdcwd"]
 [ext_resource type="Texture2D" uid="uid://ksk0j7ukgjct" path="res://assets/npc/girl3.png" id="3_5h8ky"]
 
@@ -80,7 +79,6 @@ animations = [{
 "speed": 5.0
 }]
 
-
 [node name="NPC" type="Node2D"]
 z_index = -1001
 z_as_relative = false
@@ -89,6 +87,7 @@ script = ExtResource("1_mhefn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_efvhu")
 animation = &"girl1_happy"
