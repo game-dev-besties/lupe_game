@@ -29,6 +29,7 @@ var dishes_data = [
 	{"texture": preload("res://assets/food/duck.png"), "scale": 0.3, "item_name": "duck", "quantity": 3},
 	{"texture": preload("res://assets/food/noodle.png"), "scale": 0.3, "item_name": "noodle", "quantity": 3},
 ]
+
 var npc_desires = [
 	{"name": "girl1", "desire": "rice", "timer": 5},
 	{"name": "girl3", "desire": "rice", "timer": 1.5},

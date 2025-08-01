@@ -7,10 +7,10 @@ extends Node2D
 
 @export var game_object: Node2D
 
-const MAX_SATIATION = 50
+const MAX_SATIATION = 30
 const GET_HUNGRY_PROBABILITY = 0.5
 const TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = 3.0
-const TIME_BETWEEN_HEALTH_DAMAGE_SECONDS = 2.0
+const TIME_BETWEEN_HEALTH_DAMAGE_SECONDS = 5.0
 var satiation: float = MAX_SATIATION
 var check_hungry_timer: float = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 var take_damage_timer: float = TIME_BETWEEN_HEALTH_DAMAGE_SECONDS
@@ -29,7 +29,6 @@ func init(data: Dictionary):
 	self.name = data.get("name", "NPC")
 	self.desired_item_name = data.get("desire", "")
 	self.consumption_timer = data.get("timer", 1.0)
-	self.satiation = data.get("satiation", 0)
 	happy_animation = self.name + "_happy"
 	neutral_animation = self.name + "_neutral"
 	unhappy_animation = self.name + "_unhappy"
@@ -46,11 +45,10 @@ func _process(delta: float):
 		else:
 			print("Checking if we should become hungry: " + name)
 			if randf() < GET_HUNGRY_PROBABILITY:
-				print("" + name + " is getting hungry!")
+				print("" + name + " is ordering something!")
 				current_state = "neutral"
 				desired_item_name = game_script.POSSIBLE_ITEMS[randi() % game_script.POSSIBLE_ITEMS.size()]
 				update_food_item_display()
-				print("Desired item for " + name + " is: " + desired_item_name)
 			check_hungry_timer = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 	elif current_state == "neutral" or current_state == "unhappy":
 		# Diminish satiation over time
