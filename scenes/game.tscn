@@ -88,11 +88,12 @@ _data = {
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lkgvj")
 
-[node name="spinningthing" type="Node2D" parent="."]
+[node name="spinningthing" type="Node2D" parent="." node_paths=PackedStringArray("game_scene")]
 position = Vector2(586, 448)
 script = ExtResource("3_p57ef")
 dish_scene = ExtResource("4_u5sy4")
 npc_scene = ExtResource("2_lnu2h")
+game_scene = NodePath("..")
 
 [node name="table sprite" type="Sprite2D" parent="spinningthing"]
 z_index = -1000
@@ -108,13 +109,13 @@ position = Vector2(-10, -34)
 position = Vector2(-454, 38)
 
 [node name="Marker2D2" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
-position = Vector2(-259, -118)
+position = Vector2(-262, -80)
 
 [node name="Marker2D3" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
 position = Vector2(-15, -148)
 
 [node name="Marker2D4" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
-position = Vector2(229, -105)
+position = Vector2(229, -89)
 
 [node name="Marker2D5" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
 position = Vector2(388, 43)

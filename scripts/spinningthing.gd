@@ -5,6 +5,7 @@ extends Node2D
 @export var npc_scene = load("res://scenes/NPC.tscn") as PackedScene
 @export var ellipse_width: float = 400.0
 @export var ellipse_height: float = 200.0
+@export var game_scene: Node2D
 
 # --- Physics Properties ---
 @export var max_scale: float = 1.2
@@ -28,6 +29,7 @@ var dishes_data = [
 	{"texture": preload("res://assets/food/duck.png"), "scale": 0.3, "item_name": "duck", "quantity": 3},
 	{"texture": preload("res://assets/food/noodle.png"), "scale": 0.3, "item_name": "noodle", "quantity": 3},
 ]
+
 var npc_desires = [
 	{"name": "girl1", "desire": "rice", "timer": 5},
 	{"name": "girl3", "desire": "rice", "timer": 1.5},
@@ -78,6 +80,7 @@ func spawn_npcs():
 		npc_instance.init(npc_desires[i])
 		npc_instance.placement_angle = spawn_marker.position.angle()
 		npc_instance.position = spawn_marker.position
+		(npc_instance as NPC).game_object = game_scene
 		add_child(npc_instance)
 
 # --- Event Functions ---
@@ -110,7 +113,6 @@ func _on_susan_stopped():
 					can_eat = true
 			if can_eat:
 				closest_dish.start_consumption(npc.consumption_timer, npc)
-				npc.start_eating()
 
 func _on_susan_started_moving():
 	# Reset all animations and timers
