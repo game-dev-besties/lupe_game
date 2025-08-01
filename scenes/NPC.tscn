@@ -14,3 +14,9 @@ happy_texture = ExtResource("3_7pv12")
 unhappy_texture = ExtResource("4_x6c3r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -38.0
+offset_top = -77.0
+offset_right = 38.0
+offset_bottom = -50.0
