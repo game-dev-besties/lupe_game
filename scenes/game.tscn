@@ -89,7 +89,7 @@ _data = {
 script = ExtResource("1_lkgvj")
 
 [node name="spinningthing" type="Node2D" parent="."]
-position = Vector2(605, 436)
+position = Vector2(586, 448)
 script = ExtResource("3_p57ef")
 dish_scene = ExtResource("4_u5sy4")
 npc_scene = ExtResource("2_lnu2h")
@@ -97,7 +97,7 @@ npc_scene = ExtResource("2_lnu2h")
 [node name="table sprite" type="Sprite2D" parent="spinningthing"]
 z_index = -1000
 z_as_relative = false
-position = Vector2(-31, 93)
+position = Vector2(-2, 75)
 scale = Vector2(0.435841, 0.407341)
 texture = ExtResource("3_lbhrr")
 
@@ -129,6 +129,7 @@ scale = Vector2(0.516487, 0.516487)
 texture = ExtResource("5_iywne")
 
 [node name="Transition" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
 offset_left = -183.0

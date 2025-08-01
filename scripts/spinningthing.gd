@@ -3,12 +3,12 @@ extends Node2D
 # --- Scene & Path Properties ---
 @export var dish_scene = load("res://scenes/dish.tscn") as PackedScene
 @export var npc_scene = load("res://scenes/NPC.tscn") as PackedScene
-@export var ellipse_width: float = 450.0
-@export var ellipse_height: float = 225.0
+@export var ellipse_width: float = 400.0
+@export var ellipse_height: float = 200.0
 
 # --- Physics Properties ---
 @export var max_scale: float = 1.2
-@export var serving_distance_threshold: float = 150.0
+@export var serving_distance_threshold_degrees: float = 2.0
 var angular_velocity: float = 0.0
 const acceleration: float = 5.0
 const max_angular_velocity: float = 7.0
@@ -21,11 +21,12 @@ var is_rotating: bool = false
 
 # --- Data ---
 var dishes_data = [
-	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
-	{"texture": preload("res://assets/rings.webp"), "scale": 0.3, "item_name": "planet", "quantity": 3},
-	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
-	{"texture": preload("res://assets/rings.webp"), "scale": 0.3, "item_name": "planet", "quantity": 3},
-	{"texture": preload("res://assets/canvas.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
+	{"texture": preload("res://assets/food/rice.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
+	{"texture": preload("res://assets/food/dumpling.png"), "scale": 0.3, "item_name": "dumpling", "quantity": 3},
+	{"texture": preload("res://assets/food/eggroll.png"), "scale": 0.25, "item_name": "eggroll", "quantity": 3},
+	{"texture": preload("res://assets/food/frieddumpling.png"), "scale": 0.3, "item_name": "frieddumpling", "quantity": 3},
+	{"texture": preload("res://assets/food/duck.png"), "scale": 0.3, "item_name": "duck", "quantity": 3},
+	{"texture": preload("res://assets/food/noodle.png"), "scale": 0.3, "item_name": "noodle", "quantity": 3},
 ]
 var npc_desires = [
 	{"name": "girl1", "desire": "rice", "timer": 5},
@@ -101,10 +102,10 @@ func _on_susan_stopped():
 				closest_dish = dish
 		# find desired dish nearby
 		if closest_dish:
-			var distance = npc.position.distance_to(closest_dish.position)
+			var diff = abs(angle_difference(npc.placement_angle, closest_dish.current_angle))
 			var can_eat = false
 			# Check all conditions: close enough, correct item, dish has quantity, and npc is not full
-			if distance < serving_distance_threshold and closest_dish.quantity > 0:
+			if diff < serving_distance_threshold_degrees and closest_dish.quantity > 0:
 				if closest_dish.item_name == npc.desired_item_name and npc.satiation < npc.MAX_SATIATION:
 					can_eat = true
 			if can_eat:

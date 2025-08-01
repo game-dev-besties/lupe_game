@@ -1,6 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b6jq0f6yg0wuw"]
 
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_mhefn"]
+
 [ext_resource type="Texture2D" uid="uid://nb76g4oh3qlu" path="res://assets/npc/girl1.png" id="2_bdcwd"]
 [ext_resource type="Texture2D" uid="uid://ksk0j7ukgjct" path="res://assets/npc/girl3.png" id="3_5h8ky"]
 
@@ -78,6 +79,7 @@ animations = [{
 "name": &"girl3_unhappy",
 "speed": 5.0
 }]
+
 
 [node name="NPC" type="Node2D"]
 z_index = -1001
