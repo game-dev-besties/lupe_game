@@ -34,6 +34,13 @@ func eat(satiation_value: int):
 		print(name + "'s satiation is now: " + str(satiation))
 		update_emotion()
 
+func start_eating():
+	#$AnimationPlayer.play("start_eating")
+	var tween = create_tween()
+	var current_pos = position
+	tween.tween_property(self, "position", position - Vector2(0, 20), 0.2)
+	tween.tween_property(self, "position", current_pos, 0.2)
+
 func react(is_correct_dish: bool):
 	if is_correct_dish:
 		sprite.play(happy_animation)
