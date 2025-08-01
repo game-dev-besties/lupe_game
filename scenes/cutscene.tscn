@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cckqhipdvojkh"]
 
-[ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_nhhfa"]
+[ext_resource type="Script" uid="uid://b61aoxsxk6ogf" path="res://scripts/cutscene.gd" id="1_nhhfa"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ox32g"]
 [ext_resource type="Texture2D" uid="uid://bf1dcg1iv5e2p" path="res://assets/happy.png" id="2_qtgye"]
 
@@ -125,9 +125,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pduvj"]
 _data = {
-"Cutscene1": SubResource("Animation_sp6f6"),
-"RESET": SubResource("Animation_ho0y6"),
-"stop": SubResource("Animation_kie4y")
+&"Cutscene1": SubResource("Animation_sp6f6"),
+&"RESET": SubResource("Animation_ho0y6"),
+&"stop": SubResource("Animation_kie4y")
 }
 
 [sub_resource type="Animation" id="Animation_pk0x4"]
@@ -203,9 +203,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ljsqd"]
 _data = {
-"RESET": SubResource("Animation_pk0x4"),
-"fade_in": SubResource("Animation_i0p51"),
-"fade_out": SubResource("Animation_d6meh")
+&"RESET": SubResource("Animation_pk0x4"),
+&"fade_in": SubResource("Animation_i0p51"),
+&"fade_out": SubResource("Animation_d6meh")
 }
 
 [node name="cutscene" type="Node2D"]
