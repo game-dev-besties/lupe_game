@@ -29,10 +29,11 @@ var dishes_data = [
 	{"texture": preload("res://assets/food/noodle.png"), "scale": 0.3, "item_name": "noodle", "quantity": 3},
 ]
 var npc_desires = [
-	{"name": "npc1", "desire": "rice", "timer": 5},
-	{"name": "npc2", "desire": "rice", "timer": 1.5},
-	{"name": "npc3", "desire": "eggroll", "timer": 5},
-	{"name": "npc4", "desire": "rice", "timer": 1.5},
+	{"name": "girl1", "desire": "rice", "timer": 5},
+	{"name": "girl3", "desire": "rice", "timer": 1.5},
+	{"name": "girl1", "desire": "rice", "timer": 5},
+	{"name": "girl3", "desire": "rice", "timer": 1.5},
+	{"name": "girl3", "desire": "rice", "timer": 1.5},
 ]
 
 func _ready():
