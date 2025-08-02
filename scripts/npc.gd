@@ -25,6 +25,7 @@ var hunger_diminish_rate: float = 2
 var turn_red_rate: float = 0.05
 var max_redness: float = 0.5
 var spawn_position: Vector2
+var shake_tween: Tween
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -85,9 +86,21 @@ func _process(delta: float):
 	update_emotion()
 
 func start_eating():
+	if shake_tween:
+		shake_tween.kill()
 	var tween = create_tween()
 	tween.tween_property(self, "position", spawn_position - Vector2(0, 20), 0.2)
 	tween.tween_property(self, "position", spawn_position, 0.2)
+	
+func shake():
+	if shake_tween:
+		shake_tween.kill()
+	shake_tween = create_tween().set_loops()
+	var shake_max = 10
+	var shake_x = randf_range(-shake_max, shake_max)
+	var shake_y = randf_range(-shake_max, shake_max)
+	shake_tween.tween_property(self, "position", spawn_position + Vector2(shake_x, shake_y), 0.1)
+	shake_tween.tween_property(self, "position", spawn_position, 0.1)
 
 func eat():
 	current_state = "happy"
@@ -98,14 +111,6 @@ func eat():
 	desired_item_name = ""
 	update_emotion()
 	update_food_item_display()
-
-# func react(is_correct_dish: bool):
-# 	if is_correct_dish:
-# 		sprite.play(happy_animation)
-# 		print(name + " is happy!")
-# 	else:
-# 		sprite.play(unhappy_animation)
-# 		print(name + " is unhappy!")
 
 func update_emotion():
 	if current_state == "happy":
@@ -129,10 +134,3 @@ func update_food_item_display():
 		$ThoughtBubble.visible = false
 		food_image_node.visible = false
 		
-func shake():
-	var tween = create_tween()
-	var shake_max = 10
-	var shake_x = randf_range(-shake_max, shake_max)
-	var shake_y = randf_range(-shake_max, shake_max)
-	tween.tween_property(self, "position", spawn_position + Vector2(shake_x, shake_y), 0.1)
-	tween.tween_property(self, "position", spawn_position, 0.1)
