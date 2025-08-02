@@ -72,12 +72,10 @@ func _process(delta: float):
 					#if node is NPC:
 						#if node.current_state != "happy":
 							#dishes_on_the_table.append(node.desired_item_name)
-				
 				if dishes_on_the_table.size() > 0:
 					desired_item_name = dishes_on_the_table[randi() % dishes_on_the_table.size()]
 				else:
 					current_state = "happy"
-					
 				update_food_item_display()
 			check_hungry_timer = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 	else:
@@ -94,7 +92,7 @@ func _process(delta: float):
 				sprite.modulate.s = max_redness
 				current_state = "starving"
 				satiation = 0
-				print(name + " is now starving!")
+				#print(name + " is now starving!")
 	
 	# Handle the timer for taking damage
 	if current_state == "starving":
@@ -166,6 +164,6 @@ func update_food_item_display():
 		food_image_node.visible = false
 
 func on_teacup_state_changed(new_state: Teacup.Fullness):
-	print(name + "'s teacup is now: " + Teacup.Fullness.keys()[new_state])
+	#print(name + "'s teacup is now: " + Teacup.Fullness.keys()[new_state])
 	if new_state == Teacup.Fullness.FULL:
 		print(name + " is happy about the tea!")

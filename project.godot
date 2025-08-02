@@ -15,6 +15,10 @@ run/main_scene="res://scenes/cutscene.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LevelManager="*res://scripts/1LevelManager.gd"
+
 [input]
 
 ui_accept={
