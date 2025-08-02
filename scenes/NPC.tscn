@@ -101,3 +101,6 @@ texture = ExtResource("4_jnjht")
 
 [node name="pop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_7pv12")
+
+[node name="hum" type="AudioStreamPlayer2D" parent="."]
+volume_db = 3.962

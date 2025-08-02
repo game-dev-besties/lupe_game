@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/girlhum.mp3-e2202ace3ee7c39f72a5e2fc9fb18745.
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

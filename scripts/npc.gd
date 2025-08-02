@@ -2,6 +2,7 @@ class_name NPC
 extends Node2D
 
 @onready var pop = $pop
+@onready var hum = $hum
 @export var game_object: Node2D
 
 const MAX_SATIATION = 40
@@ -34,7 +35,8 @@ func init(data: Dictionary):
 	happy_animation = self.name + "_happy"
 	neutral_animation = self.name + "_neutral"
 	unhappy_animation = self.name + "_unhappy"
-
+	var hum: AudioStreamPlayer2D = get_node("hum")
+	hum.stream = data.get("sound")
 func _ready():
 	spawn_position = position
 	update_emotion()
@@ -153,6 +155,7 @@ func update_food_item_display():
 	var food_image_node: Sprite2D = $ThoughtBubble/FoodImage
 	if desired_item_name != "":
 		# Display the ThoughBubble and set the food image
+		hum.play()
 		$ThoughtBubble.visible = true
 		food_image_node.texture = load("res://assets/food/" + desired_item_name + ".png")
 		food_image_node.visible = true
