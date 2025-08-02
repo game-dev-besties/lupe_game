@@ -2,7 +2,7 @@ class_name Game
 extends Node2D
 
 const POSSIBLE_ITEMS = [
-	"rice"
+	"rice", "dumpling", "eggroll", "frieddumpling", "duck", "noodle"
 ]
 
 var health: int = 3
