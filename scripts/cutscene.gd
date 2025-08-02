@@ -2,6 +2,7 @@ extends Node2D
 @onready var game = load("res://scenes/game.tscn") as PackedScene
 @onready var text: RichTextLabel = $UI/Panel/VBoxContainer/RichTextLabel
 @onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var talking_effect = $talking
 
 var chapter: int = 1
 
@@ -9,6 +10,7 @@ var chapter: int = 1
 func _ready():
 	$UI/Panel.visible = false
 	animation.play("Cutscene1")
+	talking_effect.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -22,6 +24,7 @@ func _process(_delta):
 				end_cutscene()
 			else:
 				animation.play("Cutscene" + str(chapter))
+				talking_effect.play()
 	
 	elif Input.is_action_just_pressed("ui_cancel"):
 		end_cutscene()

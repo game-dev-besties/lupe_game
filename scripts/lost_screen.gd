@@ -1,8 +1,9 @@
 extends Node2D
 
 @onready var game = load("res://scenes/game.tscn") as PackedScene
-
+@onready var flute = $flute
 func _ready():
+	flute.play()
 	$Transition/AnimationPlayer.play("fade_in")
 
 func _try_again() -> void:

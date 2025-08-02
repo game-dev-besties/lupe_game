@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cckqhipdvojkh"]
+[gd_scene load_steps=15 format=3 uid="uid://cckqhipdvojkh"]
 
 [ext_resource type="Script" uid="uid://b61aoxsxk6ogf" path="res://scripts/cutscene.gd" id="1_nhhfa"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ox32g"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bsrkfavscr4o6" path="res://assets/susan/susanunhappy.png" id="4_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="5_fs8wb"]
 [ext_resource type="PackedScene" path="res://scenes/transition.tscn" id="6_bb0yx"]
+[ext_resource type="AudioStream" uid="uid://crarrjbtjhhqt" path="res://assets/sfx/talking.mp3" id="7_3ptll"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs8wb"]
 bg_color = Color(1, 1, 1, 1)
@@ -389,6 +390,9 @@ offset_bottom = 54.0
 text = "SKIP"
 
 [node name="Transition" parent="." instance=ExtResource("6_bb0yx")]
+
+[node name="talking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_3ptll")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

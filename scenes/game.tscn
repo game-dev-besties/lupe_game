@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7w465tfimyec"]
+[gd_scene load_steps=11 format=3 uid="uid://b7w465tfimyec"]
 
 [ext_resource type="Script" uid="uid://b8fp7l0wpeawx" path="res://scripts/game.gd" id="1_lkgvj"]
 [ext_resource type="PackedScene" uid="uid://ddw71ek2dup7r" path="res://scenes/dish.tscn" id="3_gee14"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cy8pyoptiw1gd" path="res://scenes/teacup.tscn" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cxa2ocjnlijcn" path="res://scenes/teapot.tscn" id="6_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://ccn0r4cijwkf" path="res://assets/sfx/servant-bell-ring-1-211684.mp3" id="9_0tnpc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
 bg_color = Color(0.836524, 0.0884444, 0.42513, 1)
@@ -102,6 +103,10 @@ position = Vector2(-155, -132)
 
 [node name="Marker2D4" type="Marker2D" parent="spinningthing/TeacupSpawnPoints"]
 position = Vector2(145, -132)
+
+[node name="bell" type="AudioStreamPlayer2D" parent="spinningthing"]
+position = Vector2(-586, -448)
+stream = ExtResource("9_0tnpc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(573, 378)

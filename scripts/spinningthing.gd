@@ -5,6 +5,7 @@ extends Node2D
 @export var npc_scene = load("res://scenes/NPC.tscn") as PackedScene
 @export var teacup_scene = load("res://scenes/teacup.tscn") as PackedScene
 @export var teapot_scene = load("res://scenes/teapot.tscn") as PackedScene
+@onready var bell_sound_effect = $bell
 @export var ellipse_width: float = 400.0
 @export var ellipse_height: float = 200.0
 @export var game_scene: Node2D
@@ -43,6 +44,7 @@ func _ready():
 	var current_level_data: Dictionary = LevelManager.get_current_level_data()
 	print(current_level_data.get("hunger_timer"))
 	if current_level_data:
+		bell_sound_effect.play()
 		dishes_data = current_level_data["dishes"]
 		npc_desires = current_level_data["npcs"]
 		spawn_dishes()
