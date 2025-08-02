@@ -50,6 +50,7 @@ func _process(delta: float):
 			if randf() < GET_HUNGRY_PROBABILITY:
 				current_state = "neutral"
 				desired_item_name = game_script.POSSIBLE_ITEMS[randi() % game_script.POSSIBLE_ITEMS.size()]
+				NotificationManager.push("Now Hungry!", "NPC " + name + " is now neutral and wants " + desired_item_name)
 				update_food_item_display()
 			check_hungry_timer = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 	else:

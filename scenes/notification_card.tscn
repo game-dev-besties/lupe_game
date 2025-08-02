@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg1mu0vuly3x7"]
+
+[ext_resource type="Script" uid="uid://bg2laagjkoj0" path="res://scripts/notification_card.gd" id="1_3l8vq"]
+[ext_resource type="LabelSettings" uid="uid://c824ay0grbiq7" path="res://ui/title_font.tres" id="1_hp6ik"]
+[ext_resource type="LabelSettings" uid="uid://lvyaejeul2ns" path="res://ui/text_font.tres" id="2_3l8vq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rotyx"]
+bg_color = Color(0.62939, 0.604398, 0.468749, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="NotificationCard" type="Panel"]
+offset_right = 280.0
+offset_bottom = 172.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rotyx")
+script = ExtResource("1_3l8vq")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 180.0
+offset_bottom = 30.0
+text = "Title"
+label_settings = ExtResource("1_hp6ik")
+autowrap_mode = 2
+
+[node name="Body" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 50.0
+offset_right = 253.0
+offset_bottom = 157.0
+text = "hallo this is some text"
+label_settings = ExtResource("2_3l8vq")
+autowrap_mode = 2

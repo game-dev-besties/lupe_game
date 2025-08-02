@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://rnaexvorgrfx"]
+
+[node name="NotificationsLayer" type="CanvasLayer"]
+
+[node name="Tray" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 831.0
+offset_top = 4.0
+offset_right = 1152.0
+offset_bottom = 147.0
