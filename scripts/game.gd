@@ -16,11 +16,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	health_bar.value = health
+	pass
 
 func take_damage():
 	if health > 0:
 		health -= 10
+		health_bar.value = health
 		if health == 0:
 			$Transition/AnimationPlayer.play("fade_out")
 			await get_tree().create_timer(0.7).timeout
