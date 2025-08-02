@@ -1,11 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://cckqhipdvojkh"]
+[gd_scene load_steps=17 format=3 uid="uid://cckqhipdvojkh"]
 
 [ext_resource type="Script" uid="uid://b61aoxsxk6ogf" path="res://scripts/cutscene.gd" id="1_nhhfa"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ox32g"]
+[ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="3_2bm7f"]
+[ext_resource type="Texture2D" uid="uid://bsrkfavscr4o6" path="res://assets/susan/susanunhappy.png" id="4_2bm7f"]
+[ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="5_fs8wb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs8wb"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.294118, 0.12549, 0.0862745, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
 
 [sub_resource type="Animation" id="Animation_sp6f6"]
 resource_name = "Cutscene1"
-length = 4.0
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,10 +29,10 @@ tracks/0/path = NodePath("Characters/Susan:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.6, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(118, 778), Vector2(118, 257.91), Vector2(118, 303.82)]
+"values": [Vector2(402, 924.64), Vector2(402, 381), Vector2(402, 393), Vector2(402, 393)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -25,7 +41,7 @@ tracks/1/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 3.1),
+"times": PackedFloat32Array(1.2, 6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -41,6 +57,42 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Panel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.2, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Ugh, it's Lunar New Year's again! That means another family dinner with aunts and uncles asking me about school and classes, as if they actually cared what I got on my calculus test last week. ", "Ugh, it's Lunar New Year's again! That means another family dinner with aunts and uncles asking me about school and classes, as if they actually cared what I got on my calculus test last week. "]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Characters/Susan:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_2bm7f"), ExtResource("4_2bm7f")]
 }
 
 [sub_resource type="Animation" id="Animation_ho0y6"]
@@ -105,6 +157,42 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/Panel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Ugh, it's Lunar New Year's again! That means another family dinner with aunts and uncles asking me about school and classes, as if they actually cared what I got on my calculus test last week. "]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Characters/Susan:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_2bm7f")]
+}
 
 [sub_resource type="Animation" id="Animation_kie4y"]
 resource_name = "stop"
@@ -116,15 +204,144 @@ tracks/0/path = NodePath("UI/Panel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_fs8wb"]
+resource_name = "Cutscene2"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Characters/Susan:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_fs8wb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Characters/Susan:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.98023e-07, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(402, 393), Vector2(402, 381), Vector2(402, 393)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Plus, my father's making me serve all my relatives \"out of respect for my elders.\" Apparently, there's all these rules and expectations that come with it."]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Panel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/Panel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bb0yx"]
+resource_name = "Cutscene3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["I guess we'll see how it goes..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Panel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Panel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pduvj"]
 _data = {
 &"Cutscene1": SubResource("Animation_sp6f6"),
+&"Cutscene2": SubResource("Animation_fs8wb"),
+&"Cutscene3": SubResource("Animation_bb0yx"),
 &"RESET": SubResource("Animation_ho0y6"),
 &"stop": SubResource("Animation_kie4y")
 }
@@ -169,7 +386,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [Color(0.0666667, 0.0666667, 0.0666667, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_d6meh"]
@@ -185,7 +402,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0), Color(0.066755, 0.066755, 0.066755, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -211,6 +428,7 @@ _data = {
 script = ExtResource("1_nhhfa")
 
 [node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.56, 0.56, 0.56, 1)
 position = Vector2(576, 384)
 scale = Vector2(0.516, 0.516)
 texture = ExtResource("2_ox32g")
@@ -218,21 +436,25 @@ texture = ExtResource("2_ox32g")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="UI"]
-offset_left = 278.0
-offset_top = 167.0
-offset_right = 875.0
-offset_bottom = 480.0
+offset_left = 346.0
+offset_top = 451.0
+offset_right = 1000.0
+offset_bottom = 616.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fs8wb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
 layout_mode = 0
-offset_left = 2.0
-offset_right = 597.0
-offset_bottom = 312.0
+offset_left = 26.0
+offset_top = 21.0
+offset_right = 636.0
+offset_bottom = 125.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/VBoxContainer"]
 layout_mode = 2
-text = "hi im susan and I'm so excited to go to my family's new years dinner ohn my gofd!!!!!!
-"
+theme_override_colors/default_color = Color(0.298039, 0.113725, 0.0784314, 1)
+theme_override_fonts/normal_font = ExtResource("3_2bm7f")
+theme_override_font_sizes/normal_font_size = 21
+text = "Ugh, it's Lunar New Year's again! That means another family dinner with aunts and uncles asking me about school and classes, as if they actually cared what I got on my calculus test last week. "
 fit_content = true
 scroll_active = false
 
@@ -245,7 +467,8 @@ libraries = {
 
 [node name="Susan" type="Sprite2D" parent="Characters"]
 position = Vector2(118, 778)
-scale = Vector2(1.69355, 3.25362)
+scale = Vector2(0.323207, 0.323207)
+texture = ExtResource("4_2bm7f")
 
 [node name="Transition" type="Node2D" parent="."]
 
@@ -263,11 +486,10 @@ libraries = {
 }
 
 [node name="Skip" type="Button" parent="."]
-offset_left = 13.0
-offset_top = 6.0
-offset_right = 351.0
-offset_bottom = 152.0
-theme_override_font_sizes/font_size = 101
+offset_left = 1045.0
+offset_top = 14.0
+offset_right = 1136.0
+offset_bottom = 54.0
 text = "SKIP"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
