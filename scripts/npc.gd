@@ -7,8 +7,8 @@ extends Node2D
 
 @export var game_object: Node2D
 
-const MAX_SATIATION = 30
-const GET_HUNGRY_PROBABILITY = 0.5
+const MAX_SATIATION = 40
+const GET_HUNGRY_PROBABILITY = 0.2
 const TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = 3.0
 const TIME_BETWEEN_HEALTH_DAMAGE_SECONDS = 5.0
 var satiation: float = MAX_SATIATION
