@@ -173,7 +173,7 @@ func handle_input(delta):
 
 func apply_physics(delta):
 	var friction = natural_friction
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_pressed("brake"):
 		friction = brake_force
 	
 	if angular_velocity != 0:
