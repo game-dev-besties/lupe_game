@@ -17,7 +17,7 @@ var levels = [
 			{"name": "girl1", "desire": "rice", "timer": 1, "sound": preload("res://assets/sfx/girlhum.mp3")},
 		],
 		"hunger_timer": 10.0,
-		"cutscene_path": "res://scenes/cutscene.tscn",
+		"cutscene_path": "res://scenes/cutscene_level_1.tscn",
 	},
 	# --- LEVEL 2 ---
 	{

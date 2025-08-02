@@ -43,7 +43,7 @@ tracks/1/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.2, 6),
+"times": PackedFloat32Array(1.2, 1.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -82,7 +82,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(1.2, 6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": ["Ugh, it's Lunar New Year's again! That means another family dinner with aunts and uncles asking me about school and classes, as if they actually cared what I got on my calculus test last week. ", "Ugh, it's Lunar New Year's again! That means another family dinner with aunts and uncles asking me about school and classes, as if they actually cared what I got on my calculus test last week. "]
+"values": ["It’s Lunar New Year’s again…", "It’s Lunar New Year’s again…"]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -134,7 +134,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Plus, my father's making me serve all my relatives \"out of respect for my elders.\" Apparently, there's all these rules and expectations that come with it."]
+"values": ["At least there will be some refreshments this time."]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -143,7 +143,7 @@ tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 1.76667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -185,7 +185,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["I guess we'll see how it goes..."]
+"values": ["Surely it can't be that different from last time..."]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
