@@ -7,8 +7,8 @@ extends Node2D
 
 @export var game_object: Node2D
 
-const MAX_SATIATION = 30
-const GET_HUNGRY_PROBABILITY = 0.5
+const MAX_SATIATION = 40
+const GET_HUNGRY_PROBABILITY = 0.2
 const TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = 3.0
 const TIME_BETWEEN_HEALTH_DAMAGE_SECONDS = 5.0
 var satiation: float = MAX_SATIATION
@@ -22,6 +22,9 @@ var happy_animation: String
 var neutral_animation: String
 var unhappy_animation: String
 var hunger_diminish_rate: float = 2
+var turn_red_rate: float = 0.05
+var max_redness: float = 0.5
+var spawn_position: Vector2
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -34,6 +37,7 @@ func init(data: Dictionary):
 	unhappy_animation = self.name + "_unhappy"
 
 func _ready():
+	spawn_position = position
 	update_emotion()
 
 func _process(delta: float):
@@ -43,40 +47,53 @@ func _process(delta: float):
 		if check_hungry_timer > 0:
 			check_hungry_timer -= delta
 		else:
-			print("Checking if we should become hungry: " + name)
 			if randf() < GET_HUNGRY_PROBABILITY:
-				print("" + name + " is ordering something!")
 				current_state = "neutral"
 				desired_item_name = game_script.POSSIBLE_ITEMS[randi() % game_script.POSSIBLE_ITEMS.size()]
 				update_food_item_display()
 			check_hungry_timer = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
-	elif current_state == "neutral" or current_state == "unhappy":
+	else:
 		# Diminish satiation over time
 		if satiation > 0:
 			satiation -= hunger_diminish_rate * delta
-			if satiation <= 0:
-				satiation = 0
+			if satiation <= MAX_SATIATION * 2 / 3:
 				current_state = "unhappy"
-				print(name + " is now unhappy due to hunger!")
+			if satiation <= MAX_SATIATION / 3:
+				if sprite.modulate.s <= max_redness:
+					# equation to determine how fast they turn need to turn red in order to reach max_redness
+					sprite.modulate.s += ((3 * max_redness * hunger_diminish_rate ) / MAX_SATIATION) * delta 
+			if satiation <= 0:
+				sprite.modulate.s = max_redness
+				current_state = "starving"
+				satiation = 0
+				print(name + " is now starving!")
 	
 	# Handle the timer for taking damage
-	if current_state == "unhappy":
+	if current_state == "starving":
+		shake()
 		if take_damage_timer > 0:
 			take_damage_timer -= delta
 		else:
 			game_script.take_damage()
 			take_damage_timer = TIME_BETWEEN_HEALTH_DAMAGE_SECONDS
 			# Here you could implement logic to reduce health or trigger an event
-			print(name + " is unhappy and you are taking damage!")
+			print(name + " is starving and you are taking damage!")
 	else:
 		take_damage_timer = TIME_BETWEEN_HEALTH_DAMAGE_SECONDS  # Reset the timer if not unhappy
 	
 	# Update the sprite animation based on the current state
 	update_emotion()
 
+func start_eating():
+	var tween = create_tween()
+	tween.tween_property(self, "position", spawn_position - Vector2(0, 20), 0.2)
+	tween.tween_property(self, "position", spawn_position, 0.2)
+
 func eat():
 	current_state = "happy"
 	satiation = MAX_SATIATION
+	position = spawn_position
+	sprite.modulate.s = 0
 	check_hungry_timer = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 	desired_item_name = ""
 	update_emotion()
@@ -95,7 +112,7 @@ func update_emotion():
 		sprite.play(happy_animation)
 	elif current_state == "neutral":
 		sprite.play(neutral_animation)
-	elif current_state == "unhappy":
+	elif current_state == "unhappy" or current_state == "starving":
 		sprite.play(unhappy_animation)
 
 func update_food_item_display():
@@ -111,3 +128,11 @@ func update_food_item_display():
 		# Hide the ThoughtBubble if there's no desired item
 		$ThoughtBubble.visible = false
 		food_image_node.visible = false
+		
+func shake():
+	var tween = create_tween()
+	var shake_max = 10
+	var shake_x = randf_range(-shake_max, shake_max)
+	var shake_y = randf_range(-shake_max, shake_max)
+	tween.tween_property(self, "position", spawn_position + Vector2(shake_x, shake_y), 0.1)
+	tween.tween_property(self, "position", spawn_position, 0.1)
