@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 LevelManager="*res://scripts/1LevelManager.gd"
 Transition="*res://scenes/transition.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 ui_accept={
