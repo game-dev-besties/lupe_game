@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy8pyoptiw1gd"]
+[gd_scene load_steps=7 format=3 uid="uid://cy8pyoptiw1gd"]
 
 [ext_resource type="Script" uid="uid://b0nw6788cadc2" path="res://scripts/teacup.gd" id="1_h0qtq"]
 [ext_resource type="Texture2D" uid="uid://bjsfdkrusar02" path="res://assets/emptytea.png" id="2_i4cwq"]
 [ext_resource type="Texture2D" uid="uid://5mfyidswwmi0" path="res://assets/halftea.png" id="3_6j0cs"]
 [ext_resource type="Texture2D" uid="uid://1devsaxfx110" path="res://assets/fulltea.png" id="4_wjc7y"]
+[ext_resource type="AudioStream" uid="uid://dwebwda2h4ire" path="res://assets/sfx/kettle-pour-83097.mp3" id="5_tn2ed"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h0qtq"]
 radius = 23.1948
@@ -23,3 +24,7 @@ texture = ExtResource("2_i4cwq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h0qtq")
+
+[node name="fillnoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tn2ed")
+volume_db = 13.866

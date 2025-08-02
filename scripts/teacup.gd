@@ -5,6 +5,7 @@ extends Area2D
 @export var half_full_texture: Texture2D
 @export var full_texture: Texture2D
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var fillnoise = $fillnoise
 
 enum Fullness {EMPTY, HALF, FULL}
 var fullness: Fullness = Fullness.EMPTY
@@ -15,6 +16,7 @@ func _ready():
 
 func fill():
 	if fullness < Fullness.FULL:
+		fillnoise.play()
 		fullness += 2
 		update_texture()
 		if owner_npc:
