@@ -50,17 +50,18 @@ func get_current_level_data() -> Dictionary:
 		return levels[current_level_index]
 	return {}
 
-func advance_to_next_level():
+func advance_to_next_level(is_game = false):
 	# Get the cutscene path from the level we JUST completed
 	var level_data = get_current_level_data()
+	print(current_level_index)
 	var cutscene_path = level_data.get("cutscene_path")
-	current_level_index += 1
 	Transition.transition()
 	await Transition.on_transition_finished
-	if cutscene_path:
-		get_tree().change_scene_to_file(cutscene_path)
-	else:
+	if is_game:
 		load_game_scene()
+	else:
+		get_tree().change_scene_to_file(cutscene_path)
+		current_level_index += 1
 
 func load_game_scene():
 	get_tree().change_scene_to_file(GAME_SCENE_PATH)

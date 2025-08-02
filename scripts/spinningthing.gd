@@ -41,6 +41,7 @@ var npc_desires = [
 
 func _ready():
 	var current_level_data: Dictionary = LevelManager.get_current_level_data()
+	print(current_level_data.get("hunger_timer"))
 	if current_level_data:
 		dishes_data = current_level_data["dishes"]
 		npc_desires = current_level_data["npcs"]

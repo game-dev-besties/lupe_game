@@ -389,7 +389,6 @@ offset_bottom = 54.0
 text = "SKIP"
 
 [node name="Transition" parent="." instance=ExtResource("6_bb0yx")]
-visible = false
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

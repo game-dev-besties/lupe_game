@@ -28,7 +28,7 @@ func _process(_delta):
 	
 func end_cutscene():
 	animation.play("stop")
-	get_tree().change_scene_to_packed(game)
+	LevelManager.advance_to_next_level(true)
 
 func _on_skip_pressed():
 	end_cutscene()
