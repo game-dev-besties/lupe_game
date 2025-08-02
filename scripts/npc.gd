@@ -1,10 +1,7 @@
 class_name NPC
 extends Node2D
 
-#@export var neutral_texture: Texture2D
-#@export var happy_texture: Texture2D
-#@export var unhappy_texture: Texture2D
-
+@onready var pop = $pop
 @export var game_object: Node2D
 
 const MAX_SATIATION = 40
@@ -111,6 +108,7 @@ func _process(delta: float):
 	update_emotion()
 
 func start_eating():
+	pop.play()
 	if shake_tween:
 		shake_tween.kill()
 	var tween = create_tween()
@@ -160,6 +158,7 @@ func update_food_item_display():
 		food_image_node.visible = true
 	else:
 		# Hide the ThoughtBubble if there's no desired item
+		
 		$ThoughtBubble.visible = false
 		food_image_node.visible = false
 
