@@ -129,6 +129,12 @@ position = Vector2(229, -89)
 [node name="Marker2D5" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
 position = Vector2(388, 43)
 
+[node name="Marker2D6" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
+position = Vector2(430, 149)
+
+[node name="Marker2D7" type="Marker2D" parent="spinningthing/NpcSpawnPoints"]
+position = Vector2(-418, 149)
+
 [node name="TeacupSpawnPoints" type="Node2D" parent="spinningthing"]
 
 [node name="Marker2D" type="Marker2D" parent="spinningthing/TeacupSpawnPoints"]
@@ -145,6 +151,12 @@ position = Vector2(196, -111)
 
 [node name="Marker2D5" type="Marker2D" parent="spinningthing/TeacupSpawnPoints"]
 position = Vector2(310, 6)
+
+[node name="Marker2D6" type="Marker2D" parent="spinningthing/TeacupSpawnPoints"]
+position = Vector2(299, 85)
+
+[node name="Marker2D7" type="Marker2D" parent="spinningthing/TeacupSpawnPoints"]
+position = Vector2(-297, 99)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(573, 378)

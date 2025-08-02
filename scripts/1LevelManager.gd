@@ -16,6 +16,8 @@ var levels = [
 			{"name": "girl1", "desire": "rice", "timer": 5},
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
+			{"name": "girl3", "desire": "rice", "timer": 1.5},
+			{"name": "girl3", "desire": "rice", "timer": 1.5},
 		],
 		"hunger_timer": 10.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
