@@ -1,5 +1,6 @@
 extends Node
 
+const GAME_SCENE_PATH = "res://scenes/game.tscn"
 var current_level_index: int = 0
 
 var levels = [
@@ -16,7 +17,8 @@ var levels = [
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
 		],
-		"hunger_timer": 5.0
+		"hunger_timer": 10.0,
+		"cutscene_path": "res://scenes/cutscene.tscn",
 	},
 	# --- LEVEL 2 ---
 	{
@@ -35,11 +37,11 @@ var levels = [
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
 		],
-		"hunger_timer": 30.0
+		"hunger_timer": 30.0,
+		"cutscene_path": "res://scenes/cutscene.tscn",
 	},
 	# --- todo: add more levels here ---
 ]
-
 
 func get_current_level_data() -> Dictionary:
 	if current_level_index < levels.size():
@@ -47,5 +49,14 @@ func get_current_level_data() -> Dictionary:
 	return {}
 
 func advance_to_next_level():
+	# Get the cutscene path from the level we JUST completed
+	var level_data = get_current_level_data()
+	var cutscene_path = level_data.get("cutscene_path")
 	current_level_index += 1
-	get_tree().reload_current_scene()
+	if cutscene_path:
+		get_tree().change_scene_to_file(cutscene_path)
+	else:
+		load_game_scene()
+
+func load_game_scene():
+	get_tree().change_scene_to_file(GAME_SCENE_PATH)
