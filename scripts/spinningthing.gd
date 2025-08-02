@@ -11,7 +11,7 @@ extends Node2D
 
 # --- Physics Properties ---
 @export var max_scale: float = 1.2
-@export var serving_distance_threshold_degrees: float = 2.0
+@export var serving_distance_threshold_radians: float = 10.0 * (PI / 180.0)
 var angular_velocity: float = 0.0
 const acceleration: float = 5.0
 const max_angular_velocity: float = 7.0
@@ -126,11 +126,30 @@ func _on_susan_stopped():
 			var diff = abs(angle_difference(npc.placement_angle, closest_dish.current_angle))
 			var can_eat = false
 			# Check all conditions: close enough, correct item, dish has quantity, and npc is not full
-			if diff < serving_distance_threshold_degrees and closest_dish.quantity > 0:
+			if diff < serving_distance_threshold_radians and closest_dish.quantity > 0:
 				if closest_dish.item_name == npc.desired_item_name and npc.satiation < npc.MAX_SATIATION:
 					can_eat = true
 			if can_eat and closest_dish.start_consumption(npc.consumption_timer, npc):
 				npc.start_eating()
+	
+	for npc in npcs:
+		var half_width: float = (serving_distance_threshold_radians) * 0.5
+		var start_angle: float = npc.placement_angle - half_width
+		var end_angle: float = npc.placement_angle + half_width
+
+		var pts : PackedVector2Array
+		pts.append(Vector2.ZERO)        # sector centre
+
+		# sample the arc at equal angular steps
+		var steps: float = 20
+		for i in range(steps + 1):
+			var t: float = lerp(start_angle, end_angle, float(i) / steps)
+			pts.append(Vector2(cos(t), sin(t)) * npc_placement_radius)
+
+		var sector := Polygon2D.new()
+		sector.polygon = pts
+		sector.color   = Color(1, 0, 0, 0.5)   # semi-transparent red
+		add_child(sector)
 
 func _on_susan_started_moving():
 	# Reset all animations and timers
