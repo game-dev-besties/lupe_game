@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c20iiwfaxynah" path="res://scripts/npc.gd" id="1_mhefn"]
 [ext_resource type="Texture2D" uid="uid://nb76g4oh3qlu" path="res://assets/npc/girl1.png" id="2_bdcwd"]
 [ext_resource type="Texture2D" uid="uid://ksk0j7ukgjct" path="res://assets/npc/girl3.png" id="3_5h8ky"]
-[ext_resource type="Texture2D" uid="uid://13i0ekp83pct" path="res://assets/rings.webp" id="4_jnjht"]
+[ext_resource type="Texture2D" uid="uid://02hyxbp12e5h" path="res://assets/bubble.png" id="4_jnjht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3sg1"]
 atlas = ExtResource("2_bdcwd")
@@ -92,8 +92,8 @@ animation = &"girl1_happy"
 
 [node name="ThoughtBubble" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(6, -223)
-scale = Vector2(0.324897, 0.256362)
+position = Vector2(6, -228)
+scale = Vector2(0.324897, 0.313333)
 texture = ExtResource("4_jnjht")
 
 [node name="FoodImage" type="Sprite2D" parent="ThoughtBubble"]

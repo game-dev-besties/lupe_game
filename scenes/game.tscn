@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7w465tfimyec"]
+[gd_scene load_steps=13 format=3 uid="uid://b7w465tfimyec"]
 
 [ext_resource type="Script" uid="uid://b8fp7l0wpeawx" path="res://scripts/game.gd" id="1_lkgvj"]
-[ext_resource type="PackedScene" uid="uid://b6jq0f6yg0wuw" path="res://scenes/NPC.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://ddw71ek2dup7r" path="res://scenes/dish.tscn" id="3_gee14"]
 [ext_resource type="Texture2D" uid="uid://dspqnr0vuhl4l" path="res://assets/table.png" id="3_lbhrr"]
 [ext_resource type="Script" uid="uid://decuur7sn58mt" path="res://scripts/spinningthing.gd" id="3_p57ef"]
-[ext_resource type="PackedScene" uid="uid://ddw71ek2dup7r" path="res://scenes/dish.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b6jq0f6yg0wuw" path="res://scenes/NPC.tscn" id="4_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://ch8611g0nx445" path="res://scenes/teacup.tscn" id="5_vtaks"]
+[ext_resource type="PackedScene" uid="uid://ct8tletcl4vu6" path="res://scenes/teapot.tscn" id="6_0tnpc"]
 
 [sub_resource type="Animation" id="Animation_pk0x4"]
 length = 0.001
@@ -91,9 +93,13 @@ script = ExtResource("1_lkgvj")
 [node name="spinningthing" type="Node2D" parent="." node_paths=PackedStringArray("game_scene")]
 position = Vector2(586, 448)
 script = ExtResource("3_p57ef")
-dish_scene = ExtResource("4_u5sy4")
-npc_scene = ExtResource("2_lnu2h")
+dish_scene = ExtResource("3_gee14")
+npc_scene = ExtResource("4_0tnpc")
+teacup_scene = ExtResource("5_vtaks")
+teapot_scene = ExtResource("6_0tnpc")
 game_scene = NodePath("..")
+
+[node name="teapot" parent="spinningthing" instance=ExtResource("6_0tnpc")]
 
 [node name="table sprite" type="Sprite2D" parent="spinningthing"]
 z_index = -1000

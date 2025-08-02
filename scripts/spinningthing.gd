@@ -3,6 +3,8 @@ extends Node2D
 # --- Scene & Path Properties ---
 @export var dish_scene = load("res://scenes/dish.tscn") as PackedScene
 @export var npc_scene = load("res://scenes/NPC.tscn") as PackedScene
+@export var teacup_scene = load("res://scenes/teacup.tscn") as PackedScene
+@export var teapot_scene = load("res://scenes/teapot.tscn") as PackedScene
 @export var ellipse_width: float = 400.0
 @export var ellipse_height: float = 200.0
 @export var game_scene: Node2D
