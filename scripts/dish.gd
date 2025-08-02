@@ -57,7 +57,7 @@ func _process(delta):
 		z_index = 1
 
 func _on_empty():
-	print(item_name + " is now empty!")
+	#print(item_name + " is now empty!")
 	$Sprite2D.texture = empty_plate_texture
 	# Make the dish un-clickable and un-desirable
 	item_name = "Empty Plate"

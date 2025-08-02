@@ -92,7 +92,7 @@ func _process(delta: float):
 				sprite.modulate.s = max_redness
 				current_state = "starving"
 				satiation = 0
-				print(name + " is now starving!")
+				#print(name + " is now starving!")
 	
 	# Handle the timer for taking damage
 	if current_state == "starving":
@@ -164,6 +164,6 @@ func update_food_item_display():
 		food_image_node.visible = false
 
 func on_teacup_state_changed(new_state: Teacup.Fullness):
-	print(name + "'s teacup is now: " + Teacup.Fullness.keys()[new_state])
+	#print(name + "'s teacup is now: " + Teacup.Fullness.keys()[new_state])
 	if new_state == Teacup.Fullness.FULL:
 		print(name + " is happy about the tea!")

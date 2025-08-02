@@ -103,7 +103,7 @@ func spawn_npcs():
 
 # --- Event Functions ---
 func _on_susan_stopped():
-	print("Susan stopped! Checking dishes...")
+	#print("Susan stopped! Checking dishes...")
 	var dishes = []
 	var npcs = []
 	for node in get_children():
