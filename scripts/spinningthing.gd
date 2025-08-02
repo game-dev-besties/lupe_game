@@ -132,24 +132,24 @@ func _on_susan_stopped():
 			if can_eat and closest_dish.start_consumption(npc.consumption_timer, npc):
 				npc.start_eating()
 	
-	for npc in npcs:
-		var half_width: float = (serving_distance_threshold_radians) * 0.5
-		var start_angle: float = npc.placement_angle - half_width
-		var end_angle: float = npc.placement_angle + half_width
+	# for npc in npcs:
+	# 	var half_width: float = (serving_distance_threshold_radians) * 0.5
+	# 	var start_angle: float = npc.placement_angle - half_width
+	# 	var end_angle: float = npc.placement_angle + half_width
 
-		var pts : PackedVector2Array
-		pts.append(Vector2.ZERO)        # sector centre
+	# 	var pts : PackedVector2Array
+	# 	pts.append(Vector2.ZERO)        # sector centre
 
-		# sample the arc at equal angular steps
-		var steps: float = 20
-		for i in range(steps + 1):
-			var t: float = lerp(start_angle, end_angle, float(i) / steps)
-			pts.append(Vector2(cos(t), sin(t)) * npc_placement_radius)
+	# 	# sample the arc at equal angular steps
+	# 	var steps: float = 20
+	# 	for i in range(steps + 1):
+	# 		var t: float = lerp(start_angle, end_angle, float(i) / steps)
+	# 		pts.append(Vector2(cos(t), sin(t)) * npc_placement_radius)
 
-		var sector := Polygon2D.new()
-		sector.polygon = pts
-		sector.color   = Color(1, 0, 0, 0.5)   # semi-transparent red
-		add_child(sector)
+	# 	var sector := Polygon2D.new()
+	# 	sector.polygon = pts
+	# 	sector.color   = Color(1, 0, 0, 0.5)   # semi-transparent red
+	# 	add_child(sector)
 
 func _on_susan_started_moving():
 	# Reset all animations and timers
