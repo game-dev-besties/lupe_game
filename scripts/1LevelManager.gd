@@ -7,17 +7,14 @@ var levels = [
 	# --- LEVEL 1 ---
 	{
 		"dishes": [
-			{"texture": preload("res://assets/food/rice.png"), "scale": 0.3, "item_name": "rice", "quantity": 2},
-			{"texture": preload("res://assets/food/dumpling.png"), "scale": 0.3, "item_name": "dumpling", "quantity": 2},
+			{"texture": preload("res://assets/food/friedrice.png"), "scale": 0.3, "item_name": "friedrice", "quantity": 2},
+			{"texture": preload("res://assets/food/duck.png"), "scale": 0.3, "item_name": "duck", "quantity": 2},
+			{"texture": preload("res://assets/food/bokchoy.png"), "scale": 0.3, "item_name": "bokchoy", "quantity": 2}
 		],
 		"npcs": [
 			{"name": "girl1", "desire": "rice", "timer": 1, "sound": preload("res://assets/sfx/girlhum.mp3")},
 			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/girlhum.mp3")},
 			{"name": "girl1", "desire": "rice", "timer": 1, "sound": preload("res://assets/sfx/girlhum.mp3")},
-			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/girlhum.mp3")},
-			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
-			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
-			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 		],
 		"hunger_timer": 10.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
@@ -36,6 +33,48 @@ var levels = [
 			{"name": "girl1", "desire": "rice", "timer": 5, "sound": preload("res://assets/sfx/girlhum.mp3")},
 			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "girl1", "desire": "rice", "timer": 5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+		],
+		"hunger_timer": 30.0,
+		"cutscene_path": "res://scenes/cutscene.tscn",
+	},
+	# --- LEVEL 3 ---
+	{
+		"dishes": [
+			{"texture": preload("res://assets/food/rice.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
+			{"texture": preload("res://assets/food/dumpling.png"), "scale": 0.3, "item_name": "dumpling", "quantity": 3},
+			{"texture": preload("res://assets/food/eggroll.png"), "scale": 0.25, "item_name": "eggroll", "quantity": 3},
+			{"texture": preload("res://assets/food/frieddumpling.png"), "scale": 0.3, "item_name": "frieddumpling", "quantity": 3},
+			{"texture": preload("res://assets/food/duck.png"), "scale": 0.3, "item_name": "duck", "quantity": 3},
+			{"texture": preload("res://assets/food/noodle.png"), "scale": 0.3, "item_name": "noodle", "quantity": 3},
+		],
+		"npcs": [
+			{"name": "girl1", "desire": "rice", "timer": 5, "sound": preload("res://assets/sfx/girlhum.mp3")},
+			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "girl1", "desire": "rice", "timer": 5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+		],
+		"hunger_timer": 30.0,
+		"cutscene_path": "res://scenes/cutscene.tscn",
+	},
+	# --- LEVEL 4 ---
+	{
+		"dishes": [
+			{"texture": preload("res://assets/food/rice.png"), "scale": 0.3, "item_name": "rice", "quantity": 3},
+			{"texture": preload("res://assets/food/dumpling.png"), "scale": 0.3, "item_name": "dumpling", "quantity": 3},
+			{"texture": preload("res://assets/food/eggroll.png"), "scale": 0.25, "item_name": "eggroll", "quantity": 3},
+			{"texture": preload("res://assets/food/frieddumpling.png"), "scale": 0.3, "item_name": "frieddumpling", "quantity": 3},
+			{"texture": preload("res://assets/food/duck.png"), "scale": 0.3, "item_name": "duck", "quantity": 3},
+			{"texture": preload("res://assets/food/noodle.png"), "scale": 0.3, "item_name": "noodle", "quantity": 3},
+		],
+		"npcs": [
+			{"name": "girl1", "desire": "rice", "timer": 5, "sound": preload("res://assets/sfx/girlhum.mp3")},
+			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "girl1", "desire": "rice", "timer": 5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "girl3", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 		],
