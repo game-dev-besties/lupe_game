@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dng1qrygylq46"]
+[gd_scene load_steps=10 format=3 uid="uid://c16ysnppmgvfq"]
 
 [ext_resource type="Script" uid="uid://c3qsm3nvdukck" path="res://scripts/lost_screen.gd" id="1_mbfwh"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="1_ofr2c"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="2_v8q7l"]
+[ext_resource type="AudioStream" uid="uid://yy1g3e6dyj5p" path="res://assets/sfx/fluttering-bamboo-flute-transition-c-4-209657.mp3" id="4_ismcj"]
 
 [sub_resource type="Animation" id="Animation_pk0x4"]
 length = 0.001
@@ -143,5 +144,8 @@ offset_top = 376.0
 offset_right = 702.0
 offset_bottom = 449.0
 text = "Return to Menu"
+
+[node name="flute" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ismcj")
 
 [connection signal="pressed" from="UI/TryAgain" to="." method="_try_again"]
