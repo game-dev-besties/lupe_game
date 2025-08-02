@@ -66,7 +66,7 @@ func _on_empty():
 func start_consumption(duration: float, consumer: NPC):
 	# Don't start if already being consumed
 	if active_consume_timer and active_consume_timer.is_valid():
-		return
+		return false
 	consumption_particles.emitting = true
 	active_wobble_tween = create_tween().set_loops()
 	active_wobble_tween.tween_property(self, "rotation_degrees", 5, 0.1)
@@ -75,6 +75,7 @@ func start_consumption(duration: float, consumer: NPC):
 	active_consume_timer = create_tween()
 	active_consume_timer.tween_interval(duration)
 	active_consume_timer.tween_callback(self._on_consumption_finished.bind(consumer))
+	return true
 
 func _on_consumption_finished(consumer: NPC):
 	consumer.eat()

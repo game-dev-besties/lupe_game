@@ -111,8 +111,7 @@ func _on_susan_stopped():
 			if diff < serving_distance_threshold_degrees and closest_dish.quantity > 0:
 				if closest_dish.item_name == npc.desired_item_name and npc.satiation < npc.MAX_SATIATION:
 					can_eat = true
-			if can_eat:
-				closest_dish.start_consumption(npc.consumption_timer, npc)
+			if can_eat and closest_dish.start_consumption(npc.consumption_timer, npc):
 				npc.start_eating()
 
 func _on_susan_started_moving():
