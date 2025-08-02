@@ -94,6 +94,8 @@ func _on_susan_stopped():
 		elif node is NPC:
 			npcs.append(node)
 	# for each npc calculate what to do with dish
+	
+	var dishes_taken = []
 	for npc in npcs:
 		# distance between dish and npc
 		var closest_dish: Dish = null
@@ -109,9 +111,10 @@ func _on_susan_stopped():
 			var can_eat = false
 			# Check all conditions: close enough, correct item, dish has quantity, and npc is not full
 			if diff < serving_distance_threshold_degrees and closest_dish.quantity > 0:
-				if closest_dish.item_name == npc.desired_item_name and npc.satiation < npc.MAX_SATIATION:
+				if closest_dish.item_name == npc.desired_item_name and npc.satiation < npc.MAX_SATIATION and !(closest_dish.item_name in dishes_taken):
 					can_eat = true
 			if can_eat:
+				dishes_taken.append(closest_dish.name)
 				closest_dish.start_consumption(npc.consumption_timer, npc)
 				npc.start_eating()
 
