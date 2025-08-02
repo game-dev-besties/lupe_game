@@ -49,7 +49,33 @@ func _process(delta: float):
 		else:
 			if randf() < GET_HUNGRY_PROBABILITY:
 				current_state = "neutral"
-				desired_item_name = game_script.POSSIBLE_ITEMS[randi() % game_script.POSSIBLE_ITEMS.size()]
+				
+				var all_requests = {}
+				for item in game_script.POSSIBLE_ITEMS:
+					all_requests[item] = 0
+					
+				for node in get_parent().get_children():
+					if node is NPC:
+						if node.current_state != "happy" and node.desired_item_name in all_requests:
+							all_requests[node.desired_item_name] += 1
+				
+				var dishes_on_the_table = []
+				for node in get_parent().get_children():
+					if node is Dish:
+						var number_of_requests = 0
+						if node.item_name in all_requests:
+							number_of_requests = all_requests[node.item_name]
+						if node.quantity - number_of_requests > 0:
+							dishes_on_the_table.append(node.item_name)
+					#if node is NPC:
+						#if node.current_state != "happy":
+							#dishes_on_the_table.append(node.desired_item_name)
+				
+				if dishes_on_the_table.size() > 0:
+					desired_item_name = dishes_on_the_table[randi() % dishes_on_the_table.size()]
+				else:
+					current_state = "happy"
+					
 				update_food_item_display()
 			check_hungry_timer = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 	else:
