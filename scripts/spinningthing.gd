@@ -9,7 +9,7 @@ extends Node2D
 
 # --- Physics Properties ---
 @export var max_scale: float = 1.2
-@export var serving_distance_threshold_degrees: float = 2.0
+@export var serving_distance_threshold_degrees: float = 2
 var angular_velocity: float = 0.0
 const acceleration: float = 5.0
 const max_angular_velocity: float = 7.0
@@ -111,10 +111,10 @@ func _on_susan_stopped():
 			var can_eat = false
 			# Check all conditions: close enough, correct item, dish has quantity, and npc is not full
 			if diff < serving_distance_threshold_degrees and closest_dish.quantity > 0:
-				if closest_dish.item_name == npc.desired_item_name and npc.satiation < npc.MAX_SATIATION and !(closest_dish.item_name in dishes_taken):
+				if closest_dish.item_name == npc.desired_item_name and npc.satiation < npc.MAX_SATIATION:
 					can_eat = true
-			if can_eat:
-				dishes_taken.append(closest_dish.name)
+			if can_eat and (closest_dish.get_instance_id() not in dishes_taken):
+				dishes_taken.append(closest_dish.get_instance_id())
 				closest_dish.start_consumption(npc.consumption_timer, npc)
 				npc.start_eating()
 
