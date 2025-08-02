@@ -22,5 +22,6 @@ func take_damage():
 	if health > 0:
 		health -= 10
 		if health == 0:
-			# TODO: Handle game over logic
-			pass
+			$Transition/AnimationPlayer.play("fade_out")
+			await get_tree().create_timer(0.7).timeout
+			get_tree().change_scene_to_packed(load("res://scenes/game_loss.tscn"))
