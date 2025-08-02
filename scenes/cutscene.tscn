@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cckqhipdvojkh"]
+[gd_scene load_steps=11 format=3 uid="uid://cckqhipdvojkh"]
 
 [ext_resource type="Script" uid="uid://b61aoxsxk6ogf" path="res://scripts/cutscene.gd" id="1_nhhfa"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ox32g"]
-[ext_resource type="Texture2D" uid="uid://bf1dcg1iv5e2p" path="res://assets/happy.png" id="2_qtgye"]
 
 [sub_resource type="Animation" id="Animation_sp6f6"]
 resource_name = "Cutscene1"
@@ -247,7 +246,6 @@ libraries = {
 [node name="Susan" type="Sprite2D" parent="Characters"]
 position = Vector2(118, 778)
 scale = Vector2(1.69355, 3.25362)
-texture = ExtResource("2_qtgye")
 
 [node name="Transition" type="Node2D" parent="."]
 

@@ -85,8 +85,6 @@ z_index = -1001
 z_as_relative = false
 script = ExtResource("1_mhefn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_efvhu")
