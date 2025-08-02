@@ -100,9 +100,6 @@ teapot_scene = ExtResource("6_0tnpc")
 game_scene = NodePath("..")
 
 [node name="teapot" parent="spinningthing" instance=ExtResource("6_0tnpc")]
-z_index = 5
-z_as_relative = false
-position = Vector2(-2, -22)
 
 [node name="table sprite" type="Sprite2D" parent="spinningthing"]
 z_index = -1000
@@ -135,13 +132,13 @@ position = Vector2(388, 43)
 position = Vector2(-319, 4)
 
 [node name="Marker2D2" type="Marker2D" parent="spinningthing/TeacupSpawnPoints"]
-position = Vector2(-220, -102)
+position = Vector2(-214, -98)
 
 [node name="Marker2D3" type="Marker2D" parent="spinningthing/TeacupSpawnPoints"]
-position = Vector2(-5, -149)
+position = Vector2(-5, -132)
 
 [node name="Marker2D4" type="Marker2D" parent="spinningthing/TeacupSpawnPoints"]
-position = Vector2(196, -111)
+position = Vector2(191, -102)
 
 [node name="Marker2D5" type="Marker2D" parent="spinningthing/TeacupSpawnPoints"]
 position = Vector2(310, 6)

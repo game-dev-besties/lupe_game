@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch8611g0nx445"]
+
+[ext_resource type="Script" uid="uid://b0nw6788cadc2" path="res://scripts/teacup.gd" id="1_h0qtq"]
+[ext_resource type="Texture2D" uid="uid://bjsfdkrusar02" path="res://assets/emptytea.png" id="2_i4cwq"]
+[ext_resource type="Texture2D" uid="uid://5mfyidswwmi0" path="res://assets/halftea.png" id="3_6j0cs"]
+[ext_resource type="Texture2D" uid="uid://1devsaxfx110" path="res://assets/fulltea.png" id="4_wjc7y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h0qtq"]
+radius = 23.1948
+
+[node name="teacup" type="Area2D"]
+z_index = -2
+z_as_relative = false
+script = ExtResource("1_h0qtq")
+empty_texture = ExtResource("2_i4cwq")
+half_full_texture = ExtResource("3_6j0cs")
+full_texture = ExtResource("4_wjc7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 1)
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("2_i4cwq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h0qtq")
