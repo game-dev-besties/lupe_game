@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf1dcg1iv5e2p"
-path="res://.godot/imported/happy.png-95ccc66062e3765c160206957f6b3cc6.ctex"
+uid="uid://25rf1wix1va"
+path="res://.godot/imported/susanthink.png-3ba37ff98d19b9bf4f5e70c9ecda54a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/happy.png"
-dest_files=["res://.godot/imported/happy.png-95ccc66062e3765c160206957f6b3cc6.ctex"]
+source_file="res://assets/susan/susanthink.png"
+dest_files=["res://.godot/imported/susanthink.png-3ba37ff98d19b9bf4f5e70c9ecda54a9.ctex"]
 
 [params]
 

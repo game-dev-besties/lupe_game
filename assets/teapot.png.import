@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckocik50o6pwf"
-path="res://.godot/imported/neutral.png-0853efa0280863553ad84b31ebb222c6.ctex"
+uid="uid://bbbdkq4c47had"
+path="res://.godot/imported/teapot.png-add7b5438951b36779ce5b3dbf415825.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/neutral.png"
-dest_files=["res://.godot/imported/neutral.png-0853efa0280863553ad84b31ebb222c6.ctex"]
+source_file="res://assets/teapot.png"
+dest_files=["res://.godot/imported/teapot.png-add7b5438951b36779ce5b3dbf415825.ctex"]
 
 [params]
 

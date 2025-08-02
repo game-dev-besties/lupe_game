@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm14hg5p2kw18"
-path="res://.godot/imported/foodfds.webp-f13a150292cba7f26dae9659794ef81c.ctex"
+uid="uid://1devsaxfx110"
+path="res://.godot/imported/fulltea.png-6353d68e545f69948287feaa6e0048cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/foodfds.webp"
-dest_files=["res://.godot/imported/foodfds.webp-f13a150292cba7f26dae9659794ef81c.ctex"]
+source_file="res://assets/fulltea.png"
+dest_files=["res://.godot/imported/fulltea.png-6353d68e545f69948287feaa6e0048cd.ctex"]
 
 [params]
 
