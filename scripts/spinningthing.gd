@@ -113,6 +113,7 @@ func _on_susan_stopped():
 					can_eat = true
 			if can_eat:
 				closest_dish.start_consumption(npc.consumption_timer, npc)
+				npc.start_eating()
 
 func _on_susan_started_moving():
 	# Reset all animations and timers
