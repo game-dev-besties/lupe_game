@@ -72,18 +72,27 @@ func spawn_dishes():
 		add_child(dish_instance)
 
 func spawn_npcs():
-	var spawn_points = $NpcSpawnPoints.get_children()
+	var npc_spawn_points = $NpcSpawnPoints.get_children()
+	var teacup_spawn_points = $TeacupSpawnPoints.get_children()
 	var total_npcs = npc_desires.size()
-
-	# Loop through the NPCs, but don't spawn more than marker amount
-	for i in range(min(total_npcs, spawn_points.size())):
+	for i in range(min(total_npcs, npc_spawn_points.size(), teacup_spawn_points.size())):
 		var npc_instance = npc_scene.instantiate()
-		var spawn_marker = spawn_points[i]
+		var teacup_instance = teacup_scene.instantiate()
+		var npc_marker = npc_spawn_points[i]
 		npc_instance.init(npc_desires[i])
-		npc_instance.placement_angle = spawn_marker.position.angle()
-		npc_instance.position = spawn_marker.position
-		(npc_instance as NPC).game_object = game_scene
+		npc_instance.placement_angle = npc_marker.position.angle()
+		npc_instance.position = npc_marker.position
+	
+		#teacups
+		var teacup_marker = teacup_spawn_points[i]
+		teacup_instance.position = teacup_marker.position
+		(npc_instance as NPC).game_object = game_scene 
+		#link them
+		npc_instance.my_teacup = teacup_instance
+		teacup_instance.owner_npc = npc_instance
+		
 		add_child(npc_instance)
+		add_child(teacup_instance)
 
 # --- Event Functions ---
 func _on_susan_stopped():

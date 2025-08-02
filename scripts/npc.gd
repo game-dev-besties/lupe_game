@@ -26,6 +26,7 @@ var turn_red_rate: float = 0.05
 var max_redness: float = 0.5
 var spawn_position: Vector2
 var shake_tween: Tween
+var my_teacup: Teacup
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -163,4 +164,8 @@ func update_food_item_display():
 		# Hide the ThoughtBubble if there's no desired item
 		$ThoughtBubble.visible = false
 		food_image_node.visible = false
-		
+
+func on_teacup_state_changed(new_state: Teacup.Fullness):
+	print(name + "'s teacup is now: " + Teacup.Fullness.keys()[new_state])
+	if new_state == Teacup.Fullness.FULL:
+		print(name + " is happy about the tea!")

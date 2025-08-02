@@ -15,7 +15,7 @@ func _ready():
 
 func fill():
 	if fullness < Fullness.FULL:
-		fullness += 1
+		fullness += 2
 		update_texture()
 		if owner_npc:
 			owner_npc.on_teacup_state_changed(fullness)

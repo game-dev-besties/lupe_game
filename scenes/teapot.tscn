@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bbbdkq4c47had" path="res://assets/teapot.png" id="2_gi2kt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gi2kt"]
+radius = 70.0286
 
 [node name="teapot" type="Area2D"]
 script = ExtResource("1_8y5ma")
