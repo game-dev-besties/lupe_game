@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm14hg5p2kw18"
-path="res://.godot/imported/foodfds.webp-f13a150292cba7f26dae9659794ef81c.ctex"
+uid="uid://hdupbx18gdiw"
+path="res://.godot/imported/menubg.png-0a03816d00d6d18761aee206e1f70b2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/foodfds.webp"
-dest_files=["res://.godot/imported/foodfds.webp-f13a150292cba7f26dae9659794ef81c.ctex"]
+source_file="res://assets/menu/menubg.png"
+dest_files=["res://.godot/imported/menubg.png-0a03816d00d6d18761aee206e1f70b2f.ctex"]
 
 [params]
 

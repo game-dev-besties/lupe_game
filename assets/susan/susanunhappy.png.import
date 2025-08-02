@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckocik50o6pwf"
-path="res://.godot/imported/neutral.png-0853efa0280863553ad84b31ebb222c6.ctex"
+uid="uid://bsrkfavscr4o6"
+path="res://.godot/imported/susanunhappy.png-b11cd9bf3dc49293444f4b15477db344.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/neutral.png"
-dest_files=["res://.godot/imported/neutral.png-0853efa0280863553ad84b31ebb222c6.ctex"]
+source_file="res://assets/susan/susanunhappy.png"
+dest_files=["res://.godot/imported/susanunhappy.png-b11cd9bf3dc49293444f4b15477db344.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csrydp28wf4hv"
-path="res://.godot/imported/susan.png-791fad9e6e3558f141cbd2ee3ea55ad7.ctex"
+uid="uid://duqp76eh5ymjh"
+path="res://.godot/imported/susangrin.png-4063275df9f5c7f763ab3e2cac752484.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/npc/susan.png"
-dest_files=["res://.godot/imported/susan.png-791fad9e6e3558f141cbd2ee3ea55ad7.ctex"]
+source_file="res://assets/susan/susangrin.png"
+dest_files=["res://.godot/imported/susangrin.png-4063275df9f5c7f763ab3e2cac752484.ctex"]
 
 [params]
 
