@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch8611g0nx445"]
+[gd_scene load_steps=6 format=3 uid="uid://cy8pyoptiw1gd"]
 
-[ext_resource type="Script" uid="uid://b0nw6788cadc2" path="res://scripts/teacup.gd" id="1_h0qtq"]
+[ext_resource type="Script" path="res://scripts/teacup.gd" id="1_h0qtq"]
 [ext_resource type="Texture2D" uid="uid://bjsfdkrusar02" path="res://assets/emptytea.png" id="2_i4cwq"]
 [ext_resource type="Texture2D" uid="uid://5mfyidswwmi0" path="res://assets/halftea.png" id="3_6j0cs"]
 [ext_resource type="Texture2D" uid="uid://1devsaxfx110" path="res://assets/fulltea.png" id="4_wjc7y"]

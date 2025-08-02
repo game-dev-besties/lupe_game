@@ -72,12 +72,10 @@ func _process(delta: float):
 					#if node is NPC:
 						#if node.current_state != "happy":
 							#dishes_on_the_table.append(node.desired_item_name)
-				
 				if dishes_on_the_table.size() > 0:
 					desired_item_name = dishes_on_the_table[randi() % dishes_on_the_table.size()]
 				else:
 					current_state = "happy"
-					
 				update_food_item_display()
 			check_hungry_timer = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 	else:
