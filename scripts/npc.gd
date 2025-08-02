@@ -140,8 +140,12 @@ func eat():
 
 func update_emotion():
 	if current_state == "happy":
+		if shake_tween:
+			shake_tween.kill()
 		sprite.play(happy_animation)
 	elif current_state == "neutral":
+		if shake_tween:
+			shake_tween.kill()
 		sprite.play(neutral_animation)
 	elif current_state == "unhappy" or current_state == "starving":
 		sprite.play(unhappy_animation)
