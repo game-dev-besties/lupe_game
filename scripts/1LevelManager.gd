@@ -60,7 +60,8 @@ func advance_to_next_level(is_game = false):
 	if is_game:
 		load_game_scene()
 	else:
-		get_tree().change_scene_to_file(cutscene_path)
+		if (cutscene_path):
+			get_tree().change_scene_to_file(cutscene_path)
 		current_level_index += 1
 
 func load_game_scene():

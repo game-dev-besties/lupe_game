@@ -12,7 +12,7 @@ var health: int = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Transition/AnimationPlayer.play("fade_in")
+	#$Transition/AnimationPlayer.play("fade_in")
 	health_bar.value = health
 
 
