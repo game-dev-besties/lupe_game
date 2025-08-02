@@ -11,7 +11,7 @@ extends Node2D
 
 # --- Physics Properties ---
 @export var max_scale: float = 1.2
-@export var serving_distance_threshold_radians: float = 25.0 * (PI / 180.0)
+@export var serving_distance_threshold_radians: float = 30.0 * (PI / 180.0)
 var angular_velocity: float = 0.0
 const acceleration: float = 5.0
 const max_angular_velocity: float = 7.0
