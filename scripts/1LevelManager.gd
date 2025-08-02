@@ -11,9 +11,9 @@ var levels = [
 			{"texture": preload("res://assets/food/dumpling.png"), "scale": 0.3, "item_name": "dumpling", "quantity": 2},
 		],
 		"npcs": [
-			{"name": "girl1", "desire": "rice", "timer": 5},
+			{"name": "girl1", "desire": "rice", "timer": 1},
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
-			{"name": "girl1", "desire": "rice", "timer": 5},
+			{"name": "girl1", "desire": "rice", "timer": 1},
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
 			{"name": "girl3", "desire": "rice", "timer": 1.5},
@@ -55,6 +55,8 @@ func advance_to_next_level():
 	var level_data = get_current_level_data()
 	var cutscene_path = level_data.get("cutscene_path")
 	current_level_index += 1
+	Transition.transition()
+	await Transition.on_transition_finished
 	if cutscene_path:
 		get_tree().change_scene_to_file(cutscene_path)
 	else:

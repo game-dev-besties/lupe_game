@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cckqhipdvojkh"]
+[gd_scene load_steps=14 format=3 uid="uid://cckqhipdvojkh"]
 
 [ext_resource type="Script" uid="uid://b61aoxsxk6ogf" path="res://scripts/cutscene.gd" id="1_nhhfa"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ox32g"]
 [ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="3_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://bsrkfavscr4o6" path="res://assets/susan/susanunhappy.png" id="4_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="5_fs8wb"]
+[ext_resource type="PackedScene" uid="uid://c5pq32ffsnad1" path="res://scenes/transition.tscn" id="6_bb0yx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs8wb"]
 bg_color = Color(1, 1, 1, 1)
@@ -221,6 +222,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Characters/Susan:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(402, 393), Vector2(402, 381), Vector2(402, 393)]
+}
 
 [sub_resource type="Animation" id="Animation_ho0y6"]
 length = 0.001
@@ -251,19 +264,19 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Transition/ColorRect:color")
+tracks/2/path = NodePath("UI/Panel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Transition/ColorRect:visible")
+tracks/3/path = NodePath("UI/Panel:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -275,46 +288,22 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("UI/Panel:modulate")
+tracks/4/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": ["Ugh, it's Lunar New Year's again! That means another family dinner with aunts and uncles asking me about school and classes, as if they actually cared what I got on my calculus test last week. "]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("UI/Panel:visible")
+tracks/5/path = NodePath("Characters/Susan:texture")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Ugh, it's Lunar New Year's again! That means another family dinner with aunts and uncles asking me about school and classes, as if they actually cared what I got on my calculus test last week. "]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Characters/Susan:texture")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -344,84 +333,6 @@ _data = {
 &"Cutscene3": SubResource("Animation_bb0yx"),
 &"RESET": SubResource("Animation_ho0y6"),
 &"stop": SubResource("Animation_kie4y")
-}
-
-[sub_resource type="Animation" id="Animation_pk0x4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_i0p51"]
-resource_name = "fade_in"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.0666667, 0.0666667, 0.0666667, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_d6meh"]
-resource_name = "fade_out"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0.066755, 0.066755, 0.066755, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ljsqd"]
-_data = {
-&"RESET": SubResource("Animation_pk0x4"),
-&"fade_in": SubResource("Animation_i0p51"),
-&"fade_out": SubResource("Animation_d6meh")
 }
 
 [node name="cutscene" type="Node2D"]
@@ -470,27 +381,15 @@ position = Vector2(118, 778)
 scale = Vector2(0.323207, 0.323207)
 texture = ExtResource("4_2bm7f")
 
-[node name="Transition" type="Node2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Transition"]
-top_level = true
-offset_left = -183.0
-offset_top = -156.0
-offset_right = 1321.0
-offset_bottom = 898.0
-color = Color(0, 0, 0, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-libraries = {
-&"": SubResource("AnimationLibrary_ljsqd")
-}
-
 [node name="Skip" type="Button" parent="."]
 offset_left = 1045.0
 offset_top = 14.0
 offset_right = 1136.0
 offset_bottom = 54.0
 text = "SKIP"
+
+[node name="Transition" parent="." instance=ExtResource("6_bb0yx")]
+visible = false
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
