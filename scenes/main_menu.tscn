@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3sc76yb0ic14"]
+[gd_scene load_steps=10 format=3 uid="uid://b3sc76yb0ic14"]
 
 [ext_resource type="Script" uid="uid://cbqhswdgobdgw" path="res://scripts/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_rtw2f"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bcr2x6oc0we43" path="res://assets/menu/creditstext.png" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://b56qprdik4xgh" path="res://assets/menu/not_so_lazy_susan_title.png" id="6_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://bxfsnhe4nos7a" path="res://assets/menu/Glow-PNG-Clipart-Background.png" id="7_oa1go"]
+[ext_resource type="AudioStream" uid="uid://b3y0m87o6ya80" path="res://assets/sfx/Feng's frolick.mp3" id="8_tbmy8"]
+[ext_resource type="AudioStream" uid="uid://bhe1oxedshhgw" path="res://assets/sfx/old-radio-button-click-97549.mp3" id="9_jk1qb"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_8ln24")
@@ -37,11 +39,13 @@ offset_bottom = 72.4852
 color = Color(1, 1, 1, 0)
 
 [node name="CreditsText" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1021, 580)
 scale = Vector2(0.341875, 0.341875)
 texture = ExtResource("5_jk1qb")
 
 [node name="CreditsButton" type="ColorRect" parent="CreditsText"]
+visible = false
 offset_left = -303.0
 offset_top = -81.0
 offset_right = 303.0
@@ -64,6 +68,15 @@ texture = ExtResource("7_oa1go")
 position = Vector2(784, 60)
 energy = 0.39
 texture = ExtResource("7_oa1go")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_tbmy8")
+autoplay = true
+parameters/looping = true
+
+[node name="button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_jk1qb")
+volume_db = 5.943
 
 [connection signal="gui_input" from="StartGameText/StartGameButton" to="." method="_on_start_game_button_gui_input"]
 [connection signal="mouse_entered" from="StartGameText/StartGameButton" to="." method="_on_start_game_button_mouse_entered"]

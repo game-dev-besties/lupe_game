@@ -1,11 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://cckqhipdvojkh"]
+[gd_scene load_steps=37 format=3 uid="uid://cckqhipdvojkh"]
 
 [ext_resource type="Script" uid="uid://b61aoxsxk6ogf" path="res://scripts/cutscene.gd" id="1_nhhfa"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ox32g"]
 [ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="3_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://bsrkfavscr4o6" path="res://assets/susan/susanunhappy.png" id="4_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="5_fs8wb"]
-[ext_resource type="PackedScene" uid="uid://c5pq32ffsnad1" path="res://scenes/transition.tscn" id="6_bb0yx"]
+[ext_resource type="PackedScene" path="res://scenes/transition.tscn" id="6_bb0yx"]
 [ext_resource type="AudioStream" uid="uid://crarrjbtjhhqt" path="res://assets/sfx/talking.mp3" id="7_3ptll"]
 [ext_resource type="Texture2D" uid="uid://3716nuy2q32q" path="res://assets/susan/susan2unhappy.png" id="7_8qop0"]
 [ext_resource type="Texture2D" uid="uid://6i0i74tt8gkq" path="res://assets/cutscene/level_2.png" id="7_75brc"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://disjy801sdt8w" path="res://assets/cutscene/level_4.png" id="10_q01xw"]
 [ext_resource type="Texture2D" uid="uid://dp111mqwflg5d" path="res://assets/susan/susan3grin.png" id="12_mu2gi"]
 [ext_resource type="Texture2D" uid="uid://dthx11pk2j27x" path="res://assets/susan/susan3think.png" id="13_c7dhu"]
+[ext_resource type="AudioStream" uid="uid://dwlcahs58r7bw" path="res://assets/sfx/mamie_gibberish_1-38387.mp3" id="17_c7dhu"]
+[ext_resource type="AudioStream" uid="uid://vr2xc62mwm0n" path="res://assets/sfx/Wong's Waltz.mp3" id="18_qthij"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs8wb"]
 bg_color = Color(1, 1, 1, 1)
@@ -129,6 +131,25 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(346, 451)]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gibberish")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_c7dhu")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}],
+"times": PackedFloat32Array(0.166667, 0.7)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_8qop0"]
 resource_name = "Cutscene10"
@@ -229,6 +250,21 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(346, 451)]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gibberish")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 1.25,
+"start_offset": 2.48,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.156667)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_mu2gi"]
 resource_name = "Cutscene11"
@@ -393,6 +429,21 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(346, 451)]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gibberish")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.7,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.413333)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_qthij"]
 resource_name = "Cutscene13"
@@ -493,6 +544,21 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(346, 451)]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gibberish")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.49,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.133333)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_er82a"]
 resource_name = "Cutscene14"
@@ -657,6 +723,21 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(346, 451)]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gibberish")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.62,
+"start_offset": 0.56,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.0133333)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_bb0yx"]
 resource_name = "Cutscene3"
@@ -732,6 +813,21 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(588, -287)]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("gibberish")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 2.35,
+"start_offset": 1.38,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_3ptll"]
 length = 0.5
@@ -895,6 +991,21 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(346, 451)]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gibberish")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 2.21,
+"start_offset": 1.32,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.233333)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_v50sc"]
 resource_name = "Cutscene6"
@@ -983,6 +1094,21 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(588, -287)]
 }
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("gibberish")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 1.93,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/7/use_blend = true
 
 [sub_resource type="Animation" id="Animation_wxq4c"]
 resource_name = "Cutscene7"
@@ -1159,6 +1285,21 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(346, 451)]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gibberish")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 2.01,
+"start_offset": 0.37,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.533333)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_m2h23"]
 resource_name = "Cutscene9"
@@ -1259,6 +1400,21 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(346, 451)]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gibberish")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.36,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.0266666)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ho0y6"]
 length = 0.001
@@ -1432,9 +1588,9 @@ texture = ExtResource("2_ox32g")
 
 [node name="Panel" type="Panel" parent="UI"]
 offset_left = 346.0
-offset_top = 451.0
+offset_top = 700.0
 offset_right = 1000.0
-offset_bottom = 616.0
+offset_bottom = 865.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fs8wb")
 
 [node name="Panel2" type="Panel" parent="UI/Panel"]
@@ -1519,6 +1675,15 @@ visible = false
 position = Vector2(588, 317)
 scale = Vector2(0.713889, 0.713889)
 texture = ExtResource("8_d18fx")
+
+[node name="gibberish" type="AudioStreamPlayer2D" parent="."]
+pitch_scale = 0.67
+
+[node name="bg music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_qthij")
+volume_db = -2.972
+autoplay = true
+parameters/looping = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="gui_input" from="SkipButton" to="." method="_on_skip_button_gui_input"]
