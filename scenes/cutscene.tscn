@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://d0mpfjlf7iybq" path="res://assets/susan/susan2grin.png" id="10_c7dhu"]
 [ext_resource type="Texture2D" uid="uid://dp111mqwflg5d" path="res://assets/susan/susan3grin.png" id="12_mu2gi"]
 [ext_resource type="Texture2D" uid="uid://dthx11pk2j27x" path="res://assets/susan/susan3think.png" id="13_c7dhu"]
+[ext_resource type="AudioStream" uid="uid://dwlcahs58r7bw" path="res://assets/sfx/mamie_gibberish_1-38387.mp3" id="17_c7dhu"]
+[ext_resource type="AudioStream" uid="uid://vr2xc62mwm0n" path="res://assets/sfx/Wong's Waltz.mp3" id="18_qthij"]
 [ext_resource type="Texture2D" uid="uid://4vmnf30vrfo7" path="res://assets/susan/susan4grin.png" id="15_c7dhu"]
 [ext_resource type="Texture2D" uid="uid://mjrg273hat8l" path="res://assets/susan/susan4thinking.png" id="16_qthij"]
 [ext_resource type="Texture2D" uid="uid://b0df0p0d828mq" path="res://assets/susan/suzie.png" id="17_er82a"]
