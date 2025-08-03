@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="3_a8j0u"]
 [ext_resource type="Texture2D" uid="uid://bsrkfavscr4o6" path="res://assets/susan/susanunhappy.png" id="4_bdjqb"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="5_rtm7m"]
-[ext_resource type="PackedScene" path="res://scenes/transition.tscn" id="6_k1ltm"]
+[ext_resource type="PackedScene" uid="uid://c5pq32ffsnad1" path="res://scenes/transition.tscn" id="6_k1ltm"]
 [ext_resource type="AudioStream" uid="uid://crarrjbtjhhqt" path="res://assets/sfx/talking.mp3" id="7_bvpec"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs8wb"]

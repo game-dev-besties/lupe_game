@@ -4,13 +4,17 @@ extends Node2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var talking_effect = $talking
 
-var chapter: int = 1
+var chapter: int
+const end_chapter_nums = [1, 5, 8, 12, 15]
+const max_chapters = 14
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	chapter = LevelManager.get_current_chapter()
 	$UI/Panel.visible = false
-	animation.play("Cutscene1")
-	talking_effect.play()
+	if (chapter <= max_chapters):
+		animation.play("Cutscene" + str(chapter))
+		talking_effect.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -18,13 +22,18 @@ func _process(_delta):
 		if animation.is_playing():
 			animation.pause()
 			text.visible_ratio = 1
+			if (end_chapter_nums.has(chapter)):
+				$UI/Panel.visible = true
+				$Characters/Susan.position = Vector2(402, 393)
+			elif (end_chapter_nums.has(chapter+1)):
+				$tutorialbox.position = Vector2(588, 317)
 		else:
 			chapter += 1
-			if (chapter > 4):
+			if (end_chapter_nums.has(chapter)):
 				end_cutscene()
 			else:
 				animation.play("Cutscene" + str(chapter))
-				if (chapter <= 3):
+				if !((end_chapter_nums).has(chapter+1)):
 					talking_effect.play()
 	
 	elif Input.is_action_just_pressed("ui_cancel"):
@@ -32,6 +41,7 @@ func _process(_delta):
 	
 func end_cutscene():
 	animation.play("stop")
+	LevelManager.set_current_chapter(chapter)
 	LevelManager.advance_to_next_level(true)
 
 func _on_skip_pressed():
