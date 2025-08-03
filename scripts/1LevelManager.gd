@@ -17,8 +17,8 @@ var levels = [
 			{"name": "mother1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/girlhum.mp3")},
 			{"name": "father1", "desire": "rice", "timer": 1, "sound": preload("res://assets/sfx/girlhum.mp3")},
 		],
-		"hunger_timer": 10.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
+		"hunger_timer": 2.0,
 	},
 	# --- LEVEL 2 ---
 	{
@@ -37,7 +37,7 @@ var levels = [
 			{"name": "aunt1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "uncle1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 		],
-		"hunger_timer": 30.0,
+		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
 	},
 	# --- LEVEL 3 ---
@@ -58,7 +58,7 @@ var levels = [
 			{"name": "uncle2", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "bwife1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 		],
-		"hunger_timer": 30.0,
+		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
 	},
 	# --- LEVEL 4 ---
@@ -79,7 +79,7 @@ var levels = [
 			{"name": "aunt2", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "husband", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 		],
-		"hunger_timer": 30.0,
+		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
 	},
 	# --- todo: add more levels here ---
