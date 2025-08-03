@@ -44,7 +44,10 @@ dish_scene = ExtResource("3_gee14")
 npc_scene = ExtResource("4_0tnpc")
 teacup_scene = ExtResource("5_vtaks")
 teapot_scene = ExtResource("6_0tnpc")
+ellipse_width = null
+ellipse_height = null
 game_scene = NodePath("..")
+max_scale = null
 
 [node name="teapot" parent="spinningthing" instance=ExtResource("6_0tnpc")]
 z_index = 5

@@ -18,6 +18,7 @@ var levels = [
 		],
 		"hunger_timer": 10.0,
 		"cutscene_path": "res://scenes/cutscene_level_1.tscn",
+		"modifiers" : [],
 	},
 	# --- LEVEL 2 ---
 	{
@@ -38,6 +39,7 @@ var levels = [
 		],
 		"hunger_timer": 30.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
+		"modifiers" : [],
 	},
 	# --- LEVEL 3 ---
 	{
@@ -59,6 +61,7 @@ var levels = [
 		],
 		"hunger_timer": 30.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
+		"modifiers" : [],
 	},
 	# --- LEVEL 4 ---
 	{
@@ -80,6 +83,7 @@ var levels = [
 		],
 		"hunger_timer": 30.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
+		"modifiers" : ["clockwise"],
 	},
 	# --- todo: add more levels here ---
 ]

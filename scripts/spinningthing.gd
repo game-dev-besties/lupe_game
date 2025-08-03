@@ -18,7 +18,7 @@ const max_angular_velocity: float = 7.0
 const natural_friction: float = 1.0
 const brake_force: float = 8.0
 const npc_placement_radius = 200
-
+var modifiers
 # -- States ---
 var is_rotating: bool = false
 
@@ -42,6 +42,7 @@ var npc_desires = [
 func _ready():
 	var current_level_data: Dictionary = LevelManager.get_current_level_data()
 	print(current_level_data.get("hunger_timer"))
+	modifiers = current_level_data.get("modifiers")
 	if current_level_data:
 		bell_sound_effect.play()
 		dishes_data = current_level_data["dishes"]

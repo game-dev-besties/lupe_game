@@ -336,7 +336,7 @@ _data = {
 &"stop": SubResource("Animation_kie4y")
 }
 
-[node name="cutscene" type="Node2D"]
+[node name="cutscene2" type="Node2D"]
 script = ExtResource("1_kc2cl")
 
 [node name="Background" type="Sprite2D" parent="."]
