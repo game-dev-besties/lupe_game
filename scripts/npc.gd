@@ -38,7 +38,10 @@ var my_teacup: Teacup
 var modifiers = []
 var modifier_anger_active: bool = false
 var modifier_anger_timer: float = 0.0
+var angry_state = "no"
+var angry_dmg = false
 var is_eating: bool = false
+
 
 @export var serving_distance_threshold_radians: float = 30.0 * (PI / 180.0)
 
@@ -72,22 +75,23 @@ func _process(delta: float):
 	var spinningthing = game_object.get_node("spinningthing")
 	# grandma logic
 	if modifier_anger_active:
+		shake()
 		modifier_anger_timer -= delta
 		if modifier_anger_timer <= 0:
 			modifier_anger_active = false
-			current_state = "happy"
-			satiation = 5
+			angry_state = "no"
 			position = spawn_position
 			sprite.modulate.s = 0
+			if shake_tween:
+				shake_tween.kill()
 			update_emotion()
-	if modifiers.has("clockwise") and self.name == "aunt2" and spinningthing.angular_velocity < 0 and not modifier_anger_active:
+			angry_dmg = false
+	if modifiers.has("clockwise") and self.name == "aunt2" and spinningthing.angular_velocity < -0.2 and not modifier_anger_active:
 		modifier_anger_active = true
 		modifier_anger_timer = 5.0 
-		satiation = 0
-		current_state = "starving"
+		sprite.play(self.name + "_angry")
+		angry_state = "angry"
 		sprite.modulate.s = max_redness
-		update_emotion()
-
 	# If the NPC has a teacup, check its state
 	if my_teacup and modifiers.has("tea"):
 		# Update teacup timer
@@ -150,7 +154,12 @@ func _process(delta: float):
 				current_state = "starving"
 				satiation = 0
 				#print(name + " is now starving!")
-	
+	if angry_state == "angry" and not angry_dmg:
+			game_script.take_damage()
+			game_script.take_damage()
+			game_script.take_damage()
+			angry_dmg = true
+
 	# Handle the timer for taking damage
 	if current_state == "starving":
 		shake()
@@ -205,6 +214,8 @@ func cancel_eating():
 	is_eating = false
 
 func update_emotion():
+	if angry_state == "angry":
+		return
 	if current_state == "happy":
 		if shake_tween:
 			shake_tween.kill()
@@ -259,7 +270,7 @@ func look_for_dish():
 		if diff < serving_distance_threshold_radians and closest_dish.quantity > 0:
 			if closest_dish.item_name == desired_item_name and current_state != "happy":
 				can_eat = true
-		print(name + " is looking for a dish. Closest dish: " + closest_dish.item_name + ", angle difference: " + str(diff) + ", can eat: " + str(can_eat))
+		#print(name + " is looking for a dish. Closest dish: " + closest_dish.item_name + ", angle difference: " + str(diff) + ", can eat: " + str(can_eat))
 		if can_eat and closest_dish.start_consumption(consumption_timer, self):
 			print(name + " is starting to eat " + closest_dish.item_name)
 			start_eating()
