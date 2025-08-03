@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7w465tfimyec"]
+[gd_scene load_steps=13 format=3 uid="uid://b7w465tfimyec"]
 
 [ext_resource type="Script" uid="uid://b8fp7l0wpeawx" path="res://scripts/game.gd" id="1_lkgvj"]
 [ext_resource type="PackedScene" uid="uid://ddw71ek2dup7r" path="res://scenes/dish.tscn" id="3_gee14"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cxa2ocjnlijcn" path="res://scenes/teapot.tscn" id="6_0tnpc"]
 [ext_resource type="AudioStream" uid="uid://ccn0r4cijwkf" path="res://assets/sfx/servant-bell-ring-1-211684.mp3" id="9_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bxfsnhe4nos7a" path="res://assets/menu/Glow-PNG-Clipart-Background.png" id="10_vtaks"]
+[ext_resource type="AudioStream" uid="uid://d2mgdqigxtvcj" path="res://assets/MainGameOST.mp3" id="11_kvpfn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
 bg_color = Color(0.836524, 0.0884444, 0.42513, 1)
@@ -132,3 +133,9 @@ position = Vector2(775, 143)
 scale = Vector2(1.10172, 1.05127)
 energy = 0.39
 texture = ExtResource("10_vtaks")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_kvpfn")
+volume_db = 18.879
+autoplay = true
+parameters/looping = true
