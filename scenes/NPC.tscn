@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b6jq0f6yg0wuw"]
+[gd_scene load_steps=66 format=3 uid="uid://b6jq0f6yg0wuw"]
 
 [ext_resource type="Script" uid="uid://c20iiwfaxynah" path="res://scripts/npc.gd" id="1_mhefn"]
 [ext_resource type="Texture2D" uid="uid://dj4x3c7aq2nsu" path="res://assets/npc/brother1_happy.png" id="2_5t8s8"]
@@ -60,6 +60,9 @@
 [ext_resource type="Texture2D" uid="uid://oe1rct0t3qf3" path="res://assets/npc/teen1_happy.png" id="50_iclnv"]
 [ext_resource type="Texture2D" uid="uid://b1c7xlkex7exi" path="res://assets/npc/teen1_neutral.png" id="51_y008v"]
 [ext_resource type="Texture2D" uid="uid://do4un0qkcm4rv" path="res://assets/npc/teen1_unhappy.png" id="52_k8aik"]
+[ext_resource type="Shader" uid="uid://c7p6k13rpbolj" path="res://bubble_fill.gdshader" id="60_mk11r"]
+[ext_resource type="Texture2D" uid="uid://dj2linq67pfuv" path="res://assets/food/dumpling.png" id="61_k1s46"]
+[ext_resource type="Script" uid="uid://b6ccqt0xufp4h" path="res://scripts/bubble_fill.gd" id="61_nfk7d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_efvhu"]
 animations = [{
@@ -520,6 +523,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vi4yh"]
+shader = ExtResource("60_mk11r")
+shader_parameter/fill_pct = 0.8
+shader_parameter/fill_color = Color(0.974527, 0.409477, 0.524013, 1)
+
 [node name="NPC" type="Node2D"]
 z_index = -1001
 z_as_relative = false
@@ -536,7 +544,17 @@ position = Vector2(6, -180)
 scale = Vector2(0.324897, 0.313333)
 texture = ExtResource("4_jnjht")
 
+[node name="TintedThoughtBubble" type="Sprite2D" parent="ThoughtBubble"]
+modulate = Color(0.736348, 0.297515, 0.406737, 1)
+material = SubResource("ShaderMaterial_vi4yh")
+scale = Vector2(1.042, 1)
+texture = ExtResource("4_jnjht")
+script = ExtResource("61_nfk7d")
+start_fill_color = Color(1, 0.402498, 0.33397, 0.588235)
+end_fill_color = Color(1, 0, 0, 0.784314)
+
 [node name="FoodImage" type="Sprite2D" parent="ThoughtBubble"]
+texture = ExtResource("61_k1s46")
 
 [node name="pop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_7pv12")

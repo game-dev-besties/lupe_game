@@ -116,6 +116,10 @@ func _process(delta: float):
 	# Update the sprite animation based on the current state
 	update_emotion()
 
+	# Update thought bubble satiation visual fill up thing
+	var tinted_thought_bubble = $ThoughtBubble/TintedThoughtBubble
+	(tinted_thought_bubble as BubbleFill).set_fill((MAX_SATIATION - satiation) / MAX_SATIATION)
+
 func start_eating():
 	pop.play()
 	if shake_tween:
