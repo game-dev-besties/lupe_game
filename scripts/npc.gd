@@ -26,6 +26,8 @@ var spawn_position: Vector2
 var shake_tween: Tween
 var my_teacup: Teacup
 
+@export var serving_distance_threshold_radians: float = 30.0 * (PI / 180.0)
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func init(data: Dictionary):
@@ -72,6 +74,10 @@ func _process(delta: float):
 
 				if dishes_on_the_table.size() > 0:
 					desired_item_name = dishes_on_the_table[randi() % dishes_on_the_table.size()]
+					# If the susan isn't rotating, we can look for a dish
+					var spinningthing = game_object.get_node("spinningthing")
+					if not spinningthing.is_rotating:
+						look_for_dish()
 				else:
 					current_state = "happy"
 				update_food_item_display()
@@ -168,3 +174,30 @@ func on_teacup_state_changed(new_state: Teacup.Fullness):
 	#print(name + "'s teacup is now: " + Teacup.Fullness.keys()[new_state])
 	if new_state == Teacup.Fullness.FULL:
 		print(name + " is happy about the tea!")
+
+func look_for_dish():
+	var spinningthing = game_object.get_node("spinningthing")
+	var children = spinningthing.get_children()
+	var dishes = []
+	for node in children:
+		if node is Dish:
+			dishes.append(node)
+
+	var closest_dish: Dish = null
+	var min_angle_diff = INF
+	for dish in dishes:
+		var diff = abs(angle_difference(placement_angle, dish.current_angle))
+		if diff < min_angle_diff:
+			min_angle_diff = diff
+			closest_dish = dish
+	if closest_dish:
+		var diff = abs(angle_difference(placement_angle, closest_dish.current_angle))
+		var can_eat = false
+		# Check all conditions: close enough, correct item, dish has quantity, and npc is not full
+		if diff < serving_distance_threshold_radians and closest_dish.quantity > 0:
+			if closest_dish.item_name == desired_item_name and current_state != "happy":
+				can_eat = true
+		print(name + " is looking for a dish. Closest dish: " + closest_dish.item_name + ", angle difference: " + str(diff) + ", can eat: " + str(can_eat))
+		if can_eat and closest_dish.start_consumption(consumption_timer, self):
+			print(name + " is starting to eat " + closest_dish.item_name)
+			start_eating()
