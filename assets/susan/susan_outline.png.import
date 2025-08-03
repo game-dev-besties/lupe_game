@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmj4l7dkwxllo"
-path="res://.godot/imported/susan.png-2121f8135d12e70a2e4427b683b72942.ctex"
+uid="uid://dxupaadyj0076"
+path="res://.godot/imported/susan_outline.png-38e1b483ff4d05b3bdc3289f9b1ece0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/susan/susan.png"
-dest_files=["res://.godot/imported/susan.png-2121f8135d12e70a2e4427b683b72942.ctex"]
+source_file="res://assets/susan/susan_outline.png"
+dest_files=["res://.godot/imported/susan_outline.png-38e1b483ff4d05b3bdc3289f9b1ece0f.ctex"]
 
 [params]
 

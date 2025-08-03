@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3qsm3nvdukck" path="res://scripts/lost_screen.gd" id="1_mbfwh"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="1_ofr2c"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="2_v8q7l"]
+[ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="4_d2muv"]
 [ext_resource type="AudioStream" uid="uid://yy1g3e6dyj5p" path="res://assets/sfx/fluttering-bamboo-flute-transition-c-4-209657.mp3" id="4_ismcj"]
 
 [sub_resource type="Animation" id="Animation_pk0x4"]
@@ -83,9 +84,6 @@ _data = {
 &"fade_out": SubResource("Animation_d6meh")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_mbfwh"]
-font_size = 29
-
 [node name="GameLoss" type="Node2D"]
 script = ExtResource("1_mbfwh")
 
@@ -121,13 +119,19 @@ texture = ExtResource("2_v8q7l")
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="YouLostText" type="Label" parent="UI"]
-offset_left = 395.0
-offset_top = 125.0
-offset_right = 833.0
-offset_bottom = 293.0
-text = "The Family Was Disappointed..."
-label_settings = SubResource("LabelSettings_mbfwh")
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+offset_left = 255.0
+offset_top = 138.0
+offset_right = 940.0
+offset_bottom = 250.0
+
+[node name="YouLostText" type="RichTextLabel" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_d2muv")
+theme_override_font_sizes/normal_font_size = 51
+text = "Your Family is Disappointed..."
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -136,6 +140,8 @@ offset_left = 496.0
 offset_top = 277.0
 offset_right = 699.0
 offset_bottom = 350.0
+theme_override_fonts/font = ExtResource("4_d2muv")
+theme_override_font_sizes/font_size = 20
 text = "Try Again"
 
 [node name="MenuButton" type="Button" parent="UI"]
@@ -143,6 +149,8 @@ offset_left = 499.0
 offset_top = 376.0
 offset_right = 702.0
 offset_bottom = 449.0
+theme_override_fonts/font = ExtResource("4_d2muv")
+theme_override_font_sizes/font_size = 20
 text = "Return to Menu"
 
 [node name="flute" type="AudioStreamPlayer2D" parent="."]
