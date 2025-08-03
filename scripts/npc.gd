@@ -61,7 +61,7 @@ func init(data: Dictionary):
 	var humm: AudioStreamPlayer2D = get_node("hum")
 	humm.stream = data.get("sound")
 func _ready():
-	modifiers = LevelManager.get_current_level_data().get("modifiers")
+	modifiers = LevelManager.get_current_level_data().get("modifiers", [])
 	if modifiers.has("tea"):
 		hunger_diminish_rate = hunger_diminish_rates[Teacup.Fullness.EMPTY]
 	else:
