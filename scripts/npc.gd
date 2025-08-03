@@ -10,7 +10,7 @@ const GET_HUNGRY_PROBABILITY = 0.3
 var TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = 2.5
 const TIME_BETWEEN_HEALTH_DAMAGE_SECONDS = 3.0
 const TIME_BETWEEN_TEA_CHECKS_SECONDS = 3.0
-const DRINK_TEA_PROBABILITY = 0.2
+const DRINK_TEA_PROBABILITY = 0.15
 
 var satiation: float = MAX_SATIATION
 var check_hungry_timer: float = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
@@ -24,9 +24,9 @@ var neutral_animation: String
 var unhappy_animation: String
 var placement_angle: float
 var hunger_diminish_rates = {
-	Teacup.Fullness.EMPTY: 30.0,
-	Teacup.Fullness.HALF: 12.0,
-	Teacup.Fullness.FULL: 4.0,
+	Teacup.Fullness.EMPTY: 25.0,
+	Teacup.Fullness.HALF: 10.0,
+	Teacup.Fullness.FULL: 3.0,
 	"default": 6.0,
 }
 var hunger_diminish_rate: float = hunger_diminish_rates[Teacup.Fullness.EMPTY]
