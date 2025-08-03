@@ -175,7 +175,6 @@ offset_top = -373.989
 offset_right = 713.974
 offset_bottom = -196.989
 color = Color(1, 1, 1, 0)
-metadata/_edit_use_anchors_ = true
 
 [node name="flute" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ismcj")
