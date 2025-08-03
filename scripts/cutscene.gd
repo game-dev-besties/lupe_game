@@ -2,7 +2,6 @@ extends Node2D
 @onready var ending = load("res://scenes/ending.tscn") as PackedScene
 @onready var text: RichTextLabel = $UI/Panel/VBoxContainer/RichTextLabel
 @onready var animation: AnimationPlayer = $AnimationPlayer
-@onready var talking_effect = $talking
 
 var chapter: int
 const end_chapter_nums = [1, 5, 8, 12, 14]
@@ -16,7 +15,6 @@ func _ready():
 	$UI/Panel.visible = false
 	if (chapter <= max_chapters):
 		animation.play("Cutscene" + str(chapter))
-		talking_effect.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -49,8 +47,7 @@ func _process(_delta):
 					get_tree().change_scene_to_packed(ending)
 				else:
 					animation.play("Cutscene" + str(chapter))
-					if !((end_chapter_nums).has(chapter+1)):
-						talking_effect.play()
+		
 	
 	elif Input.is_action_just_pressed("ui_cancel"):
 		end_cutscene()
