@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://cckqhipdvojkh"]
 
 [ext_resource type="Script" uid="uid://b61aoxsxk6ogf" path="res://scripts/cutscene.gd" id="1_nhhfa"]
-[ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ox32g"]
+[ext_resource type="Texture2D" uid="uid://b527lq56dir4f" path="res://assets/background.png" id="2_mu2gi"]
 [ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="3_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://bsrkfavscr4o6" path="res://assets/susan/susanunhappy.png" id="4_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="5_fs8wb"]
@@ -1426,7 +1426,7 @@ script = ExtResource("1_nhhfa")
 modulate = Color(0.56, 0.56, 0.56, 1)
 position = Vector2(576, 384)
 scale = Vector2(0.516, 0.516)
-texture = ExtResource("2_ox32g")
+texture = ExtResource("2_mu2gi")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

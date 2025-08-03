@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3sc76yb0ic14"]
+[gd_scene load_steps=7 format=3 uid="uid://b3sc76yb0ic14"]
 
 [ext_resource type="Script" uid="uid://cbqhswdgobdgw" path="res://scripts/main_menu.gd" id="1_8ln24"]
-[ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://b527lq56dir4f" path="res://assets/background.png" id="2_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://dxupaadyj0076" path="res://assets/susan/susan_outline.png" id="3_oa1go"]
 [ext_resource type="Texture2D" uid="uid://dbaq67amwut8g" path="res://assets/menu/startgametext.png" id="4_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://bcr2x6oc0we43" path="res://assets/menu/creditstext.png" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://b56qprdik4xgh" path="res://assets/menu/not_so_lazy_susan_title.png" id="6_rtw2f"]
-[ext_resource type="Texture2D" uid="uid://bxfsnhe4nos7a" path="res://assets/menu/Glow-PNG-Clipart-Background.png" id="7_oa1go"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_8ln24")
@@ -52,17 +51,6 @@ color = Color(1, 1, 1, 0)
 position = Vector2(782, 286)
 scale = Vector2(0.716, 0.716)
 texture = ExtResource("6_rtw2f")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(419, 113)
-scale = Vector2(1.1094, 1.07505)
-energy = 0.39
-texture = ExtResource("7_oa1go")
-
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(784, 60)
-energy = 0.39
-texture = ExtResource("7_oa1go")
 
 [connection signal="gui_input" from="StartGameText/StartGameButton" to="." method="_on_start_game_button_gui_input"]
 [connection signal="mouse_entered" from="StartGameText/StartGameButton" to="." method="_on_start_game_button_mouse_entered"]

@@ -1,15 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7w465tfimyec"]
+[gd_scene load_steps=11 format=3 uid="uid://b7w465tfimyec"]
 
 [ext_resource type="Script" uid="uid://b8fp7l0wpeawx" path="res://scripts/game.gd" id="1_lkgvj"]
 [ext_resource type="PackedScene" uid="uid://ddw71ek2dup7r" path="res://scenes/dish.tscn" id="3_gee14"]
 [ext_resource type="Texture2D" uid="uid://dspqnr0vuhl4l" path="res://assets/table.png" id="3_lbhrr"]
 [ext_resource type="Script" uid="uid://decuur7sn58mt" path="res://scripts/spinningthing.gd" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b6jq0f6yg0wuw" path="res://scenes/NPC.tscn" id="4_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cy8pyoptiw1gd" path="res://scenes/teacup.tscn" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cxa2ocjnlijcn" path="res://scenes/teapot.tscn" id="6_0tnpc"]
 [ext_resource type="AudioStream" uid="uid://ccn0r4cijwkf" path="res://assets/sfx/servant-bell-ring-1-211684.mp3" id="9_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://bxfsnhe4nos7a" path="res://assets/menu/Glow-PNG-Clipart-Background.png" id="10_vtaks"]
+[ext_resource type="Texture2D" uid="uid://cj8mof76o0xlj" path="res://assets/game_background.png" id="9_vtaks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
 bg_color = Color(0.836524, 0.0884444, 0.42513, 1)
@@ -117,18 +116,4 @@ position = Vector2(573, 378)
 z_index = -1002
 position = Vector2(576, 384)
 scale = Vector2(0.516487, 0.516487)
-texture = ExtResource("5_iywne")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(335, 198)
-scale = Vector2(1.12161, 0.939218)
-energy = 0.39
-texture = ExtResource("10_vtaks")
-
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(775, 143)
-scale = Vector2(1.10172, 1.05127)
-energy = 0.39
-texture = ExtResource("10_vtaks")
+texture = ExtResource("9_vtaks")
