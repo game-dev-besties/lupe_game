@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy73835enovby"]
+[gd_scene load_steps=7 format=3 uid="uid://cipmcwlxxvujy"]
 
 [ext_resource type="Script" uid="uid://dxo776sc05p26" path="res://scripts/credits.gd" id="1_mah5v"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ooihk"]
@@ -43,6 +43,7 @@ theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(1, 0.243137, 0.254902, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("5_mah5v")
 theme_override_font_sizes/font_size = 36
 text = "Dev:
@@ -63,6 +64,7 @@ theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(1, 0.243137, 0.254902, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 11
 theme_override_fonts/font = ExtResource("5_mah5v")
 theme_override_font_sizes/font_size = 36
 text = "Art:
