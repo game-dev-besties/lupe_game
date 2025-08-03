@@ -156,9 +156,9 @@ func _on_susan_started_moving():
 func handle_input(delta):
 	var input_force = 0.0
 	if Input.is_action_pressed("ui_left"):
-		input_force -= acceleration
-	if Input.is_action_pressed("ui_right"):
 		input_force += acceleration
+	if Input.is_action_pressed("ui_right"):
+		input_force -= acceleration
 	
 	if input_force != 0:
 		angular_velocity += input_force * delta
