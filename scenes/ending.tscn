@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwj116yp4ql5k"]
+
+[ext_resource type="Texture2D" uid="uid://3wkrh1a16fxl" path="res://assets/cutscene/cutscene1.png" id="1_mqjok"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -95.0
+offset_top = -32.0
+offset_right = 1232.0
+offset_bottom = 753.0
+color = Color(0, 0, 0, 1)
+
+[node name="Cutscene1" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.396494, 0.396494)
+texture = ExtResource("1_mqjok")

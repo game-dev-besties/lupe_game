@@ -1,12 +1,12 @@
 extends Node2D
-@onready var game = load("res://scenes/game.tscn") as PackedScene
+@onready var ending = load("res://scenes/ending.tscn") as PackedScene
 @onready var text: RichTextLabel = $UI/Panel/VBoxContainer/RichTextLabel
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var talking_effect = $talking
 
 var chapter: int
-const end_chapter_nums = [1, 5, 8, 12, 15]
-const max_chapters = 14
+const end_chapter_nums = [1, 5, 8, 12, 14]
+const max_chapters = 20
 
 var skip_button_pressed: bool = false
 
@@ -30,8 +30,11 @@ func _process(_delta):
 				text.visible_ratio = 1
 				if (end_chapter_nums.has(chapter)):
 					$UI/Panel.visible = true
-					$Characters/Susan.position = Vector2(402, 393)
-				elif (end_chapter_nums.has(chapter+1)):
+					if (chapter >= 14):
+						$Characters/Susan.position = Vector2(323, 393)
+					else:
+						$Characters/Susan.position = Vector2(402, 393)
+				elif (end_chapter_nums.has(chapter+1)) and chapter != 13:
 					$tutorialbox.position = Vector2(588, 317)
 					$UI/Panel.position = Vector2(346, 700)
 					$Characters/Susan.position = Vector2(402, 900)
@@ -39,6 +42,11 @@ func _process(_delta):
 				chapter += 1
 				if (end_chapter_nums.has(chapter)):
 					end_cutscene()
+				elif (chapter == max_chapters + 1):
+					animation.play("stop")
+					Transition.transition()
+					await Transition.on_transition_finished
+					get_tree().change_scene_to_packed(ending)
 				else:
 					animation.play("Cutscene" + str(chapter))
 					if !((end_chapter_nums).has(chapter+1)):
@@ -64,10 +72,8 @@ func _on_button_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		skip_button_pressed = true
 
-
 func _on_button_mouse_entered() -> void:
 	$SkipButton.scale += Vector2(0.1, 0.1) 
-
 
 func _on_button_mouse_exited() -> void:
 	$SkipButton.scale -= Vector2(0.1, 0.1)
