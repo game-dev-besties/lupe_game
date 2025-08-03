@@ -17,6 +17,7 @@ var levels = [
 			{"name": "mother1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/girlhum.mp3")},
 			{"name": "father1", "desire": "rice", "timer": 1, "sound": preload("res://assets/sfx/girlhum.mp3")},
 		],
+		"modifiers" : [],
 		"cutscene_path": "res://scenes/cutscene.tscn",
 		"hunger_timer": 2.0,
 	},
@@ -39,6 +40,7 @@ var levels = [
 		],
 		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
+		"modifiers" : [],
 	},
 	# --- LEVEL 3 ---
 	{
@@ -60,6 +62,7 @@ var levels = [
 		],
 		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
+		"modifiers" : [],
 	},
 	# --- LEVEL 4 ---
 	{
@@ -81,6 +84,7 @@ var levels = [
 		],
 		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
+		"modifiers" : ["clockwise"],
 	},
 	# --- todo: add more levels here ---
 ]

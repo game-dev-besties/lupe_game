@@ -13,18 +13,21 @@ var satiation: float = MAX_SATIATION
 var check_hungry_timer: float = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 var take_damage_timer: float = TIME_BETWEEN_HEALTH_DAMAGE_SECONDS
 var desired_item_name: String
-var placement_angle: float 
 var consumption_timer: float
 var current_state: String = "happy"
 var happy_animation: String
 var neutral_animation: String
 var unhappy_animation: String
+var placement_angle: float
 var hunger_diminish_rate: float = 2
 var turn_red_rate: float = 0.05
 var max_redness: float = 0.5
 var spawn_position: Vector2
 var shake_tween: Tween
 var my_teacup: Teacup
+var modifiers = []
+var modifier_anger_active: bool = false
+var modifier_anger_timer: float = 0.0
 
 @export var serving_distance_threshold_radians: float = 30.0 * (PI / 180.0)
 
@@ -44,12 +47,31 @@ func init(data: Dictionary):
 	var humm: AudioStreamPlayer2D = get_node("hum")
 	humm.stream = data.get("sound")
 func _ready():
+	modifiers = LevelManager.get_current_level_data().get("modifiers")
 	spawn_position = position
 	update_emotion()
 
 func _process(delta: float):
 	var game_script = game_object as Game
-	# If the current state is "happy", we might randomly decide to change to "neutral"
+	var spinningthing = game_object.get_node("spinningthing")
+	# grandma logic
+	if modifier_anger_active:
+		modifier_anger_timer -= delta
+		if modifier_anger_timer <= 0:
+			modifier_anger_active = false
+			current_state = "happy"
+			satiation = 5
+			position = spawn_position
+			sprite.modulate.s = 0
+			update_emotion()
+	if modifiers.has("clockwise") and self.name == "aunt2" and spinningthing.angular_velocity < 0 and not modifier_anger_active:
+		modifier_anger_active = true
+		modifier_anger_timer = 5.0 
+		satiation = 0
+		current_state = "starving"
+		sprite.modulate.s = max_redness
+		update_emotion()
+		# If the current state is "happy", we might randomly decide to change to "neutral"
 	if current_state == "happy":
 		if check_hungry_timer > 0:
 			check_hungry_timer -= delta
@@ -77,7 +99,7 @@ func _process(delta: float):
 				if available_dishes.size() > 0:
 					desired_item_name = available_dishes[randi() % available_dishes.size()]
 					# If the susan isn't rotating, we can look for a dish
-					var spinningthing = game_object.get_node("spinningthing")
+					spinningthing = game_object.get_node("spinningthing")
 					if not spinningthing.is_rotating:
 						look_for_dish()
 				else:
