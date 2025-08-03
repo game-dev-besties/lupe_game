@@ -69,6 +69,7 @@ func _process(delta):
 	for dish in get_children():
 		if dish is Dish:
 			dish.angular_velocity = self.angular_velocity
+	
 
 func spawn_dishes():
 	var total_dishes = dishes_data.size()
@@ -118,6 +119,7 @@ func _on_susan_stopped():
 	# for each npc calculate what to do with dish
 	for npc in npcs:
 		npc.look_for_dish()
+		
 			
 	# for npc in npcs:
 	# 	var half_width: float = (serving_distance_threshold_radians) * 0.5
@@ -140,10 +142,10 @@ func _on_susan_stopped():
 
 func _on_susan_started_moving():
 	# Reset all animations and timers
-	check_for_level_complete()
 	for node in get_children():
 		if node is Dish:
 			node.cancel_consumption()
+	check_for_level_complete()
 
 # --- Input and Physics functions ---
 func handle_input(delta):
