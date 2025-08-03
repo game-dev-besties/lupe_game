@@ -90,7 +90,7 @@ func spawn_npcs():
 	var current_level_data: Dictionary = LevelManager.get_current_level_data()
 	for i in range(min(total_npcs, npc_spawn_points.size(), teacup_spawn_points.size())):
 		var npc_instance = npc_scene.instantiate()
-		var teacup_instance = teacup_scene.instantiate()
+		
 		var npc_marker = npc_spawn_points[i]
 		var npc_data = npc_desires[i].duplicate()
 		if current_level_data.has("hunger_timer"):
@@ -100,15 +100,19 @@ func spawn_npcs():
 		npc_instance.position = npc_marker.position
 	
 		#teacups
-		var teacup_marker = teacup_spawn_points[i]
-		teacup_instance.position = teacup_marker.position
 		(npc_instance as NPC).game_object = game_scene 
-		#link them
-		npc_instance.my_teacup = teacup_instance
-		teacup_instance.owner_npc = npc_instance
+		if modifiers.has("tea"):
+			var teacup_instance = teacup_scene.instantiate()
+			var teacup_marker = teacup_spawn_points[i]
+			teacup_instance.position = teacup_marker.position
+			
+			#link them
+			npc_instance.my_teacup = teacup_instance
+			teacup_instance.owner_npc = npc_instance
+			add_child(teacup_instance)
 		
 		add_child(npc_instance)
-		add_child(teacup_instance)
+		
 
 # --- Event Functions ---
 func _on_susan_stopped():
