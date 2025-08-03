@@ -58,21 +58,21 @@ func _process(delta: float):
 					
 				for node in get_parent().get_children():
 					if node is NPC:
-						if node.current_state != "happy" and node.desired_item_name in all_requests:
+						if node.current_state != "happy" and node.desired_item_name != "":
 							var current_count = all_requests.get(node.desired_item_name, 0)
 							all_requests[node.desired_item_name] = current_count + 1
 				
-				var dishes_on_the_table = []
+				var available_dishes = []
 				for node in get_parent().get_children():
 					if node is Dish:
-						var number_of_requests = 0
-						if node.item_name in all_requests:
-							number_of_requests = all_requests[node.item_name]
-						if node.quantity - number_of_requests > 0:
-							dishes_on_the_table.append(node.item_name)
+						var number_of_requests = all_requests.get(node.item_name, 0)
+						var remaining_quantity = node.quantity - number_of_requests
+						# Add dishes to available list based on remaining quantity
+						for i in range(remaining_quantity):
+							available_dishes.append(node.item_name)
 
-				if dishes_on_the_table.size() > 0:
-					desired_item_name = dishes_on_the_table[randi() % dishes_on_the_table.size()]
+				if available_dishes.size() > 0:
+					desired_item_name = available_dishes[randi() % available_dishes.size()]
 					# If the susan isn't rotating, we can look for a dish
 					var spinningthing = game_object.get_node("spinningthing")
 					if not spinningthing.is_rotating:
