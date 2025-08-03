@@ -21,6 +21,7 @@ const npc_placement_radius = 200
 var modifiers
 # -- States ---
 var is_rotating: bool = false
+var _is_level_advancing: bool = false
 
 # --- Data ---
 var dishes_data = [
@@ -145,7 +146,7 @@ func _on_susan_started_moving():
 	for node in get_children():
 		if node is Dish:
 			node.cancel_consumption()
-	check_for_level_complete()
+	
 
 # --- Input and Physics functions ---
 func handle_input(delta):
@@ -166,11 +167,16 @@ func apply_physics(delta):
 	
 	if angular_velocity != 0:
 		angular_velocity = move_toward(angular_velocity, 0, friction * delta)
+	check_for_level_complete()
+	
 
 func check_for_level_complete():
+	if _is_level_advancing:
+		return
 	for node in get_children():
 		if node is Dish:
 			if node.item_name != "Empty Plate":
 				return
+	_is_level_advancing = true
 	print("Level Complete! Advancing to the next level...")
 	LevelManager.advance_to_next_level()
