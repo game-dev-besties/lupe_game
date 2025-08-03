@@ -522,6 +522,21 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("gibberish")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.51,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.226667)
+}
+tracks/12/use_blend = true
 
 [sub_resource type="Animation" id="Animation_qthij"]
 resource_name = "Cutscene13"
@@ -785,6 +800,21 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("gibberish")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.533333)
+}
+tracks/12/use_blend = true
 
 [sub_resource type="Animation" id="Animation_f3v4i"]
 resource_name = "Cutscene16"
@@ -921,6 +951,25 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "audio"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("gibberish")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"clips": [{
+"end_offset": 4.0,
+"start_offset": 0.37,
+"stream": ExtResource("17_c7dhu")
+}, {
+"end_offset": 1.84,
+"start_offset": 2.33,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.2, 0.866667)
+}
+tracks/11/use_blend = true
 
 [sub_resource type="Animation" id="Animation_bcuqd"]
 resource_name = "Cutscene 18"
@@ -1081,6 +1130,21 @@ tracks/12/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/13/type = "audio"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("gibberish")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"clips": [{
+"end_offset": 0.97,
+"start_offset": 1.5,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.5)
+}
+tracks/13/use_blend = true
 
 [sub_resource type="Animation" id="Animation_tvcxb"]
 resource_name = "Cutscene18"
@@ -1241,6 +1305,21 @@ tracks/12/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/13/type = "audio"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("gibberish")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 3.0,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.213333)
+}
+tracks/13/use_blend = true
 
 [sub_resource type="Animation" id="Animation_5a45q"]
 resource_name = "Cutscene19"
@@ -1401,6 +1480,21 @@ tracks/12/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/13/type = "audio"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("gibberish")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"clips": [{
+"end_offset": 2.58,
+"start_offset": 0.53,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.233333)
+}
+tracks/13/use_blend = true
 
 [sub_resource type="Animation" id="Animation_loviu"]
 resource_name = "Cutscene20"
@@ -1835,6 +1929,21 @@ tracks/12/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/13/type = "audio"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("gibberish")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 1.5,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/13/use_blend = true
 
 [sub_resource type="Animation" id="Animation_bb0yx"]
 resource_name = "Cutscene3"
@@ -2489,6 +2598,21 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("gibberish")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 1.38,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.3)
+}
+tracks/12/use_blend = true
 
 [sub_resource type="Animation" id="Animation_m2h23"]
 resource_name = "Cutscene9"
