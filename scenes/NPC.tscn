@@ -566,4 +566,3 @@ stream = ExtResource("5_7pv12")
 
 [node name="hum" type="AudioStreamPlayer2D" parent="."]
 volume_db = 5.942
-pitch_scale = 1.23
