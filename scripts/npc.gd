@@ -24,10 +24,10 @@ var neutral_animation: String
 var unhappy_animation: String
 var placement_angle: float
 var hunger_diminish_rates = {
-	Teacup.Fullness.EMPTY: 6.0,
-	Teacup.Fullness.HALF: 2.0,
-	Teacup.Fullness.FULL: 1.0,
-	"default": 3.0,
+	Teacup.Fullness.EMPTY: 12.0,
+	Teacup.Fullness.HALF: 6.0,
+	Teacup.Fullness.FULL: 4.0,
+	"default": 6.0,
 }
 var hunger_diminish_rate: float = hunger_diminish_rates[Teacup.Fullness.EMPTY]
 var turn_red_rate: float = 0.05
