@@ -2,6 +2,7 @@ extends Node
 
 const GAME_SCENE_PATH = "res://scenes/game.tscn"
 var current_level_index: int = 0
+var current_chapter: int = 1
 
 var levels = [
 	# --- LEVEL 1 ---
@@ -16,9 +17,9 @@ var levels = [
 			{"name": "mother1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/girlhum.mp3")},
 			{"name": "father1", "desire": "rice", "timer": 1, "sound": preload("res://assets/sfx/girlhum.mp3")},
 		],
-		"hunger_timer": 10.0,
-		"cutscene_path": "res://scenes/cutscene_level_1.tscn",
 		"modifiers" : [],
+		"cutscene_path": "res://scenes/cutscene.tscn",
+		"hunger_timer": 2.0,
 	},
 	# --- LEVEL 2 ---
 	{
@@ -37,7 +38,7 @@ var levels = [
 			{"name": "aunt1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "uncle1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 		],
-		"hunger_timer": 30.0,
+		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
 		"modifiers" : [],
 	},
@@ -59,7 +60,7 @@ var levels = [
 			{"name": "uncle2", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "bwife1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 		],
-		"hunger_timer": 30.0,
+		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
 		"modifiers" : [],
 	},
@@ -81,7 +82,7 @@ var levels = [
 			{"name": "aunt2", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "husband", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 		],
-		"hunger_timer": 30.0,
+		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
 		"modifiers" : ["clockwise"],
 	},
@@ -92,6 +93,12 @@ func get_current_level_data() -> Dictionary:
 	if current_level_index < levels.size():
 		return levels[current_level_index]
 	return {}
+
+func get_current_chapter():
+	return current_chapter
+
+func set_current_chapter(chapter):
+	current_chapter = chapter
 
 func advance_to_next_level(is_game = false):
 	# Get the cutscene path from the level we JUST completed
@@ -104,7 +111,7 @@ func advance_to_next_level(is_game = false):
 		load_game_scene()
 	else:
 		if (cutscene_path):
-			get_tree().change_scene_to_file(cutscene_path)
+			get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
 		current_level_index += 1
 
 func load_game_scene():
