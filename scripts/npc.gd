@@ -58,6 +58,7 @@ func init(data: Dictionary):
 	happy_animation = self.name + "_happy"
 	neutral_animation = self.name + "_neutral"
 	unhappy_animation = self.name + "_unhappy"
+	angry_dmg = false
 	var humm: AudioStreamPlayer2D = get_node("hum")
 	humm.stream = data.get("sound")
 func _ready():
