@@ -529,6 +529,7 @@ shader_parameter/fill_pct = 0.8
 shader_parameter/fill_color = Color(0.974527, 0.409477, 0.524013, 1)
 
 [node name="NPC" type="Node2D"]
+light_mask = 2
 z_index = -1001
 z_as_relative = false
 script = ExtResource("1_mhefn")
@@ -540,12 +541,14 @@ animation = &"kid2_unhappy"
 
 [node name="ThoughtBubble" type="Sprite2D" parent="."]
 visible = false
+light_mask = 2
 position = Vector2(-3, -180)
 scale = Vector2(0.324897, 0.313333)
 texture = ExtResource("4_jnjht")
 
 [node name="TintedThoughtBubble" type="Sprite2D" parent="ThoughtBubble"]
 modulate = Color(0.736348, 0.297515, 0.406737, 1)
+light_mask = 2
 material = SubResource("ShaderMaterial_vi4yh")
 scale = Vector2(1.042, 1)
 texture = ExtResource("4_jnjht")
@@ -554,6 +557,7 @@ start_fill_color = Color(1, 0.402498, 0.33397, 0.588235)
 end_fill_color = Color(1, 0, 0, 0.784314)
 
 [node name="FoodImage" type="Sprite2D" parent="ThoughtBubble"]
+light_mask = 2
 scale = Vector2(0.61558, 0.61558)
 texture = ExtResource("61_k1s46")
 

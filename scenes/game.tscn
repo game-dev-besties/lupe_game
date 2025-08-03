@@ -126,6 +126,8 @@ energy = 0.39
 texture = ExtResource("10_vtaks")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(775, 143)
 scale = Vector2(1.10172, 1.05127)
 energy = 0.39
