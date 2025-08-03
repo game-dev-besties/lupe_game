@@ -9,17 +9,27 @@ const MAX_SATIATION = 40
 const GET_HUNGRY_PROBABILITY = 0.2
 var TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = 3.0
 const TIME_BETWEEN_HEALTH_DAMAGE_SECONDS = 5.0
+const TIME_BETWEEN_TEA_CHECKS_SECONDS = 3.0
+const DRINK_TEA_PROBABILITY = 0.4
+
 var satiation: float = MAX_SATIATION
 var check_hungry_timer: float = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 var take_damage_timer: float = TIME_BETWEEN_HEALTH_DAMAGE_SECONDS
 var desired_item_name: String
 var consumption_timer: float
+var tea_check_timer: float = TIME_BETWEEN_TEA_CHECKS_SECONDS
 var current_state: String = "happy"
 var happy_animation: String
 var neutral_animation: String
 var unhappy_animation: String
 var placement_angle: float
-var hunger_diminish_rate: float = 2
+var hunger_diminish_rates = {
+	Teacup.Fullness.EMPTY: 6.0,
+	Teacup.Fullness.HALF: 2.0,
+	Teacup.Fullness.FULL: 1.0,
+	"default": 3.0,
+}
+var hunger_diminish_rate: float = hunger_diminish_rates[Teacup.Fullness.EMPTY]
 var turn_red_rate: float = 0.05
 var max_redness: float = 0.5
 var spawn_position: Vector2
@@ -46,6 +56,11 @@ func init(data: Dictionary):
 	unhappy_animation = self.name + "_unhappy"
 	var humm: AudioStreamPlayer2D = get_node("hum")
 	humm.stream = data.get("sound")
+	if modifiers.has("tea"):
+		hunger_diminish_rate = hunger_diminish_rates[Teacup.Fullness.EMPTY]
+	else:
+		hunger_diminish_rate = hunger_diminish_rates["default"]
+
 func _ready():
 	modifiers = LevelManager.get_current_level_data().get("modifiers")
 	spawn_position = position
@@ -71,7 +86,20 @@ func _process(delta: float):
 		current_state = "starving"
 		sprite.modulate.s = max_redness
 		update_emotion()
-		# If the current state is "happy", we might randomly decide to change to "neutral"
+
+	# If the NPC has a teacup, check its state
+	if my_teacup and modifiers.has("tea"):
+		# Update teacup timer
+		if tea_check_timer > 0:
+			tea_check_timer -= delta
+		else:
+			print("Can Drink Tea")
+			if my_teacup.fullness != Teacup.Fullness.EMPTY and randf() < DRINK_TEA_PROBABILITY:
+				print("Drinking Tea!")
+				my_teacup.drink()
+			tea_check_timer = TIME_BETWEEN_TEA_CHECKS_SECONDS
+
+	# If the current state is "happy", we might randomly decide to change to "neutral"
 	if current_state == "happy":
 		if check_hungry_timer > 0:
 			check_hungry_timer -= delta
@@ -200,8 +228,8 @@ func update_food_item_display():
 
 func on_teacup_state_changed(new_state: Teacup.Fullness):
 	#print(name + "'s teacup is now: " + Teacup.Fullness.keys()[new_state])
-	if new_state == Teacup.Fullness.FULL:
-		print(name + " is happy about the tea!")
+	if modifiers.has("tea"):
+		hunger_diminish_rate = hunger_diminish_rates[new_state]
 
 func look_for_dish():
 	var spinningthing = game_object.get_node("spinningthing")

@@ -17,7 +17,21 @@ func _ready():
 func fill():
 	if fullness < Fullness.FULL:
 		fillnoise.play()
-		fullness += 2
+		fullness = Fullness.FULL
+		update_texture()
+		if owner_npc:
+			owner_npc.on_teacup_state_changed(fullness)
+
+func drink():
+	if fullness == Fullness.FULL:
+		fillnoise.play()
+		fullness = Fullness.HALF
+		update_texture()
+		if owner_npc:
+			owner_npc.on_teacup_state_changed(fullness)
+	elif fullness == Fullness.HALF:
+		fillnoise.play()
+		fullness = Fullness.EMPTY
 		update_texture()
 		if owner_npc:
 			owner_npc.on_teacup_state_changed(fullness)
