@@ -3,7 +3,7 @@ extends Node2D
 
 @export var health_bar: ProgressBar
 
-var health: int = 150
+var health: int = 100
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +18,7 @@ func _process(_delta):
 
 func take_damage():
 	if health > 0:
-		health -= 8
+		health -= 5
 		health_bar.value = health
 		if health <= 0:
 			Transition.transition()
