@@ -17,7 +17,7 @@ var levels = [
 			{"name": "mother1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/girlhum.mp3")},
 			{"name": "father1", "desire": "rice", "timer": 1, "sound": preload("res://assets/sfx/girlhum.mp3")},
 		],
-		"modifiers" : [],
+		"modifiers" : ["tea"],
 		"cutscene_path": "res://scenes/cutscene.tscn",
 		"hunger_timer": 2.0,
 	},
