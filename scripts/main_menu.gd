@@ -30,3 +30,4 @@ func _on_credits_button_mouse_exited() -> void:
 func _on_credits_button_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		print("credits pressed")
+		get_tree().change_scene_to_file("res://scenes/credits.tscn")

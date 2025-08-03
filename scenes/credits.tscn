@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy73835enovby"]
+
+[ext_resource type="Script" uid="uid://dxo776sc05p26" path="res://scripts/credits.gd" id="1_mah5v"]
+[ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ooihk"]
+[ext_resource type="Texture2D" uid="uid://dxupaadyj0076" path="res://assets/susan/susan_outline.png" id="3_ih6pn"]
+[ext_resource type="Texture2D" uid="uid://bcr2x6oc0we43" path="res://assets/menu/creditstext.png" id="5_c6kru"]
+[ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="5_mah5v"]
+[ext_resource type="Texture2D" uid="uid://bxfsnhe4nos7a" path="res://assets/menu/Glow-PNG-Clipart-Background.png" id="7_x5q3x"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_mah5v")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.674815, 0.674815, 0.674815, 1)
+position = Vector2(576, 384)
+scale = Vector2(0.516, 0.516)
+texture = ExtResource("2_ooihk")
+
+[node name="SusanOutline" type="Sprite2D" parent="."]
+z_index = 13
+position = Vector2(403, 341)
+rotation = -0.0523599
+scale = Vector2(0.362786, 0.367243)
+texture = ExtResource("3_ih6pn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(419, 113)
+scale = Vector2(1.1094, 1.07505)
+energy = 0.39
+texture = ExtResource("7_x5q3x")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(784, 60)
+energy = 0.39
+texture = ExtResource("7_x5q3x")
+
+[node name="Credits1" type="Label" parent="."]
+offset_left = 632.0
+offset_top = 127.0
+offset_right = 915.0
+offset_bottom = 500.0
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 0.243137, 0.254902, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_mah5v")
+theme_override_font_sizes/font_size = 36
+text = "Dev:
+Aaron
+Annabelle
+Ben
+Sohan
+Stephen
+
+"
+
+[node name="Credits2" type="Label" parent="."]
+offset_left = 857.0
+offset_top = 128.0
+offset_right = 1140.0
+offset_bottom = 454.0
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 0.243137, 0.254902, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_mah5v")
+theme_override_font_sizes/font_size = 36
+text = "Art:
+Jadia
+Leil
+
+Music/SFX:
+John
+Tyler"
+
+[node name="CreditsText" type="Sprite2D" parent="."]
+position = Vector2(919, 68)
+scale = Vector2(0.726493, 0.720937)
+texture = ExtResource("5_c6kru")
+
+[node name="Back Text" type="Label" parent="."]
+offset_left = 897.0
+offset_top = 498.0
+offset_right = 1117.0
+offset_bottom = 614.0
+theme_override_fonts/font = ExtResource("5_mah5v")
+theme_override_font_sizes/font_size = 96
+text = "Back"
+
+[node name="BackButton" type="ColorRect" parent="Back Text"]
+layout_mode = 0
+offset_left = -220.0
+offset_top = -116.0
+offset_right = 220.0
+offset_bottom = 116.0
+color = Color(1, 1, 1, 0)
+
+[connection signal="gui_input" from="Back Text/BackButton" to="." method="_on_back_button_gui_input"]
+[connection signal="mouse_entered" from="Back Text/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="Back Text/BackButton" to="." method="_on_back_button_mouse_exited"]
