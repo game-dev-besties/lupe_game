@@ -20,11 +20,12 @@ func _process(_delta):
 			text.visible_ratio = 1
 		else:
 			chapter += 1
-			if (chapter > 3):
+			if (chapter > 4):
 				end_cutscene()
 			else:
 				animation.play("Cutscene" + str(chapter))
-				talking_effect.play()
+				if (chapter <= 3):
+					talking_effect.play()
 	
 	elif Input.is_action_just_pressed("ui_cancel"):
 		end_cutscene()
