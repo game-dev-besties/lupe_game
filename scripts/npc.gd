@@ -156,7 +156,6 @@ func _process(delta: float):
 	if angry_state == "angry" and not angry_dmg:
 			game_script.take_damage()
 			game_script.take_damage()
-			game_script.take_damage()
 			angry_dmg = true
 
 	# Handle the timer for taking damage
