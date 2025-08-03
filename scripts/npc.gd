@@ -6,11 +6,11 @@ extends Node2D
 @export var game_object: Node2D
 
 const MAX_SATIATION = 40
-const GET_HUNGRY_PROBABILITY = 0.2
-var TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = 3.0
-const TIME_BETWEEN_HEALTH_DAMAGE_SECONDS = 5.0
+const GET_HUNGRY_PROBABILITY = 0.3
+var TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = 2.5
+const TIME_BETWEEN_HEALTH_DAMAGE_SECONDS = 3.0
 const TIME_BETWEEN_TEA_CHECKS_SECONDS = 3.0
-const DRINK_TEA_PROBABILITY = 0.4
+const DRINK_TEA_PROBABILITY = 0.2
 
 var satiation: float = MAX_SATIATION
 var check_hungry_timer: float = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
@@ -24,8 +24,8 @@ var neutral_animation: String
 var unhappy_animation: String
 var placement_angle: float
 var hunger_diminish_rates = {
-	Teacup.Fullness.EMPTY: 12.0,
-	Teacup.Fullness.HALF: 6.0,
+	Teacup.Fullness.EMPTY: 30.0,
+	Teacup.Fullness.HALF: 12.0,
 	Teacup.Fullness.FULL: 4.0,
 	"default": 6.0,
 }
@@ -60,13 +60,12 @@ func init(data: Dictionary):
 	unhappy_animation = self.name + "_unhappy"
 	var humm: AudioStreamPlayer2D = get_node("hum")
 	humm.stream = data.get("sound")
+func _ready():
+	modifiers = LevelManager.get_current_level_data().get("modifiers", [])
 	if modifiers.has("tea"):
 		hunger_diminish_rate = hunger_diminish_rates[Teacup.Fullness.EMPTY]
 	else:
 		hunger_diminish_rate = hunger_diminish_rates["default"]
-
-func _ready():
-	modifiers = LevelManager.get_current_level_data().get("modifiers")
 	spawn_position = position
 	update_emotion()
 
