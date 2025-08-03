@@ -1,6 +1,7 @@
 extends Node2D
 var original_position: Vector2
 var soriginal_position: Vector2
+@onready var button = $button
 
 func _ready() -> void:
 	original_position = $CreditsText.position
@@ -16,6 +17,7 @@ func _on_start_game_button_mouse_exited() -> void:
 
 func _on_start_game_button_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
+		button.play()
 		Transition.transition()
 		await Transition.on_transition_finished
 		get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
@@ -29,4 +31,5 @@ func _on_credits_button_mouse_exited() -> void:
 	
 func _on_credits_button_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
+		button.play()
 		print("credits pressed")
