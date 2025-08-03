@@ -481,6 +481,7 @@ text = "SKIP"
 
 [node name="talking" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_3ptll")
+volume_db = -39.619
 
 [node name="tutorialbox" type="Sprite2D" parent="."]
 visible = false
