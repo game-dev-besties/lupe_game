@@ -5,7 +5,7 @@ extends Node2D
 @onready var talking_effect = $talking
 
 var chapter: int
-const end_chapter_nums = [1, 5, 8, 12, 15]
+const end_chapter_nums = [1, 5, 8, 12, 14]
 const max_chapters = 20
 
 var skip_button_pressed: bool = false
@@ -30,11 +30,11 @@ func _process(_delta):
 				text.visible_ratio = 1
 				if (end_chapter_nums.has(chapter)):
 					$UI/Panel.visible = true
-					if (chapter >= 15):
+					if (chapter >= 14):
 						$Characters/Susan.position = Vector2(323, 393)
 					else:
 						$Characters/Susan.position = Vector2(402, 393)
-				elif (end_chapter_nums.has(chapter+1)):
+				elif (end_chapter_nums.has(chapter+1)) and chapter != 13:
 					$tutorialbox.position = Vector2(588, 317)
 					$UI/Panel.position = Vector2(346, 700)
 					$Characters/Susan.position = Vector2(402, 900)
@@ -42,7 +42,8 @@ func _process(_delta):
 				chapter += 1
 				if (end_chapter_nums.has(chapter)):
 					end_cutscene()
-				elif (chapter == 22):
+				elif (chapter == max_chapters + 1):
+					animation.play("stop")
 					Transition.transition()
 					await Transition.on_transition_finished
 					get_tree().change_scene_to_packed(ending)

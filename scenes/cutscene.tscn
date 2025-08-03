@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cckqhipdvojkh"]
+[gd_scene load_steps=43 format=3 uid="uid://cckqhipdvojkh"]
 
 [ext_resource type="Script" uid="uid://b61aoxsxk6ogf" path="res://scripts/cutscene.gd" id="1_nhhfa"]
 [ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="2_ox32g"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://cdo5036d1m78x" path="res://assets/susan/susan2think.png" id="8_mu2gi"]
 [ext_resource type="Texture2D" uid="uid://cxvbnp6mjt2i3" path="res://assets/cutscene/level3.png" id="9_q01xw"]
 [ext_resource type="Texture2D" uid="uid://d0mpfjlf7iybq" path="res://assets/susan/susan2grin.png" id="10_c7dhu"]
-[ext_resource type="Texture2D" uid="uid://disjy801sdt8w" path="res://assets/cutscene/level_4.png" id="10_q01xw"]
 [ext_resource type="Texture2D" uid="uid://dp111mqwflg5d" path="res://assets/susan/susan3grin.png" id="12_mu2gi"]
 [ext_resource type="Texture2D" uid="uid://dthx11pk2j27x" path="res://assets/susan/susan3think.png" id="13_c7dhu"]
 [ext_resource type="Texture2D" uid="uid://4vmnf30vrfo7" path="res://assets/susan/susan4grin.png" id="15_c7dhu"]
@@ -495,7 +494,7 @@ tracks/11/keys = {
 
 [sub_resource type="Animation" id="Animation_qthij"]
 resource_name = "Cutscene13"
-length = 4.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -530,7 +529,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["I'm still stuck serving everyone, but at least that means I can make sure everyone gets something to eat. So tired of someone grabbing seconds before I can even get to the food…"]
+"values": ["I'm still stuck serving everyone, though. I guess some things never change..."]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -539,7 +538,7 @@ tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 4),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -591,70 +590,6 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(346, 451)]
-}
-
-[sub_resource type="Animation" id="Animation_er82a"]
-resource_name = "Cutscene14"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Characters/Susan:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(402, 393), Vector2(402, 900)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("UI/Panel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(346, 451), Vector2(346, 700)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("tutorialbox:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.133333, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(588, -287), Vector2(588, 317)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("tutorialbox:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("tutorialbox:texture")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_q01xw")]
 }
 
 [sub_resource type="Animation" id="Animation_fs8wb"]
@@ -1938,6 +1873,166 @@ tracks/10/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_bcuqd"]
+resource_name = "Cutscene 18"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Characters/Susan:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_qthij")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Characters/Susan:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(323.79, 393)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Grandma, grandma! Over here! Do you want some noodles?"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.03333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Panel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/Panel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("tutorialbox:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(588, -287)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("UI/Panel:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(260, 451)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Characters/Susan:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Characters/Suzie:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Characters/Suzie:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(775, 925), Vector2(775, 400), Vector2(775, 410)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("UI/Panel/SuzieName:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("UI/Panel/SusanName:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_tvcxb"]
 resource_name = "Cutscene18"
 length = 2.0
@@ -2100,7 +2195,7 @@ tracks/12/keys = {
 
 [sub_resource type="Animation" id="Animation_5a45q"]
 resource_name = "Cutscene19"
-length = 2.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2144,7 +2239,7 @@ tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -2256,165 +2351,6 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_447rg"]
-resource_name = "Cutscene21"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Characters/Susan:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("15_c7dhu")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Characters/Susan:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(323, 393), Vector2(323, 381), Vector2(323, 393)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["I'd love to, Suzie."]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("UI/Panel:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("UI/Panel:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("tutorialbox:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(588, -287)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("UI/Panel:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(260, 451)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Characters/Susan:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Characters/Suzie:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Characters/Suzie:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(775, 410)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("UI/Panel/SuzieName:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("UI/Panel/SusanName:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_loviu"]
@@ -2577,9 +2513,8 @@ tracks/12/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_bcuqd"]
-resource_name = "Cutscene 18"
-length = 3.5
+[sub_resource type="Animation" id="Animation_447rg"]
+resource_name = "Cutscene21"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2590,7 +2525,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("16_qthij")]
+"values": [ExtResource("15_c7dhu")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -2599,10 +2534,10 @@ tracks/1/path = NodePath("Characters/Susan:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(323.79, 393)]
+"values": [Vector2(323, 393), Vector2(323, 381), Vector2(323, 393)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -2611,10 +2546,10 @@ tracks/2/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.333333),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Grandma, grandma! Over here! Do you want some noodles?"]
+"values": ["I'd love to, Suzie."]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -2623,7 +2558,7 @@ tracks/3/path = NodePath("UI/Panel/VBoxContainer/RichTextLabel:visible_ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.03333, 3.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -2707,10 +2642,10 @@ tracks/10/path = NodePath("Characters/Suzie:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(775, 925), Vector2(775, 400), Vector2(775, 410)]
+"values": [Vector2(775, 410)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -2722,7 +2657,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -2734,7 +2669,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pduvj"]
@@ -2744,15 +2679,14 @@ _data = {
 &"Cutscene11": SubResource("Animation_mu2gi"),
 &"Cutscene12": SubResource("Animation_c7dhu"),
 &"Cutscene13": SubResource("Animation_qthij"),
-&"Cutscene14": SubResource("Animation_er82a"),
-&"Cutscene15": SubResource("Animation_40a5i"),
-&"Cutscene16": SubResource("Animation_f3v4i"),
-&"Cutscene17": SubResource("Animation_bcuqd"),
-&"Cutscene18": SubResource("Animation_tvcxb"),
-&"Cutscene19": SubResource("Animation_5a45q"),
+&"Cutscene14": SubResource("Animation_40a5i"),
+&"Cutscene15": SubResource("Animation_f3v4i"),
+&"Cutscene16": SubResource("Animation_bcuqd"),
+&"Cutscene17": SubResource("Animation_tvcxb"),
+&"Cutscene18": SubResource("Animation_5a45q"),
+&"Cutscene19": SubResource("Animation_loviu"),
 &"Cutscene2": SubResource("Animation_fs8wb"),
-&"Cutscene20": SubResource("Animation_loviu"),
-&"Cutscene21": SubResource("Animation_447rg"),
+&"Cutscene20": SubResource("Animation_447rg"),
 &"Cutscene3": SubResource("Animation_bb0yx"),
 &"Cutscene4": SubResource("Animation_3ptll"),
 &"Cutscene5": SubResource("Animation_d18fx"),
