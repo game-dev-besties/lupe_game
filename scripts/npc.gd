@@ -30,7 +30,8 @@ var my_teacup: Teacup
 
 func init(data: Dictionary):
 	self.name = data.get("name", "NPC")
-	self.desired_item_name = data.get("desire", "")
+	self.desired_item_name = ""
+	self.current_state = "happy"
 	self.consumption_timer = data.get("timer", 1.0)
 	happy_animation = self.name + "_happy"
 	neutral_animation = self.name + "_neutral"
@@ -68,9 +69,7 @@ func _process(delta: float):
 							number_of_requests = all_requests[node.item_name]
 						if node.quantity - number_of_requests > 0:
 							dishes_on_the_table.append(node.item_name)
-					#if node is NPC:
-						#if node.current_state != "happy":
-							#dishes_on_the_table.append(node.desired_item_name)
+
 				if dishes_on_the_table.size() > 0:
 					desired_item_name = dishes_on_the_table[randi() % dishes_on_the_table.size()]
 				else:
