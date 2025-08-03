@@ -53,13 +53,12 @@ func _process(delta: float):
 				current_state = "neutral"
 				
 				var all_requests = {}
-				for item in game_script.POSSIBLE_ITEMS:
-					all_requests[item] = 0
 					
 				for node in get_parent().get_children():
 					if node is NPC:
 						if node.current_state != "happy" and node.desired_item_name in all_requests:
-							all_requests[node.desired_item_name] += 1
+							var current_count = all_requests.get(node.desired_item_name, 0)
+							all_requests[node.desired_item_name] = current_count + 1
 				
 				var dishes_on_the_table = []
 				for node in get_parent().get_children():

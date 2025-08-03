@@ -3,10 +3,6 @@ extends Node2D
 
 @export var health_bar: ProgressBar
 
-const POSSIBLE_ITEMS = [
-	"rice", "dumpling", "eggroll", "frieddumpling", "duck", "noodle"
-]
-
 var health: int = 100
 
 
