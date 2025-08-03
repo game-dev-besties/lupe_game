@@ -47,6 +47,7 @@ offset_top = -81.0
 offset_right = 303.0
 offset_bottom = 68.0
 color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="title" type="Sprite2D" parent="."]
 position = Vector2(782, 286)
