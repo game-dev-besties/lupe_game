@@ -20,7 +20,7 @@ func take_damage():
 	if health > 0:
 		health -= 8
 		health_bar.value = health
-		if health == 0:
+		if health <= 0:
 			Transition.transition()
 			await Transition.on_transition_finished
 			get_tree().change_scene_to_packed(load("res://scenes/game_loss.tscn"))
