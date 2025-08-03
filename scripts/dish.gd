@@ -5,6 +5,7 @@ extends Area2D
 @onready var consumption_particles: GPUParticles2D = $consumptionparticles
 var active_wobble_tween: Tween
 var active_consume_timer: Tween
+var consuming_npc: NPC
 
 # data variables
 var item_name: String
@@ -68,6 +69,7 @@ func start_consumption(duration: float, consumer: NPC):
 	# Don't start if already being consumed
 	if active_consume_timer and active_consume_timer.is_valid():
 		return false
+	consuming_npc = consumer
 	consumption_particles.emitting = true
 	active_wobble_tween = create_tween().set_loops()
 	active_wobble_tween.tween_property(self, "rotation_degrees", 5, 0.1)
@@ -79,10 +81,15 @@ func start_consumption(duration: float, consumer: NPC):
 	return true
 
 func _on_consumption_finished(consumer: NPC):
+	consuming_npc = null
 	consumer.eat()
 	self.consume()
 	
 func cancel_consumption():
+	if consuming_npc:
+		consuming_npc.cancel_eating()
+		consuming_npc = null
+	
 	if active_wobble_tween:
 		active_wobble_tween.kill()
 		active_wobble_tween = null

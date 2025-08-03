@@ -38,6 +38,7 @@ var my_teacup: Teacup
 var modifiers = []
 var modifier_anger_active: bool = false
 var modifier_anger_timer: float = 0.0
+var is_eating: bool = false
 
 @export var serving_distance_threshold_radians: float = 30.0 * (PI / 180.0)
 
@@ -135,8 +136,8 @@ func _process(delta: float):
 				update_food_item_display()
 			check_hungry_timer = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 	else:
-		# Diminish satiation over time
-		if satiation > 0:
+		# Diminish satiation over time (only if not currently eating)
+		if satiation > 0 and not is_eating:
 			satiation -= hunger_diminish_rate * delta
 			if satiation <= MAX_SATIATION * 2 / 3:
 				current_state = "unhappy"
@@ -171,6 +172,7 @@ func _process(delta: float):
 	(tinted_thought_bubble as BubbleFill).set_fill((MAX_SATIATION - satiation) / MAX_SATIATION)
 
 func start_eating():
+	is_eating = true
 	pop.play()
 	if shake_tween:
 		shake_tween.kill()
@@ -189,6 +191,7 @@ func shake():
 	shake_tween.tween_property(self, "position", spawn_position, 0.1)
 
 func eat():
+	is_eating = false
 	current_state = "happy"
 	satiation = MAX_SATIATION
 	position = spawn_position
@@ -197,6 +200,9 @@ func eat():
 	desired_item_name = ""
 	update_emotion()
 	update_food_item_display()
+
+func cancel_eating():
+	is_eating = false
 
 func update_emotion():
 	if current_state == "happy":
