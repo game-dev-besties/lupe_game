@@ -7,7 +7,7 @@ extends Node2D
 
 const MAX_SATIATION = 40
 const GET_HUNGRY_PROBABILITY = 0.2
-const TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = 3.0
+var TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = 3.0
 const TIME_BETWEEN_HEALTH_DAMAGE_SECONDS = 5.0
 var satiation: float = MAX_SATIATION
 var check_hungry_timer: float = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
@@ -35,6 +35,9 @@ func init(data: Dictionary):
 	self.desired_item_name = ""
 	self.current_state = "happy"
 	self.consumption_timer = data.get("timer", 1.0)
+	if data.has("hunger_timer"):
+		TIME_BETWEEN_HUNGRY_CHECKS_SECONDS = data.get("hunger_timer", 3.0)
+		check_hungry_timer = TIME_BETWEEN_HUNGRY_CHECKS_SECONDS
 	happy_animation = self.name + "_happy"
 	neutral_animation = self.name + "_neutral"
 	unhappy_animation = self.name + "_unhappy"

@@ -84,11 +84,15 @@ func spawn_npcs():
 	var npc_spawn_points = $NpcSpawnPoints.get_children()
 	var teacup_spawn_points = $TeacupSpawnPoints.get_children()
 	var total_npcs = npc_desires.size()
+	var current_level_data: Dictionary = LevelManager.get_current_level_data()
 	for i in range(min(total_npcs, npc_spawn_points.size(), teacup_spawn_points.size())):
 		var npc_instance = npc_scene.instantiate()
 		var teacup_instance = teacup_scene.instantiate()
 		var npc_marker = npc_spawn_points[i]
-		npc_instance.init(npc_desires[i])
+		var npc_data = npc_desires[i].duplicate()
+		if current_level_data.has("hunger_timer"):
+			npc_data["hunger_timer"] = current_level_data["hunger_timer"]
+		npc_instance.init(npc_data)
 		npc_instance.placement_angle = npc_marker.position.angle()
 		npc_instance.position = npc_marker.position
 	
