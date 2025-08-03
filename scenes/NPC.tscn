@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b6jq0f6yg0wuw"]
+[gd_scene load_steps=67 format=3 uid="uid://b6jq0f6yg0wuw"]
 
 [ext_resource type="Script" uid="uid://c20iiwfaxynah" path="res://scripts/npc.gd" id="1_mhefn"]
 [ext_resource type="Texture2D" uid="uid://dj4x3c7aq2nsu" path="res://assets/npc/brother1_happy.png" id="2_5t8s8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dwplgau4ddxgo" path="res://assets/npc/aunt1_unhappy.png" id="4_w08a0"]
 [ext_resource type="AudioStream" uid="uid://cpy5ctr72sf7p" path="res://assets/sfx/pop-268648.mp3" id="5_7pv12"]
 [ext_resource type="Texture2D" uid="uid://dc4sunasox8nb" path="res://assets/npc/aunt2_happy.png" id="5_81ux2"]
+[ext_resource type="Texture2D" uid="uid://dy7x4lbshcfwk" path="res://assets/npc/aunt2_angry.png" id="5_nfk7d"]
 [ext_resource type="Texture2D" uid="uid://djsej2mu3hsjm" path="res://assets/npc/brother2_happy.png" id="5_rwfh4"]
 [ext_resource type="Texture2D" uid="uid://bixpw15nsyk7q" path="res://assets/npc/brother2_neutral.png" id="6_4cv6p"]
 [ext_resource type="Texture2D" uid="uid://blalivrjelbll" path="res://assets/npc/aunt2_neutral.png" id="6_6a5oq"]
@@ -88,6 +89,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"aunt1_unhappy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nfk7d")
+}],
+"loop": true,
+"name": &"aunt2_angry",
 "speed": 5.0
 }, {
 "frames": [{
@@ -537,7 +546,7 @@ script = ExtResource("1_mhefn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_efvhu")
-animation = &"kid2_unhappy"
+animation = &"aunt2_angry"
 
 [node name="ThoughtBubble" type="Sprite2D" parent="."]
 visible = false
