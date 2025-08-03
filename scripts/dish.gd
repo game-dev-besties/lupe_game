@@ -61,7 +61,8 @@ func _on_empty():
 	$Sprite2D.texture = empty_plate_texture
 	# Make the dish un-clickable and un-desirable
 	item_name = "Empty Plate"
-	$CollisionShape2D.disabled = true 
+	$CollisionShape2D.disabled = true
+	
 	
 func start_consumption(duration: float, consumer: NPC):
 	# Don't start if already being consumed

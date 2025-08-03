@@ -27,6 +27,8 @@ func _process(_delta):
 				$Characters/Susan.position = Vector2(402, 393)
 			elif (end_chapter_nums.has(chapter+1)):
 				$tutorialbox.position = Vector2(588, 317)
+				$UI/Panel.position = Vector2(346, 700)
+				$Characters/Susan.position = Vector2(402, 900)
 		else:
 			chapter += 1
 			if (end_chapter_nums.has(chapter)):
@@ -40,9 +42,19 @@ func _process(_delta):
 		end_cutscene()
 	
 func end_cutscene():
+	animation.pause()
 	animation.play("stop")
 	LevelManager.set_current_chapter(chapter)
 	LevelManager.advance_to_next_level(true)
 
-func _on_skip_pressed():
-	end_cutscene()
+func _on_button_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		end_cutscene()
+
+
+func _on_button_mouse_entered() -> void:
+	$SkipButton.scale += Vector2(0.1, 0.1) 
+
+
+func _on_button_mouse_exited() -> void:
+	$SkipButton.scale -= Vector2(0.1, 0.1)

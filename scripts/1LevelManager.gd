@@ -54,15 +54,15 @@ var levels = [
 		],
 		"npcs": [
 			{"name": "brother2", "desire": "rice", "timer": 5, "sound": preload("res://assets/sfx/girlhum.mp3")},
-			{"name": "mother2", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "aunt2", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "father2", "desire": "rice", "timer": 5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
-			{"name": "aunt1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
+			{"name": "mother2", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "uncle2", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 			{"name": "bwife1", "desire": "rice", "timer": 1.5, "sound": preload("res://assets/sfx/malegrunt.mp3")},
 		],
 		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
-		"modifiers" : [],
+		"modifiers" : ["clockwise"],
 	},
 	# --- LEVEL 4 ---
 	{
@@ -84,7 +84,7 @@ var levels = [
 		],
 		"hunger_timer": 5.0,
 		"cutscene_path": "res://scenes/cutscene.tscn",
-		"modifiers" : ["clockwise"],
+		"modifiers" : [],
 	},
 	# --- todo: add more levels here ---
 ]

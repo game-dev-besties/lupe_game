@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="3_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://bsrkfavscr4o6" path="res://assets/susan/susanunhappy.png" id="4_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="5_fs8wb"]
-[ext_resource type="PackedScene" path="res://scenes/transition.tscn" id="6_bb0yx"]
+[ext_resource type="PackedScene" uid="uid://c5pq32ffsnad1" path="res://scenes/transition.tscn" id="6_bb0yx"]
 [ext_resource type="AudioStream" uid="uid://crarrjbtjhhqt" path="res://assets/sfx/talking.mp3" id="7_3ptll"]
 [ext_resource type="Texture2D" uid="uid://3716nuy2q32q" path="res://assets/susan/susan2unhappy.png" id="7_8qop0"]
 [ext_resource type="Texture2D" uid="uid://6i0i74tt8gkq" path="res://assets/cutscene/level_2.png" id="7_75brc"]
@@ -255,7 +255,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(346, 451), Vector2(346, 651)]
+"values": [Vector2(346, 451), Vector2(346, 700)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -519,7 +519,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(346, 451), Vector2(346, 651)]
+"values": [Vector2(346, 451), Vector2(346, 700)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -757,7 +757,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(346, 451), Vector2(346, 651)]
+"values": [Vector2(346, 451), Vector2(346, 700)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1009,7 +1009,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(346, 451), Vector2(346, 651)]
+"values": [Vector2(346, 451), Vector2(346, 700)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1385,7 +1385,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_kie4y"]
 resource_name = "stop"
-length = 0.5
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1393,7 +1393,7 @@ tracks/0/path = NodePath("UI/Panel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -1437,6 +1437,28 @@ offset_right = 1000.0
 offset_bottom = 616.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fs8wb")
 
+[node name="Panel2" type="Panel" parent="UI/Panel"]
+show_behind_parent = true
+offset_left = 7.0
+offset_top = -33.0
+offset_right = 124.0
+offset_bottom = 25.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fs8wb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel/Panel2"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 7.0
+offset_right = 83.0
+offset_bottom = 47.0
+
+[node name="Label" type="Label" parent="UI/Panel/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.298039, 0.113725, 0.0784314, 1)
+theme_override_fonts/font = ExtResource("3_2bm7f")
+theme_override_font_sizes/font_size = 21
+text = "Susan"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
 layout_mode = 0
 offset_left = 26.0
@@ -1465,12 +1487,25 @@ position = Vector2(118, 778)
 scale = Vector2(0.323207, 0.323207)
 texture = ExtResource("4_2bm7f")
 
-[node name="Skip" type="Button" parent="."]
-offset_left = 1045.0
-offset_top = 14.0
-offset_right = 1136.0
-offset_bottom = 54.0
+[node name="SkipButton" type="Label" parent="."]
+offset_left = 1018.0
+offset_top = 17.0
+offset_right = 1131.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0.901961, 0.298039, 0.298039, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_2bm7f")
+theme_override_font_sizes/font_size = 51
 text = "SKIP"
+
+[node name="Button" type="ColorRect" parent="SkipButton"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -4.0
+offset_right = 122.0
+offset_bottom = 56.0
+color = Color(1, 1, 1, 0)
 
 [node name="Transition" parent="." instance=ExtResource("6_bb0yx")]
 
@@ -1485,4 +1520,7 @@ scale = Vector2(0.713889, 0.713889)
 texture = ExtResource("8_d18fx")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
+[connection signal="gui_input" from="SkipButton" to="." method="_on_skip_button_gui_input"]
+[connection signal="gui_input" from="SkipButton/Button" to="." method="_on_button_gui_input"]
+[connection signal="mouse_entered" from="SkipButton/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="SkipButton/Button" to="." method="_on_button_mouse_exited"]

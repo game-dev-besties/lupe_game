@@ -540,7 +540,7 @@ animation = &"kid2_unhappy"
 
 [node name="ThoughtBubble" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(6, -180)
+position = Vector2(-3, -180)
 scale = Vector2(0.324897, 0.313333)
 texture = ExtResource("4_jnjht")
 
@@ -554,6 +554,7 @@ start_fill_color = Color(1, 0.402498, 0.33397, 0.588235)
 end_fill_color = Color(1, 0, 0, 0.784314)
 
 [node name="FoodImage" type="Sprite2D" parent="ThoughtBubble"]
+scale = Vector2(0.61558, 0.61558)
 texture = ExtResource("61_k1s46")
 
 [node name="pop" type="AudioStreamPlayer2D" parent="."]

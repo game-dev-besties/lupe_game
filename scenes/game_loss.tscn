@@ -112,7 +112,7 @@ libraries = {
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Susan" type="Sprite2D" parent="Characters"]
-position = Vector2(364, 551)
+position = Vector2(368, 449)
 scale = Vector2(0.323207, 0.323207)
 texture = ExtResource("2_v8q7l")
 
@@ -157,3 +157,4 @@ text = "Return to Menu"
 stream = ExtResource("4_ismcj")
 
 [connection signal="pressed" from="UI/TryAgain" to="." method="_try_again"]
+[connection signal="pressed" from="UI/MenuButton" to="." method="_on_menu_button_pressed"]
