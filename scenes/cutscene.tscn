@@ -2136,6 +2136,21 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("gibberish")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"clips": [{
+"end_offset": 2.48,
+"start_offset": 1.05,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.233333)
+}
+tracks/12/use_blend = true
 
 [sub_resource type="Animation" id="Animation_v50sc"]
 resource_name = "Cutscene6"
@@ -2315,6 +2330,17 @@ tracks/5/keys = {
 "update": 1,
 "values": [ExtResource("8_mu2gi")]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("gibberish")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ury3t"]
 resource_name = "Cutscene8"
