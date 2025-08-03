@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="3_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://bsrkfavscr4o6" path="res://assets/susan/susanunhappy.png" id="4_2bm7f"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="5_fs8wb"]
-[ext_resource type="PackedScene" uid="uid://c5pq32ffsnad1" path="res://scenes/transition.tscn" id="6_bb0yx"]
+[ext_resource type="PackedScene" path="res://scenes/transition.tscn" id="6_bb0yx"]
 [ext_resource type="Texture2D" uid="uid://3716nuy2q32q" path="res://assets/susan/susan2unhappy.png" id="7_8qop0"]
 [ext_resource type="Texture2D" uid="uid://6i0i74tt8gkq" path="res://assets/cutscene/level_2.png" id="7_75brc"]
 [ext_resource type="Texture2D" uid="uid://dh20ue6vx6edh" path="res://assets/cutscene/level_1.png" id="8_d18fx"]
@@ -180,6 +180,21 @@ tracks/11/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("gibberish")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"clips": [{
+"end_offset": 0.21,
+"start_offset": 0.23,
+"stream": ExtResource("17_c7dhu")
+}],
+"times": PackedFloat32Array(0.33)
+}
+tracks/12/use_blend = true
 
 [sub_resource type="Animation" id="Animation_8qop0"]
 resource_name = "Cutscene10"
