@@ -41,6 +41,7 @@ var modifier_anger_timer: float = 0.0
 var angry_state = "no"
 var angry_dmg = false
 var is_eating: bool = false
+var bubble_fade_tween: Tween
 
 
 @export var serving_distance_threshold_radians: float = 30.0 * (PI / 180.0)
@@ -188,6 +189,10 @@ func start_eating():
 	tween.tween_property(self, "position", spawn_position - Vector2(0, 20), 0.2)
 	tween.tween_property(self, "position", spawn_position, 0.2)
 	
+	# Fade out thought bubble during eating
+	bubble_fade_tween = create_tween()
+	bubble_fade_tween.tween_property($ThoughtBubble, "modulate:a", 0.0, consumption_timer)
+	
 func shake():
 	if shake_tween:
 		shake_tween.kill()
@@ -211,6 +216,10 @@ func eat():
 
 func cancel_eating():
 	is_eating = false
+	# Kill the fade tween and reset thought bubble opacity
+	if bubble_fade_tween:
+		bubble_fade_tween.kill()
+	$ThoughtBubble.modulate.a = 1.0
 
 func update_emotion():
 	if angry_state == "angry":
@@ -234,12 +243,13 @@ func update_food_item_display():
 		# Display the ThoughBubble and set the food image
 		hum.play()
 		$ThoughtBubble.visible = true
+		$ThoughtBubble.modulate.a = 1.0  # Ensure full opacity when showing
 		food_image_node.texture = load("res://assets/food/" + desired_item_name + ".png")
 		food_image_node.visible = true
 	else:
 		# Hide the ThoughtBubble if there's no desired item
-		
 		$ThoughtBubble.visible = false
+		$ThoughtBubble.modulate.a = 1.0  # Reset opacity for next time
 		food_image_node.visible = false
 
 func on_teacup_state_changed(new_state: Teacup.Fullness):
