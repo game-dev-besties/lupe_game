@@ -61,9 +61,9 @@
 [ext_resource type="Texture2D" uid="uid://oe1rct0t3qf3" path="res://assets/npc/teen1_happy.png" id="50_iclnv"]
 [ext_resource type="Texture2D" uid="uid://b1c7xlkex7exi" path="res://assets/npc/teen1_neutral.png" id="51_y008v"]
 [ext_resource type="Texture2D" uid="uid://do4un0qkcm4rv" path="res://assets/npc/teen1_unhappy.png" id="52_k8aik"]
-[ext_resource type="Shader" uid="uid://c7p6k13rpbolj" path="res://bubble_fill.gdshader" id="60_mk11r"]
+[ext_resource type="Shader" path="res://bubble_fill.gdshader" id="60_mk11r"]
 [ext_resource type="Texture2D" uid="uid://dj2linq67pfuv" path="res://assets/food/dumpling.png" id="61_k1s46"]
-[ext_resource type="Script" uid="uid://b6ccqt0xufp4h" path="res://scripts/bubble_fill.gd" id="61_nfk7d"]
+[ext_resource type="Script" path="res://scripts/bubble_fill.gd" id="61_nfk7d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_efvhu"]
 animations = [{
