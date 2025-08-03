@@ -12,7 +12,6 @@ extends Node2D
 
 # --- Physics Properties ---
 @export var max_scale: float = 1.2
-@export var serving_distance_threshold_radians: float = 30.0 * (PI / 180.0)
 var angular_velocity: float = 0.0
 const acceleration: float = 5.0
 const max_angular_velocity: float = 7.0
@@ -107,34 +106,14 @@ func spawn_npcs():
 # --- Event Functions ---
 func _on_susan_stopped():
 	#print("Susan stopped! Checking dishes...")
-	var dishes = []
 	var npcs = []
 	for node in get_children():
-		if node is Dish:
-			dishes.append(node)
-		elif node is NPC:
+		if node is NPC:
 			npcs.append(node)
 	# for each npc calculate what to do with dish
 	for npc in npcs:
-		# distance between dish and npc
-		var closest_dish: Dish = null
-		var min_angle_diff = INF
-		for dish in dishes:
-			var diff = abs(angle_difference(npc.placement_angle, dish.current_angle))
-			if diff < min_angle_diff:
-				min_angle_diff = diff
-				closest_dish = dish
-		# find desired dish nearby
-		if closest_dish:
-			var diff = abs(angle_difference(npc.placement_angle, closest_dish.current_angle))
-			var can_eat = false
-			# Check all conditions: close enough, correct item, dish has quantity, and npc is not full
-			if diff < serving_distance_threshold_radians and closest_dish.quantity > 0:
-				if closest_dish.item_name == npc.desired_item_name and npc.satiation < npc.MAX_SATIATION:
-					can_eat = true
-			if can_eat and closest_dish.start_consumption(npc.consumption_timer, npc):
-				npc.start_eating()
-	
+		npc.look_for_dish()
+			
 	# for npc in npcs:
 	# 	var half_width: float = (serving_distance_threshold_radians) * 0.5
 	# 	var start_angle: float = npc.placement_angle - half_width
