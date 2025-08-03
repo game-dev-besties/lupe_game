@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c16ysnppmgvfq"]
+[gd_scene load_steps=11 format=3 uid="uid://c16ysnppmgvfq"]
 
 [ext_resource type="Script" uid="uid://c3qsm3nvdukck" path="res://scripts/lost_screen.gd" id="1_mbfwh"]
-[ext_resource type="Texture2D" uid="uid://brqi5cskbd0ai" path="res://assets/background.jpg" id="1_ofr2c"]
+[ext_resource type="Texture2D" uid="uid://db3yfrcmydxcv" path="res://assets/background.png" id="2_66dlh"]
 [ext_resource type="Texture2D" uid="uid://25rf1wix1va" path="res://assets/susan/susanthink.png" id="2_v8q7l"]
 [ext_resource type="FontFile" uid="uid://c5fngeyt7vs3s" path="res://assets/more-sugar.regular.ttf" id="4_d2muv"]
 [ext_resource type="AudioStream" uid="uid://yy1g3e6dyj5p" path="res://assets/sfx/fluttering-bamboo-flute-transition-c-4-209657.mp3" id="4_ismcj"]
+[ext_resource type="Texture2D" uid="uid://bnonepb4rrk0p" path="res://assets/menu/disappointedtext.png" id="8_piukg"]
 
 [sub_resource type="Animation" id="Animation_pk0x4"]
 length = 0.001
@@ -88,10 +89,10 @@ _data = {
 script = ExtResource("1_mbfwh")
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(0.56, 0.56, 0.56, 1)
+modulate = Color(0.741176, 0.627451, 0.627451, 1)
 position = Vector2(576, 384)
 scale = Vector2(0.516, 0.516)
-texture = ExtResource("1_ofr2c")
+texture = ExtResource("2_66dlh")
 
 [node name="Transition" type="Node2D" parent="."]
 visible = false
@@ -112,49 +113,81 @@ libraries = {
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Susan" type="Sprite2D" parent="Characters"]
-position = Vector2(368, 449)
-scale = Vector2(0.323207, 0.323207)
+position = Vector2(409, 354)
+scale = Vector2(0.39062, 0.39062)
 texture = ExtResource("2_v8q7l")
 
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
-offset_left = 255.0
-offset_top = 138.0
-offset_right = 940.0
-offset_bottom = 250.0
-
-[node name="YouLostText" type="RichTextLabel" parent="UI/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_d2muv")
-theme_override_font_sizes/normal_font_size = 51
-text = "Your Family is Disappointed..."
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TryAgain" type="Button" parent="UI"]
-offset_left = 496.0
-offset_top = 277.0
-offset_right = 699.0
-offset_bottom = 350.0
+[node name="TryAgain" type="Label" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.837
+anchor_top = 0.728
+anchor_right = 0.837
+anchor_bottom = 0.728
+offset_left = -211.224
+offset_top = -31.744
+offset_right = 211.776
+offset_bottom = 54.256
+theme_override_colors/font_color = Color(0.901961, 0.298039, 0.298039, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 35
 theme_override_fonts/font = ExtResource("4_d2muv")
-theme_override_font_sizes/font_size = 20
-text = "Try Again"
+theme_override_font_sizes/font_size = 55
+text = "TRY AGAIN?"
 
-[node name="MenuButton" type="Button" parent="UI"]
-offset_left = 499.0
-offset_top = 376.0
-offset_right = 702.0
-offset_bottom = 449.0
+[node name="TryAgainButton" type="ColorRect" parent="UI/TryAgain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.409123
+anchor_top = 0.290349
+anchor_right = 0.409123
+anchor_bottom = 0.290349
+offset_left = -184.059
+offset_top = -43.97
+offset_right = 183.941
+offset_bottom = 44.03
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="Label" parent="UI"]
+offset_left = 39.0
+offset_top = 41.0
+offset_right = 140.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.901961, 0.298039, 0.298039, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("4_d2muv")
-theme_override_font_sizes/font_size = 20
-text = "Return to Menu"
+theme_override_font_sizes/font_size = 45
+text = "EXIT"
+
+[node name="MenuButton" type="ColorRect" parent="UI/Exit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -6.06905
+anchor_top = 4.96057
+anchor_right = -6.06905
+anchor_bottom = 4.96057
+offset_left = -160.026
+offset_top = -373.989
+offset_right = 713.974
+offset_bottom = -196.989
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="flute" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ismcj")
 
-[connection signal="pressed" from="UI/TryAgain" to="." method="_try_again"]
-[connection signal="pressed" from="UI/MenuButton" to="." method="_on_menu_button_pressed"]
+[node name="Disappointedtext" type="Sprite2D" parent="."]
+position = Vector2(790, 274)
+scale = Vector2(0.522, 0.522)
+texture = ExtResource("8_piukg")
+
+[connection signal="gui_input" from="UI/TryAgain/TryAgainButton" to="." method="_on_try_again_button_gui_input"]
+[connection signal="mouse_entered" from="UI/TryAgain/TryAgainButton" to="." method="_on_try_again_button_mouse_entered"]
+[connection signal="mouse_exited" from="UI/TryAgain/TryAgainButton" to="." method="_on_try_again_button_mouse_exited"]
+[connection signal="gui_input" from="UI/Exit/MenuButton" to="." method="_on_menu_button_gui_input"]
+[connection signal="mouse_entered" from="UI/Exit/MenuButton" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Exit/MenuButton" to="." method="_on_menu_button_mouse_exited"]
