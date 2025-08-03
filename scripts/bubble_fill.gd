@@ -5,7 +5,7 @@ extends Sprite2D
 @export var min_fill_pct = 0.2
 @export var max_fill_pct = 0.8
 
-# Fill Colers
+# Fill Colors
 @export var start_fill_color: Color = Color(0.0, 0.5, 1.0, 1.0)
 @export var end_fill_color: Color = Color(0.0, 1.0, 0.0, 1.0)
 
